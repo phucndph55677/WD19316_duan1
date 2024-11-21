@@ -24,14 +24,14 @@ match ($act) {
     
     'danh-muc' => (new AdminDanhMucController())->danhSachDanhMuc(),
 
-    // 'form-them-danh-muc' => (new AdminDanhMucController())->formAddDanhMuc(),
+    'form-them-danh-muc' => (new AdminDanhMucController())->formAddDanhMuc(),
 
-    // 'them-danh-muc' => (new AdminDanhMucController())->postAddDanhMuc(),
+    'them-danh-muc' => (new AdminDanhMucController())->postAddDanhMuc(),
 
-    // 'form-sua-danh-muc' => (new AdminDanhMucController())->formEditDanhMuc(),
+    'form-sua-danh-muc' => (new AdminDanhMucController())->formEditDanhMuc(),
 
-    // 'sua-danh-muc' => (new AdminDanhMucController())->postEditDanhMuc(),
+    'sua-danh-muc' => (new AdminDanhMucController())->postEditDanhMuc(),
 
-    // 'xoa-danh-muc' => (new AdminDanhMucController())->deleteDanhMuc()
+    'xoa-danh-muc' => (new AdminDanhMucController())->deleteDanhMuc()
 
 };
