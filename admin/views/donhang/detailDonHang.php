@@ -83,7 +83,7 @@
                             Thông Tin Người Nhận
                             <address>
                                 <strong><?= $donHang['ten_nguoi_nhan'] ?></strong><br>
-                                Địa Chỉ <?= $donHang['dia_chi_nguoi_nhan'] ?><br>
+                                Địa Chỉ: <?= $donHang['dia_chi_nguoi_nhan'] ?><br>
                                 Số Điện Thoại: <?= $donHang['sdt_nguoi_nhan'] ?><br>
                                 Email: <?= $donHang['email_nguoi_nhan'] ?>
                             </address>

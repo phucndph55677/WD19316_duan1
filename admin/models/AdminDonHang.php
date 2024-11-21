@@ -33,18 +33,17 @@ class AdminDonHang
         try{
             $sql = 'SELECT don_hangs.* ,trang_thai_don_hangs.ten_trang_thai,
             tai_khoans.ho_ten,
+            tai_khoans.dia_chi,
             tai_khoans.email,
             tai_khoans.so_dien_thoai,
-            tai_khoans.dia_chi, 
             phuong_thuc_thanh_toans.ten_phuong_thuc
              FROM don_hangs
             INNER JOIN trang_thai_don_hangs ON don_hangs.trang_thai_id = trang_thai_don_hangs.id
             INNER JOIN tai_khoans ON don_hangs.tai_khoan_id = tai_khoans.id
             INNER JOIN phuong_thuc_thanh_toans ON don_hangs.phuong_thuc_thanh_toan_id = phuong_thuc_thanh_toans.id
-           
-            
             WHERE don_hangs.id = :id';
             $stmt = $this->conn->prepare($sql);
+            // var_dump($stmt); die;
             $stmt->execute([
                 ':id' => $id
             ]);
@@ -73,7 +72,8 @@ class AdminDonHang
         
          public function updateDonHang($id, $ten_nguoi_nhan, $sdt_nguoi_nhan, $email_nguoi_nhan, $dia_chi_nguoi_nhan, $ghi_chu, $trang_thai_id) {
             try {
-             $sql = 'UPDATE don_hangs SET ten_nguoi_nhan = :ten_nguoi_nhan, 
+             $sql = 'UPDATE don_hangs SET 
+             ten_nguoi_nhan = :ten_nguoi_nhan, 
              sdt_nguoi_nhan = :sdt_nguoi_nhan, 
              email_nguoi_nhan = :email_nguoi_nhan,
               dia_chi_nguoi_nhan = :dia_chi_nguoi_nhan,
@@ -81,6 +81,7 @@ class AdminDonHang
                trang_thai_id = :trang_thai_id 
                WHERE id = :id';   
              $stmt = $this->conn->prepare($sql);
+            
              $stmt->execute([
                 
                  ':id' => $id,
@@ -91,6 +92,7 @@ class AdminDonHang
                  ':ghi_chu' => $ghi_chu,
                  ':trang_thai_id' => $trang_thai_id
              ]);
+            
              return true;
             } catch (Exception $e) {
                 echo $e->getMessage();

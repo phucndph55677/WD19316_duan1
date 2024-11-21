@@ -50,7 +50,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="<?= BASE_URL_ADMIN . '?act=san-pham' ?>" class="nav-link">
+            <a href="<?= BASE_URL_ADMIN . '?act=don-hang' ?>" class="nav-link">
             <i class="fas fa-file-invoice-dollar"></i>             
              <p>
                 Đơn Hàng

@@ -38,6 +38,8 @@
                 <input type="text" name="id" value="<?= $donHang['id'] ?>" hidden>
                 
                 <div class="card-body">
+                     <!-- Hiển thị thông báo lỗi -->
+                    
                   <div class="form-group">
                     <label>Tên Người Nhận</label>
                     <input type="text" class="form-control" name="ten_nguoi_nhan" value="<?= $donHang['ten_nguoi_nhan'] ?>" placeholder="Nhập tên Người Nhận">
@@ -56,7 +58,7 @@
                     <label>Email</label>
                     <input type="email" class="form-control" name="email_nguoi_nhan" value="<?= $donHang['email_nguoi_nhan'] ?>" placeholder="Nhập Email Người Nhận">
                     <?php if (isset($errors['email_nguoi_nhan'])) { ?>
-                        <p class="text-danger"><?= $errors['email_nguoi_nhan'] ?></p>
+                        <p class="text-danger"><?=$errors['email_nguoi_nhan'] ?></p>
                     <?php } ?>
                   </div>
                   <div class="form-group">
@@ -68,7 +70,7 @@
                   </div>
                   
                   <div class="form-group">
-                    <label>Ghi CHú</label>
+                    <label>Ghi Chú</label>
                     <textarea name="ghi_chu" id="" class="form-control" placeholder="Nhập Ghi Chú"><?= $donHang['ghi_chu'] ?></textarea>
                   </div>
                   <hr>
@@ -90,7 +92,11 @@
                         ?>
                          value="<?=$trangThai['id']?>" <?=$trangThai['id'] == $donHang['trang_thai_id'] ? 'selected' : ''?> class="form-control"><?=$trangThai['ten_trang_thai']?></option>
                         <?endforeach?>
+
                     </select>
+                    <?php if (isset($errors['trang_thai_id'])) { ?>
+                        <p class="text-danger"><?= $errors['trang_thai_id'] ?></p>
+                    <?php } ?>
                     
                   </div>
                 </div>
