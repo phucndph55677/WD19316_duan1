@@ -33,5 +33,15 @@ match ($act) {
     'sua-danh-muc' => (new AdminDanhMucController())->postEditDanhMuc(),
 
     'xoa-danh-muc' => (new AdminDanhMucController())->deleteDanhMuc()
+    // route donhang
+
+   
+   
+
+    // 'don-hang' => (new AdminDonHangController())->danSachDonHang(),
+    //  'chi-tiet-don-hang' => (new AdminDonHangController())->detailDonHang(),
+    //  'form-sua-don-hang' => (new AdminDonHangController())->formEditDonHang(),
+
+    //   'sua-don-hang' => (new AdminDonHangController())->postEditDonHang()
 
 };
