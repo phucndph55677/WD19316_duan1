@@ -20,6 +20,10 @@ function connectDB() {
     } catch (PDOException $e) {
         echo ("Connection failed: " . $e->getMessage());
     }
+    function formatDate($date) {
+        return  date('d-m-Y', strtotime($date));
+        
+    }
 }
 
 // Them file
