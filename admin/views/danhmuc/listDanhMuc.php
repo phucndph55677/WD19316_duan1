@@ -30,7 +30,9 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">DataTable with default features</h3>
+                <a href="<?= BASE_URL_ADMIN . '?act=form-them-danh-muc' ?>">
+                  <button class="btn btn-success">Them danh muc</button>
+                </a>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -50,8 +52,13 @@
                       <td><?= $danhMuc['ten_danh_muc'] ?></td>
                       <td><?= $danhMuc['mo_ta'] ?></td>
                       <td>
-                        <button class="btn btn-warning">Sua</button>
-                        <button class="btn btn-danger">Xoa</button>
+                        <a href="<?= BASE_URL_ADMIN . '?act=form-sua-danh-muc&id_danh_muc=' . $danhMuc['id'] ?>">
+                          <button class="btn btn-warning">Sua</button>
+                        </a>
+                        <a href="<?= BASE_URL_ADMIN . '?act=xoa-danh-muc&id_danh_muc=' . $danhMuc['id'] ?>" 
+                          onclick="return confirm('Ban co muon xoa khong?')">
+                          <button class="btn btn-danger">Xoa</button>
+                        </a>
                       </td>
                     <tr>
                     <?php endforeach ?>
