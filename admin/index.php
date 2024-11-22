@@ -8,6 +8,7 @@ require_once '../commons/function.php'; // Hàm hỗ trợ
 require_once './controllers/AdminDanhMucController.php';
 require_once './controllers/AdminSanPhamController.php';
 require_once './controllers/AdminDonHangController.php';
+require_once './controllers/AdminBaoCaoThongKe.php';
 
 // Require toàn bộ file Models
 require_once './models/AdminDanhMuc.php';
@@ -23,6 +24,7 @@ $act = $_GET['act'] ?? '/';
 match ($act) {
     
 // route
+        '/'=> (new AdminBaoCaoThongKe())->home(),
     
     'danh-muc' => (new AdminDanhMucController())->danhSachDanhMuc(),
 
@@ -36,13 +38,13 @@ match ($act) {
 
     'xoa-danh-muc' => (new AdminDanhMucController())->deleteDanhMuc(),
     // route donhang
-
-   
-   
-
     'don-hang' => (new AdminDonHangController())->danhSachDonHang(),
      'chi-tiet-don-hang' => (new AdminDonHangController())->detailDonHang(),
      'form-sua-don-hang' => (new AdminDonHangController())->formEditDonHang(),
       'sua-don-hang' => (new AdminDonHangController())->postEditDonHang()
+    ///route user
+    // 'list-tai-khoan-quan-tri' => (new AdminDonHangController())->listTaiKhoanQuanTri(),
+    // 'list-tai-khoan-khach-hang' => (new AdminDonHangController())->listTaiKhoanKhachHang(),
+    // 'list-tai-khoan-ca-nhan' => (new AdminDonHangController())->listTaiKhoanCaNhan()
 
 };

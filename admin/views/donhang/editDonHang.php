@@ -30,7 +30,7 @@
         <div class="col-12">
         <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Sửa Thông Tin Đơn Hàng: <?= $donHang['ma_don_hang'] ?></h3>
+                <h3 class="card-title"> Thông Tin Đơn Hàng: <?= $donHang['ma_don_hang'] ?></h3>
               </div>
 
               <form action="<?= BASE_URL_ADMIN . '?act=sua-don-hang' ?>" method="POST">
