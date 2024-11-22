@@ -70,7 +70,7 @@ match ($act) {
     'form-sua-quan-tri' => (new AdminTaiKhoanController())->formEditQuanTri(),
       'sua-quan-tri' => (new AdminTaiKhoanController())->postEditQuanTri(),
 
-      'rest-password' => (new AdminTaiKhoanController())->resetPassword(),
+      'rest-password' => (new AdminTaiKhoanController())->resetPassword()
 
 
       
