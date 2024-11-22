@@ -12,7 +12,7 @@ class AdminDanhMucController {
     public function danhSachDanhMuc(){
         // echo "Day la trang danh muc"; 
 
-        $listDanhMuc = $this->modelDanhMuc->getAllDanhuc();
+        $listDanhMuc = $this->modelDanhMuc->getAllDanhMuc();
 
         require_once './views/danhmuc/listDanhMuc.php';
     }

@@ -17,7 +17,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Quản Lý Danh Mục San Pham</h1>
+            <h1>Quản Lý Danh Sach Thu Cung</h1>
           </div>
         </div>
       </div><!-- /.container-fluid -->
@@ -30,8 +30,8 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <a href="<?= BASE_URL_ADMIN . '?act=form-them-danh-muc' ?>">
-                  <button class="btn btn-success">Thêm Danh Mục</button>
+                <a href="<?= BASE_URL_ADMIN . '?act=form-them-san-pham' ?>">
+                  <button class="btn btn-success">Thêm thu cung moi</button>
                 </a>
               </div>
               <!-- /.card-header -->
@@ -40,22 +40,34 @@
                   <thead>
                   <tr>
                     <th>STT</th>
-                    <th>Tên Danh Mục</th>
-                    <th>Mô Tả</th>
+                    <th>Tên san pham</th>
+                    <th>Anh san pham</th>
+                    <th>Gia tien</th>
+                    <th>So luong</th>
+                    <th>Danh muc</th>
+                    <th>Trang thai</th>
                     <th>Thao Tác</th>
                   </tr>
                   </thead>
                   <tbody>
-                    <?php foreach($listDanhMuc as $key=>$danhMuc): ?>
+                    <?php foreach($listSanPham as $key=>$sanPham): ?>
                     <tr>
                       <td><?= $key + 1 ?></td>
-                      <td><?= $danhMuc['ten_danh_muc'] ?></td>
-                      <td><?= $danhMuc['mo_ta'] ?></td>
+                      <td><?= $sanPham['ten_san_pham'] ?></td>
                       <td>
-                        <a href="<?= BASE_URL_ADMIN . '?act=form-sua-danh-muc&id_danh_muc=' . $danhMuc['id'] ?>">
+                        <img src="<?= BASE_URL . $sanPham['hinh_anh'] ?>" style="width: 100px" alt=""
+                        onerror="this.onerror=null; this.src='https://i.pinimg.com/564x/59/36/69/5936698bace4c5852463a2581e890bec.jpg'"
+                        >
+                      </td>
+                      <td><?= $sanPham['gia_san_pham'] ?></td>
+                      <td><?= $sanPham['so_luong'] ?></td>
+                      <td><?= $sanPham['ten_danh_muc'] ?></td>
+                      <td><?= $sanPham['trang_thai'] == 1 ? 'Con ban': 'Dung ban' ?></td>
+                      <td>
+                        <a href="<?= BASE_URL_ADMIN . '?act=form-sua-san-pham&id_san_pham=' . $sanPham['id'] ?>">
                           <button class="btn btn-warning">Sửa</button>
                         </a>
-                        <a href="<?= BASE_URL_ADMIN . '?act=xoa-danh-muc&id_danh_muc=' . $danhMuc['id'] ?>" 
+                        <a href="<?= BASE_URL_ADMIN . '?act=xoa-san-pham&id_san_pham=' . $sanPham['id'] ?>" 
                           onclick="return confirm('Ban co muon xoa khong?')">
                           <button class="btn btn-danger">Xóa</button>
                         </a>
@@ -66,9 +78,13 @@
                   <tfoot>
                   <tr>
                     <th>STT</th>
-                    <th>Tên Danh Mục</th>
-                    <th>Mô tả</th>
-                    <th>Thao tác</th>
+                    <th>Tên san pham</th>
+                    <th>Anh san pham</th>
+                    <th>Gia tien</th>
+                    <th>So luong</th>
+                    <th>Danh muc</th>
+                    <th>Trang thai</th>
+                    <th>Thao Tác</th>
                   </tr>
                   </tfoot>
                 </table>

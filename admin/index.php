@@ -24,8 +24,8 @@ $act = $_GET['act'] ?? '/';
 match ($act) {
     
 // route
-        '/'=> (new AdminBaoCaoThongKe())->home(),
-    
+        // '/'=> (new AdminBaoCaoThongKe())->home(),
+    // route danh muc
     'danh-muc' => (new AdminDanhMucController())->danhSachDanhMuc(),
 
     'form-them-danh-muc' => (new AdminDanhMucController())->formAddDanhMuc(),
@@ -37,14 +37,34 @@ match ($act) {
     'sua-danh-muc' => (new AdminDanhMucController())->postEditDanhMuc(),
 
     'xoa-danh-muc' => (new AdminDanhMucController())->deleteDanhMuc(),
+
+    // route danh muc
+    'san-pham' => (new AdminSanPhamController())->danhSachSanPham(),
+
+    'form-them-san-pham' => (new AdminSanPhamController())->formAddSanPham(),
+
+    'them-san-pham' => (new AdminSanPhamController())->postAddSanPham(),
+
+    // 'form-sua-san-pham' => (new AdminSanPhamController())->formEditSanPham(),
+
+    // 'sua-san-pham' => (new AdminSanPhamController())->postEditSanPham(),
+
+    // 'xoa-san-pham' => (new AdminSanPhamController())->deleteSanPham(),
+
     // route donhang
     'don-hang' => (new AdminDonHangController())->danhSachDonHang(),
+
      'chi-tiet-don-hang' => (new AdminDonHangController())->detailDonHang(),
+
      'form-sua-don-hang' => (new AdminDonHangController())->formEditDonHang(),
+
       'sua-don-hang' => (new AdminDonHangController())->postEditDonHang()
+
     ///route user
     // 'list-tai-khoan-quan-tri' => (new AdminDonHangController())->listTaiKhoanQuanTri(),
+
     // 'list-tai-khoan-khach-hang' => (new AdminDonHangController())->listTaiKhoanKhachHang(),
+
     // 'list-tai-khoan-ca-nhan' => (new AdminDonHangController())->listTaiKhoanCaNhan()
 
 };

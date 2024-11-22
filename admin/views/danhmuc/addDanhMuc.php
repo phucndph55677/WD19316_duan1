@@ -43,7 +43,7 @@
                     <?php } ?>
                   </div>
 
-                <div class="form-group">
+                  <div class="form-group">
                     <label>Mo ta</label>
                     <textarea name="mo_ta" id="" class="form-control" placeholder="Nhap mo ta"></textarea>
                   </div>
