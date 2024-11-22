@@ -36,7 +36,7 @@
             <a href="<?= BASE_URL_ADMIN . '?act=danh-muc' ?>" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
-                Danh muc san pham
+                Danh Mục
               </p>
             </a>
           </li>
@@ -45,7 +45,15 @@
             <a href="<?= BASE_URL_ADMIN . '?act=san-pham' ?>" class="nav-link">
               <i class="nav-icon fas fa-cat"></i>
               <p>
-                San pham
+                Sản Phẩm
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="<?= BASE_URL_ADMIN . '?act=don-hang' ?>" class="nav-link">
+            <i class="fas fa-file-invoice-dollar"></i>             
+             <p>
+                Đơn Hàng
               </p>
             </a>
           </li>
