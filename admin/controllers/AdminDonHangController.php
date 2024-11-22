@@ -1,4 +1,4 @@
-<?
+<?php
 class AdminDonHangController{
     public $modelDonHang;
     public function __construct(){

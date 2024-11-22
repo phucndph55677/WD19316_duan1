@@ -1,4 +1,4 @@
-<?
+<?php
 class AdminDonHang
 {
     public $conn;
@@ -43,7 +43,7 @@ class AdminDonHang
             INNER JOIN phuong_thuc_thanh_toans ON don_hangs.phuong_thuc_thanh_toan_id = phuong_thuc_thanh_toans.id
             WHERE don_hangs.id = :id';
             $stmt = $this->conn->prepare($sql);
-            // var_dump($stmt); die;
+
             $stmt->execute([
                 ':id' => $id
             ]);
