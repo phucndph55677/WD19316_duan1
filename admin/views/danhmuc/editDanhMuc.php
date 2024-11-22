@@ -17,7 +17,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Quan ly danh muc san pham</h1>
+            <h1>Quản Lý Danh Mục Sản Phẩm</h1>
           </div>
         </div>
       </div><!-- /.container-fluid -->
@@ -30,7 +30,7 @@
           <div class="col-12">
           <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Sua danh muc san pham</h3>
+                <h3 class="card-title">Sửa Danh Mục Sản Phẩm</h3>
               </div>
       
               <form action="<?= BASE_URL_ADMIN . '?act=sua-danh-muc' ?>" method="POST">
@@ -39,7 +39,7 @@
                 
                 <div class="card-body">
                   <div class="form-group">
-                    <label>Ten danh muc</label>
+                    <label>Tên Danh Mục</label>
                     <input type="text" class="form-control" name="ten_danh_muc" value="<?= $danhMuc['ten_danh_muc'] ?>" placeholder="Nhap ten danh muc">
                     <?php if (isset($errors['ten_danh_muc'])) { ?>
                         <p class="text-danger"><?= $errors['ten_danh_muc'] ?></p>
@@ -47,7 +47,7 @@
                   </div>
 
                 <div class="form-group">
-                    <label>Mo ta</label>
+                    <label>Mô Tả</label>
                     <textarea name="mo_ta" id="" class="form-control" placeholder="Nhap mo ta"><?= $danhMuc['mo_ta'] ?></textarea>
                   </div>
                 </div>
