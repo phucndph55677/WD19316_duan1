@@ -45,6 +45,26 @@ class AdminSanPham {
                 ':hinh_anh' => $hinh_anh
             ]);
 
+            // Lay id san pham vua them
+            return $this->conn->lastInsertId();
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    public function insertAlbumAnhSanPham($san_pham_id, $link_hinh_anh){
+        try {
+            $sql = 'INSERT INTO hinh_anh_san_phams (san_pham_id, link_hinh_anh)
+                    VALUES (:san_pham_id, :link_hinh_anh)';
+
+            $stmt = $this->conn->prepare($sql);
+
+            $stmt->execute([
+                ':san_pham_id' => $san_pham_id,
+                ':link_hinh_anh' => $link_hinh_anh,
+            ]);
+
+            // Lay id san pham vua them
             return true;
         } catch (Exception $e) {
             echo $e->getMessage();
