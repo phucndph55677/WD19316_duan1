@@ -22,14 +22,6 @@ function connectDB() {
     }
    
 }
-function formatDate($date) {
-    return date("d/m/Y", strtotime($date)); // Định dạng ngày theo kiểu dd/mm/yyyy
-}
-function deleteSessionError() {
-    if (isset($_SESSION['error'])) {
-        unset($_SESSION['error']);
-    }
-}
 
 // Them file
 function upLoadFile($file, $folderUpload) {
@@ -49,6 +41,20 @@ function deleteFile($file) {
     $pathDelete = PATH_ROOT . $file;
     if (file_exists(($pathDelete))) {
         unlink($pathDelete);
+    }
+}
+
+function formatDate($date) {
+    return date("d/m/Y", strtotime($date)); // Định dạng ngày theo kiểu dd/mm/yyyy
+}
+
+// Xoa session sau khi load trang
+function deleteSessionError() {
+    if (isset($_SESSION['flash'])) {
+        // Huy session sau khi da tai trang
+        unset($_SESSION['flash']);
+        session_unset();
+        session_destroy();
     }
 }
 
