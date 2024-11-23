@@ -1,5 +1,7 @@
 <?php
-class AdminDonHangController{
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}class AdminDonHangController{
     public $modelDonHang;
     public function __construct(){
         $this->modelDonHang = new AdminDonHang();
@@ -69,21 +71,23 @@ class AdminDonHangController{
             
 
            
-            // $_SESSION['errors'] = $errors;
-            //   var_dump($errors);die;
+             $_SESSION['error'] = $errors;
+            
 
 
             
-            if (!empty($errors)) {
-                $_SESSION['errors'] = $errors;
-                $_SESSION['old_input'] = $_POST; // Lưu dữ liệu đã nhập
-                header("Location: " . BASE_URL_ADMIN . '?act=form-sua-don-hang&id_don_hang=' . $id);
-                exit();
-            } else {
-                // Nếu không có lỗi, tiến hành cập nhật
+            if (empty($errors)) {
                 $this->modelDonHang->updateDonHang($id, $ten_nguoi_nhan, $sdt_nguoi_nhan, $email_nguoi_nhan, $dia_chi_nguoi_nhan, $ghi_chu, $trang_thai_id);
                 header("Location: " . BASE_URL_ADMIN . '?act=don-hang');
                 exit();
+               
+               
+            } else {
+                $_SESSION['flash'] = true;
+                 // Neu co loi thi tra ve form va bao loi
+                 header("Location: " . BASE_URL_ADMIN . '?act=form-sua-don-hang&id_don_hang=' . $id);
+                 exit();
+               
             }
         }
     }

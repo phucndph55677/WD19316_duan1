@@ -25,6 +25,11 @@ function connectDB() {
 function formatDate($date) {
     return date("d/m/Y", strtotime($date)); // Định dạng ngày theo kiểu dd/mm/yyyy
 }
+function deleteSessionError() {
+    if (isset($_SESSION['error'])) {
+        unset($_SESSION['error']);
+    }
+}
 
 // Them file
 function upLoadFile($file, $folderUpload) {
