@@ -57,7 +57,24 @@ function deleteSessionError() {
         session_destroy();
     }
 }
+<<<<<<< HEAD
 function formatPrice($price) {
     return number_format($price, 0, '', '.');
 }
+=======
+
+// Upload - update album anh
+function uploadFileAlbum($file, $folderUpload, $key) {
+    $pathStorage = $folderUpload . time() . $file['name'][$key];
+
+    $from = $file['tmp_name'][$key];
+    $to = PATH_ROOT . $pathStorage;
+
+    if (move_uploaded_file($from, $to)) {
+        return $pathStorage;
+    }
+    return null;
+}
+
+>>>>>>> 22f977b85614054961a640accbb09d8e6337c23c
 // Debug
