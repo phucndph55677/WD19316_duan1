@@ -57,11 +57,6 @@ function deleteSessionError() {
         session_destroy();
     }
 }
-<<<<<<< HEAD
-function formatPrice($price) {
-    return number_format($price, 0, '', '.');
-}
-=======
 
 // Upload - update album anh
 function uploadFileAlbum($file, $folderUpload, $key) {
@@ -75,6 +70,8 @@ function uploadFileAlbum($file, $folderUpload, $key) {
     }
     return null;
 }
+function formatPrice($price) {
+    return number_format($price, 0, '', '.');
+}
 
->>>>>>> 22f977b85614054961a640accbb09d8e6337c23c
 // Debug
