@@ -10,19 +10,28 @@ class HomeController
     }
 
     public function home(){
-        echo "Day la home 123";
+        $listSanPham = $this->modelSanPham->getAllSanPham();
+        require_once './views/home.php';
+
+
     }
 
     public function trangChu(){
         echo "Day la trang chu cua toi";
     }
 
-    public function danhSachSanPham(){
-        // echo "Day la danh sach san pham";
-        $listProduct = $this->modelSanPham->getAllProduct();
-        // var_dump($listProduct);die;
-
-        require_once './views/listProduct.php';
+    public function chiTietSanPham(){
+        $id = $_GET['id_san_pham'];
+        $sanPham = $this->modelSanPham->getDetailSanPham($id);
+        $ListAnhSanPham = $this->modelSanPham->getListAnhSanPham($id);
+        $listBinhLuan = $this->modelSanPham->getBinhLuanfromSanPham($id);
+        $ListSanPhamCungDanhMuc = $this->modelSanPham->getListSanPhamCungDanhMuc($sanPham['danh_muc_id']);
+        if($sanPham){
+        require_once './views/detailSanPham.php';  
+        }else{
+            header("Location: " . BASE_URL_ADMIN );
+            exit();
+        }
     }
 
 }

@@ -7,7 +7,7 @@
 </head>
 <body>
     <ul>
-        <?php foreach($listProduct as $key=>$product): ?>
+        <?php foreach($listSanPham as $key=>$product): ?>
             <li><?php echo $product['ten_san_pham']; ?></li>
         <?php endforeach ?>
     </ul>

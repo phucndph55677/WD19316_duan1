@@ -21,7 +21,7 @@ class AdminSanPhamController {
 
     public function formAddSanPham() {
         // Ham nay de hien thi form nhap
-        // var_dump('Form them');
+        var_dump('Form them');
 
         $listDanhMuc = $this->modelDanhMuc->getAllDanhMuc();
 

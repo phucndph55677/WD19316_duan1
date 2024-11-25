@@ -36,7 +36,7 @@
               <form action="<?= BASE_URL_ADMIN . '?act=them-san-pham' ?>" method="POST" enctype="multipart/form-data">
                 <div class="row card-body">
                   <div class="form-group col-12">
-                    <label>Tên san pham</label>
+                    <label>Tên Sản phẩm</label>
                     <input type="text" class="form-control" name="ten_san_pham" placeholder="Nhập ten san pham">
                     <?php if (isset($_SESSION['error']['ten_san_pham'])) { ?>
                         <p class="text-danger"><?= $_SESSION['error']['ten_san_pham'] ?></p>
@@ -44,7 +44,7 @@
                   </div>
 
                   <div class="form-group col-6">
-                    <label>Gia san pham</label>
+                    <label>Giá Sản Phẩm</label>
                     <input type="number" class="form-control" name="gia_san_pham" placeholder="Nhập gia san pham">
                     <?php if (isset($_SESSION['error']['gia_san_pham'])) { ?>
                         <p class="text-danger"><?= $_SESSION['error']['gia_san_pham'] ?></p>
@@ -52,7 +52,7 @@
                   </div>
 
                   <div class="form-group col-6">
-                    <label>Gia khuyen mai</label>
+                    <label>Giá Khuyến Mãi</label>
                     <input type="number" class="form-control" name="gia_khuyen_mai" placeholder="Nhập gia khuyen mai">
                     <?php if (isset($_SESSION['error']['gia_khuyen_mai'])) { ?>
                         <p class="text-danger"><?= $_SESSION['error']['gia_khuyen_mai'] ?></p>
@@ -60,7 +60,7 @@
                   </div>
 
                   <div class="form-group col-6">
-                    <label>Hinh anh</label>
+                    <label>Hình Ảnh</label>
                     <input type="file" class="form-control" name="hinh_anh">
                     <?php if (isset($_SESSION['error']['hinh_anh'])) { ?>
                         <p class="text-danger"><?= $_SESSION['error']['hinh_anh'] ?></p>
@@ -68,12 +68,12 @@
                   </div>
 
                   <div class="form-group col-6">
-                    <label>Album anh</label>
+                    <label>Album Ảnh</label>
                     <input type="file" class="form-control" name="img_array[]" multiple>
                   </div>
 
                   <div class="form-group col-6">
-                    <label>So luong</label>
+                    <label>Số Lượng</label>
                     <input type="number" class="form-control" name="so_luong" placeholder="Nhập so luong">
                     <?php if (isset($_SESSION['error']['so_luong'])) { ?>
                         <p class="text-danger"><?= $_SESSION['error']['so_luong'] ?></p>
@@ -81,7 +81,7 @@
                   </div>
 
                   <div class="form-group col-6">
-                    <label>Ngay nhap</label>
+                    <label>Ngày Nhập</label>
                     <input type="date" class="form-control" name="ngay_nhap" placeholder="Nhập ngay nhap">
                     <?php if (isset($_SESSION['error']['ngay_nhap'])) { ?>
                         <p class="text-danger"><?= $_SESSION['error']['ngay_nhap'] ?></p>
@@ -89,7 +89,7 @@
                   </div>
 
                   <div class="form-group col-6">
-                    <label>Danh muc</label>
+                    <label>Danh Mục</label>
                     <select class="form-control" name="danh_muc_id" id="exampleFormControlSelect1">
 
                       <option selected disabled>Chon danh muc san pham</option>
@@ -104,7 +104,7 @@
                   </div>
 
                   <div class="form-group col-6">
-                    <label>Trang thai</label>
+                    <label>Trạng Thái</label>
                     <select class="form-control" name="trang_thai" id="exampleFormControlSelect1">
 
                       <option selected disabled>Chon danh muc san pham</option>
@@ -118,7 +118,7 @@
                   </div>
 
                   <div class="form-group col-12">
-                    <label>Mo ta</label>
+                    <label>Mô Tả</label>
                     <textarea name="mo_ta" id="" class="form-control" placeholder="Nhap mo ta"></textarea>
                   </div>
 
