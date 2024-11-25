@@ -15,8 +15,11 @@
   <section class="content-header">
     <div class="container-fluid">
       <div class="row mb-2">
-        <div class="col-sm-6">
+        <div class="col-sm-11">
           <h1>Sua thong tin san pham: <?= $sanPham['ten_san_pham'] ?></h1>
+        </div>
+        <div class="col-sm-1">
+          <a href="<?= BASE_URL_ADMIN . '?act=san-pham' ?>" class="btn btn-secondary">Quay lai</a>
         </div>
       </div>
     </div><!-- /.container-fluid -->
@@ -135,7 +138,7 @@
                     <input type="hidden" id="img_delete" name="img_delete">
                     <?php foreach($listAnhSanPham as $key=>$value): ?>
                     <tr id="faqs-row-<?= $key ?>">  
-                      <input type="hidden" name="current_img_ids[]" $value="<?= $value['id'] ?>">           
+                      <input type="hidden" name="current_img_ids[]" value="<?= $value['id'] ?>">           
                       <td><img src="<?= BASE_URL . $value['link_hinh_anh'] ?>" style="width: 50px; height: 50px;" alt=""></td>
                       <td><input type="file" name="img_array[]" class="form-control"></td>
                       <td class="mt-10"><button class="badge badge-danger" type="button" onclick="removeRow(<?= $key ?>, <?= $value['id'] ?>)"><i class="fa fa-trash"></i> Delete</button></td>
@@ -155,12 +158,7 @@
         <!-- /.card -->
       </div>
     </div>
-    <div class="row">
-      <div class="col-12">
-        <a href="#" class="btn btn-secondary">Cancel</a>
-        <input type="submit" value="Save Changes" class="btn btn-success float-right">
-      </div>
-    </div>
+   
   </section>
   <!-- /.content -->
 </div>
