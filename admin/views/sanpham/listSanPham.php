@@ -64,13 +64,18 @@
                       <td><?= $sanPham['ten_danh_muc'] ?></td>
                       <td><?= $sanPham['trang_thai'] == 1 ? 'Con ban': 'Dung ban' ?></td>
                       <td>
-                        <a href="<?= BASE_URL_ADMIN . '?act=form-sua-san-pham&id_san_pham=' . $sanPham['id'] ?>">
-                          <button class="btn btn-warning">Sửa</button>
-                        </a>
-                        <a href="<?= BASE_URL_ADMIN . '?act=xoa-san-pham&id_san_pham=' . $sanPham['id'] ?>" 
-                          onclick="return confirm('Ban co muon xoa khong?')">
-                          <button class="btn btn-danger">Xóa</button>
-                        </a>
+                        <div class="btn-group">
+                          <a href="<?= BASE_URL_ADMIN . '?act=chi-tiet-san-pham&id_san_pham=' . $sanPham['id'] ?>">
+                            <button class="btn btn-primary"><i class="far fa-eye"></i></button>
+                          </a>
+                          <a href="<?= BASE_URL_ADMIN . '?act=form-sua-san-pham&id_san_pham=' . $sanPham['id'] ?>">
+                            <button class="btn btn-warning"><i class="fas fa-cogs"></i></button>
+                          </a>
+                          <a href="<?= BASE_URL_ADMIN . '?act=xoa-san-pham&id_san_pham=' . $sanPham['id'] ?>" 
+                            onclick="return confirm('Ban co muon xoa khong?')">
+                            <button class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+                          </a>
+                        </div> 
                       </td>
                     <tr>
                     <?php endforeach ?>
