@@ -25,6 +25,7 @@ class HomeController
         $sanPham = $this->modelSanPham->getDetailSanPham($id);
         $ListAnhSanPham = $this->modelSanPham->getListAnhSanPham($id);
         $listBinhLuan = $this->modelSanPham->getBinhLuanfromSanPham($id);
+        $ListSanPhamCungDanhMuc = $this->modelSanPham->getListSanPhamCungDanhMuc($sanPham['danh_muc_id']);
         if($sanPham){
         require_once './views/detailSanPham.php';  
         }else{
@@ -32,4 +33,5 @@ class HomeController
             exit();
         }
     }
+
 }
