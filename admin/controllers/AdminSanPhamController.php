@@ -218,7 +218,7 @@ class AdminSanPhamController {
             // logic sua anh
             if (isset($hinh_anh) && $hinh_anh['error'] == UPLOAD_ERR_OK) {
                 // upload anh moi len
-                $new_file = upLoadFile($hinh_anh, './uploads');
+                $new_file = upLoadFile($hinh_anh, './uploads/');
 
                 if (!empty($old_file)) { // Neu co anh cu thi xoa di
                     deleteFile($old_file);
