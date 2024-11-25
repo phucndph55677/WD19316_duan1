@@ -173,7 +173,7 @@
                                         <!-- product item start -->
                                         <div class="product-item">
                                             <figure class="product-thumb">
-                                                <a href="product-details.html">
+                                                <a href="<?= BASE_URL.'?act=chiTietSanPham&id_san_pham='.$sanPham['id']?>">
                                                     <img class="pri-img" src="<?= BASE_URL . $sanPham['hinh_anh']?>" alt="product">
                                                     <img class="sec-img" src="<?= BASE_URL . $sanPham['hinh_anh'] ?>" alt="product">
                                                 </a>
@@ -207,7 +207,7 @@
                                             <div class="product-caption text-center">
                                                 
                                                 <h6 class="product-name">
-                                                    <a href="product-details.html"><?=$sanPham['ten_san_pham']?></a>
+                                                    <a href="<?= BASE_URL.'?act=chiTietSanPham&id_san_pham='.$sanPham['id']?>"><?=$sanPham['ten_san_pham']?></a>
                                                 </h6>
                                                 <div class="price-box">
                                                     <?php if($sanPham['gia_khuyen_mai']){?>

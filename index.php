@@ -31,6 +31,5 @@ match ($act) {
     'trangChu' => (new HomeController())->trangChu(),
     // BASE_URL/?act=trangchu
 
-    
-    // BASE_URL/?act=danh-sach-san-pham
+    'chiTietSanPham' => (new HomeController())->chiTietSanPham()
 };
