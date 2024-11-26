@@ -55,8 +55,10 @@ match ($act) {
     'sua-san-pham' => (new AdminSanPhamController())->postEditSanPham(),
 
     'sua-album-anh-san-pham' => (new AdminSanPhamController())->postEditAnhSanPham(),
- 
+
     'xoa-san-pham' => (new AdminSanPhamController())->deleteSanPham(),
+
+    'chi-tiet-san-pham' => (new AdminSanPhamController())->detailSanPham(),
 
     'chi-tiet-san-pham' => (new AdminSanPhamController())->getDetailSanPham(),
     
