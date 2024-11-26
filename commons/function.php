@@ -71,4 +71,7 @@ function uploadFileAlbum($file, $folderUpload, $key) {
     return null;
 }
 
+function formatPrice($price) {
+    return number_format($price, 0, '', '.');
+}
 // Debug

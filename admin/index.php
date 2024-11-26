@@ -55,9 +55,14 @@ match ($act) {
     'sua-san-pham' => (new AdminSanPhamController())->postEditSanPham(),
 
     'sua-album-anh-san-pham' => (new AdminSanPhamController())->postEditAnhSanPham(),
+ 
+    'xoa-san-pham' => (new AdminSanPhamController())->deleteSanPham(),
 
-    // 'xoa-san-pham' => (new AdminSanPhamController())->deleteSanPham(),
-
+    'chi-tiet-san-pham' => (new AdminSanPhamController())->getDetailSanPham(),
+    
+    // route bình luận
+    'update-trang-thai-binh-luan' => (new AdminSanPhamController())->updateTrangThaiBinhLuan(),
+    
     // route donhang
     'don-hang' => (new AdminDonHangController())->danhSachDonHang(),
 
@@ -80,14 +85,17 @@ match ($act) {
 
     'sua-quan-tri' => (new AdminTaiKhoanController())->postEditQuanTri(),
 
-      'rest-password' => (new AdminTaiKhoanController())->resetPassword(),
+    'rest-password' => (new AdminTaiKhoanController())->resetPassword()
 
 
       
 
     ///route user
      'list-tai-khoan-khach-hang' => (new AdminTaiKhoanController())->danhSachKhachHang(),
+
      'form-sua-khach-hang' => (new AdminTaiKhoanController()) ->formEditKhachHang(),
+
      'sua-khach-hang' => (new AdminTaiKhoanController())->postEditKhachHang(),
+     
      'chi-tiet-khach-hang' => (new AdminTaiKhoanController())->deltailKhachHang(),
 };
