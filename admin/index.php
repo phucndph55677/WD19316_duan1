@@ -43,16 +43,18 @@ match ($act) {
 
     'xoa-danh-muc' => (new AdminDanhMucController())->deleteDanhMuc(),
 
-    // route danh muc
+    // route san pham
     'san-pham' => (new AdminSanPhamController())->danhSachSanPham(),
 
     'form-them-san-pham' => (new AdminSanPhamController())->formAddSanPham(),
 
     'them-san-pham' => (new AdminSanPhamController())->postAddSanPham(),
 
-    // 'form-sua-san-pham' => (new AdminSanPhamController())->formEditSanPham(),
+    'form-sua-san-pham' => (new AdminSanPhamController())->formEditSanPham(),
 
-    // 'sua-san-pham' => (new AdminSanPhamController())->postEditSanPham(),
+    'sua-san-pham' => (new AdminSanPhamController())->postEditSanPham(),
+
+    'sua-album-anh-san-pham' => (new AdminSanPhamController())->postEditAnhSanPham(),
 
     // 'xoa-san-pham' => (new AdminSanPhamController())->deleteSanPham(),
 
@@ -64,15 +66,24 @@ match ($act) {
      'form-sua-don-hang' => (new AdminDonHangController())->formEditDonHang(),
 
       'sua-don-hang' => (new AdminDonHangController())->postEditDonHang(),
+
       // 'sua-don-hang' => (new AdminDonHangController())->postEditDonHang(),
+
     ///route user
     'list-tai-khoan-quan-tri' => (new AdminTaiKhoanController())->danhsachQuanTri(1),
+
     'form-them-quan-tri' => (new AdminTaiKhoanController())->formAddQuanTri(),
-     'them-quan-tri' => (new AdminTaiKhoanController())->postAddQuanTri(),
+
+    'them-quan-tri' => (new AdminTaiKhoanController())->postAddQuanTri(),
+
     'form-sua-quan-tri' => (new AdminTaiKhoanController())->formEditQuanTri(),
-      'sua-quan-tri' => (new AdminTaiKhoanController())->postEditQuanTri(),
+
+    'sua-quan-tri' => (new AdminTaiKhoanController())->postEditQuanTri(),
 
       'rest-password' => (new AdminTaiKhoanController())->resetPassword(),
+
+
+      
 
     ///route user
      'list-tai-khoan-khach-hang' => (new AdminTaiKhoanController())->danhSachKhachHang(),
