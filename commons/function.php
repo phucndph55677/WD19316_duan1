@@ -70,8 +70,16 @@ function uploadFileAlbum($file, $folderUpload, $key) {
     }
     return null;
 }
+<<<<<<< HEAD
+
+function formatPrice($price) {
+    return number_format($price, 0, '', '.');
+}
+// Debug
+=======
 function formatPrice($price) {
     return number_format($price, 0, '', '.');
 }
 
 // Debug
+>>>>>>> b467831968883ad9c3e9f46ecd3e09cabd850bbf
