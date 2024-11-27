@@ -1,5 +1,4 @@
 <?php 
-
 class HomeController
 {
     public $modelSanPham;
@@ -69,7 +68,8 @@ public function logout(){
 public function addGioHang() {   
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $mail = $this->modelTaiKhoan->getTaiKhoanFromEmail($_SESSION['user_client']);
-
+        
+        
         $gioHang = $this->modelGioHang->getGioHangFromUser($mail['id']);
         if(!$gioHang){
             $gioHangId = $this->modelGioHang->addGioHang($mail['id']);
@@ -96,12 +96,43 @@ public function addGioHang() {
         if(!$checkSanPham){
             $this->modelGioHang->addDetailGioHang($gioHang['id'], $san_pham_id, $so_luong);
         }
-            var_dump('thêm giỏ hàng thành công');die();
+        header("Location: " . BASE_URL . '?act=gio-hang' );
+
+
     }else{
         var_dump('chưa đăng nhập');die();
     }
            
 
 } 
+public function gioHang(){
+    // Kiểm tra nếu người dùng đã đăng nhập
+    if(isset($_SESSION['user_client'])){
+        $mail = $this->modelTaiKhoan->getTaiKhoanFromEmail($_SESSION['user_client']);
+
+        // Kiểm tra xem người dùng đã có giỏ hàng chưa
+        $gioHang = $this->modelGioHang->getGioHangFromUser($mail['id']);
+        if(!$gioHang){
+            // Nếu chưa có giỏ hàng, thêm giỏ hàng mới
+            $gioHangId = $this->modelGioHang->addGioHang($mail['id']);
+            $gioHang = ['id' => $gioHangId];
+        }
+        
+        // Lấy chi tiết giỏ hàng
+        $chitietgiohang = $this->modelGioHang->getDetailGioHang($gioHang['id']);
+        
+        // Trực tiếp yêu cầu file view
+        require_once './views/gioHang.php';
+        
+    } else {
+        // Thông báo người dùng chưa đăng nhập
+        header('Location:'. BASE_URL . '?act=login');
+        // Có thể thêm redirect đến trang đăng nhập
+        // header('Location: /login');
+       
+    }
+}
+
+
 
 }

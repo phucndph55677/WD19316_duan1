@@ -36,8 +36,10 @@ match ($act) {
 
     'chiTietSanPham' => (new HomeController())->chiTietSanPham(),
     'them-gio-hang' => (new HomeController())->addGioHang(),
+    'gio-hang' => (new HomeController())->gioHang(),
     //auth
     'login' => (new HomeController())->formLogin(),
-    'check-login' => (new HomeController())->postLogin()
+    'check-login' => (new HomeController())->postLogin(),
+    'log-out' => (new HomeController())->logout()
 
 };

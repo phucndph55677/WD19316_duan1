@@ -85,17 +85,21 @@
                                             <ul class="dropdown-list">
                                             <?php if (!isset($_SESSION['user_client'])) {?>
                                             <li><a href="<?= BASE_URL. '?act=login' ?>">Đăng Nhập</a></li>
+                                            <li><a href="<?= BASE_URL. '?act=login' ?>">Đăng Ký</a></li>
+                                            
                                             
                                             <?php }else{ ?>
                                                
                                                 <li><a href="my-account.html">Tài Khoản</a></li>
+                                                <li><a href="<?= BASE_URL. '?act=log-out' ?>">Đăng Xuất</a></li>
                                                 <?php }?>
                                             </ul>
                                             
                                         </li>
                                        
                                         <li>
-                                            <a href="#" class="minicart-btn">
+                                            
+                                            <a href="" class="minicart-btn">
                                                 <i class="pe-7s-shopbag"></i>
                                                 <div class="notification">2</div>
                                             </a>
