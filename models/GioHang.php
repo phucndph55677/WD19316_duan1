@@ -12,7 +12,7 @@ class GioHang {
             $stmt = $this->conn->prepare($sql);
 
             $stmt->execute([
-                ':tai_khoan_id' => $id
+                ':id' => $id
             ]);
 
             return $stmt->fetchAll();

@@ -96,7 +96,7 @@
                                                 <div class="pro-qty"><input type="text" value="1" name="so_luong"></div>
                                             </div>
                                             <div class="action_link">
-                                                <a class="btn btn-cart2" type="submit" href="<?= BASE_URL.'?act=them-gio-hang'?>"> Thêm Vào Giỏ Hàng</a>
+                                              <button type="submit" class="btn btn-cart2"> Thêm Vào Giỏ Hàng</button>  
                                             </div>
                                         </div>
                                         </form>

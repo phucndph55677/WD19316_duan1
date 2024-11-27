@@ -10,6 +10,7 @@ class HomeController
     {
         $this->modelSanPham = new SanPham();
         $this->modelTaiKhoan = new TaiKhoan();
+        $this->modelGioHang = new GioHang();
         
     }
 
@@ -66,40 +67,41 @@ public function logout(){
     exit();
 }
 public function addGioHang() {   
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        if(isset($_SESSION['user_client'])){
-            $mail = $this->modelTaiKhoan->getTaiKhoanFromEmail($_SESSION['user_client']);
-            $giohang = $this->modelGioHang->getGioHangFromUser($mail['id']);
-            if(!$giohang){
-                $gioHangID = $this->modelGioHang->addGioHang($mail['id']);
-                $gioHang = ['id' => $gioHangID]; 
-            }else{
-                $chitietgiohang = $this->modelGioHang->getDetailGioHang($giohang['id']);
-            }
-            $san_pham_id = $_POST['san_pham_id'];
-            $so_luong = $_POST['so_luong'];
-            $checksanpham = false;
-            foreach ($chitietgiohang as $key => $detail) {
-                if($detail['san_pham_id'] == $san_pham_id){
-                    $newSoLuong = $detail['so_luong'] + $so_luong;
-                    $this->modelGioHang->updateSoLuong($giohang['id'], $san_pham_id, $newSoLuong);
-                    $checksanpham = true;
-                    break;
+    if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        $mail = $this->modelTaiKhoan->getTaiKhoanFromEmail($_SESSION['user_client']);
 
-                }
-
-
-            }
-            if(!$checksanpham){
-                $this->modelGioHang->addDetailGioHang($gioHangID, $san_pham_id, $so_luong);
-            }
-            var_dump('thêm giỏ hàng thành công');die();
-
+        $gioHang = $this->modelGioHang->getGioHangFromUser($mail['id']);
+        if(!$gioHang){
+            $gioHangId = $this->modelGioHang->addGioHang($mail['id']);
+            $gioHang = ['id' => $gioHangId];
         }else{
-            var_dump('chua dang nhap khong thể thêm giỏ hàng');die();
+            $chitietgiohang = $this->modelGioHang->getDetailGioHang($gioHang['id']);
         }
-       
-      
-}
-}
+        $san_pham_id = $_POST['san_pham_id'];
+        $so_luong = $_POST['so_luong'];
+        $checkSanPham = false;
+
+        foreach($chitietgiohang as $detail){
+            if($detail['san_pham_id'] == $san_pham_id){
+                $newSoLuong = $detail['so_luong'] + $so_luong;
+                $this->modelGioHang->updateSoLuong($gioHang['id'], $san_pham_id, $newSoLuong);
+                $checkSanPham = true;
+            break;
+            }
+            
+     
+     
+     
+        }
+        if(!$checkSanPham){
+            $this->modelGioHang->addDetailGioHang($gioHang['id'], $san_pham_id, $so_luong);
+        }
+            var_dump('thêm giỏ hàng thành công');die();
+    }else{
+        var_dump('chưa đăng nhập');die();
+    }
+           
+
+} 
+
 }
