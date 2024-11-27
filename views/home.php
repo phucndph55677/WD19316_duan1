@@ -1,5 +1,5 @@
 <?php require_once './views/layout/header.php';?>
-<?php require_once 'layout/miniCart.php';?>
+<?php include './views/layout/miniCart.php'; ?>
 <body>
    
 <?php require_once './views/layout/menu.php';?>

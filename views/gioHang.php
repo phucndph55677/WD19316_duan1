@@ -1,6 +1,6 @@
 <?php include 'views/layout/header.php'; ?>
 <?php include 'views/layout/menu.php'; ?>
-
+<?php include './views/layout/miniCart.php'; ?>
 <main>
     <!-- breadcrumb area start -->
     <div class="breadcrumb-area">
@@ -122,7 +122,7 @@
 <!-- cart main wrapper end -->
 
 <?php require_once 'views/layout/footer.php'; ?>
-<?php require_once 'layout/miniCart.php'; ?>
+
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
