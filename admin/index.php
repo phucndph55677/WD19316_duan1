@@ -84,7 +84,7 @@ match ($act) {
 
     'rest-password' => (new AdminTaiKhoanController())->resetPassword()
 
-
+   
       
 
     ///route user
