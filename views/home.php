@@ -4,6 +4,18 @@
    
 <?php require_once './views/layout/menu.php';?>
 
+    <div class="content-wrapper">
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1>Bcao thong ke</h1>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
     <main>
         <!-- hero slider area start -->
         <section class="slider-area">
@@ -73,7 +85,7 @@
                             </div>
                             <div class="policy-content">
                                 <h6>Giao Hàng</h6>
-                                <p>Miễn Phí Giao Hàng</p>
+<p>Miễn Phí Giao Hàng</p>
                             </div>
                         </div>
                     </div>
@@ -147,7 +159,7 @@
         <section class="product-area section-padding">
             <div class="container">
                 <div class="row">
-                    <div class="col-12">
+<div class="col-12">
                         <!-- section title start -->
                         <div class="section-title text-center">
                             <h2 class="title">Sản phẩm Của Chúng Tôi</h2>
@@ -192,9 +204,7 @@
                                                     </div>
                                                     <?php } ?>
                                                    <?php if($sanPham['gia_khuyen_mai'] ) {?>
-                                                    
-                                                    
-                                                    <div class="product-label discount">
+<div class="product-label discount">
                                                         <span>Giảm Giá</span>
                                                     </div>
                                                     <?php } ?>
@@ -245,7 +255,7 @@
                         <div class="product-banner-carousel slick-row-10">
                             <!-- banner single slide start -->
                             <div class="banner-slide-item">
-                                <figure class="banner-statistics">
+<figure class="banner-statistics">
                                     <a href="#">
                                         <img src="assets/img/banner/img1-middle.jpg" alt="product banner">
                                     </a>
@@ -293,7 +303,7 @@
                             <!-- banner single slide start -->
                             <!-- banner single slide start -->
                             <div class="banner-slide-item">
-                                <figure class="banner-statistics">
+<figure class="banner-statistics">
                                     <a href="#">
                                         <img src="assets/img/banner/img5-middle.jpg" alt="product banner">
                                     </a>
@@ -344,7 +354,7 @@
                                     <div class="button-group">
                                         <a href="wishlist.html" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
                                         <a href="compare.html" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to Compare"><i class="pe-7s-refresh-2"></i></a>
-                                        <a href="#" data-bs-toggle="modal" data-bs-target="#quick_view"><span data-bs-toggle="tooltip" data-bs-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a>
+<a href="#" data-bs-toggle="modal" data-bs-target="#quick_view"><span data-bs-toggle="tooltip" data-bs-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a>
                                     </div>
                                     <div class="cart-hover">
                                         <button class="btn btn-cart">add to cart</button>
@@ -390,7 +400,7 @@
                                         <div class="product-label new">
                                             <span>sale</span>
                                         </div>
-                                        <div class="product-label discount">
+<div class="product-label discount">
                                             <span>new</span>
                                         </div>
                                     </div>
@@ -434,7 +444,7 @@
 
                             <!-- product item start -->
                             <div class="product-item">
-                                <figure class="product-thumb">
+<figure class="product-thumb">
                                     <a href="product-details.html">
                                         <img class="pri-img" src="assets/img/product/product-8.jpg" alt="product">
                                         <img class="sec-img" src="assets/img/product/product-11.jpg" alt="product">
@@ -475,7 +485,7 @@
                                         <a href="product-details.html">Perfect Diamond Jewelry</a>
                                     </h6>
                                     <div class="price-box">
-                                        <span class="price-regular">$99.00</span>
+<span class="price-regular">$99.00</span>
                                         <span class="price-old"><del></del></span>
                                     </div>
                                 </div>
@@ -518,7 +528,7 @@
                                             <a class="c-darktan" href="#" title="Darktan"></a>
                                         </li>
                                         <li>
-                                            <a class="c-grey" href="#" title="Grey"></a>
+<a class="c-grey" href="#" title="Grey"></a>
                                         </li>
                                         <li>
                                             <a class="c-brown" href="#" title="Brown"></a>
@@ -561,7 +571,7 @@
                                 </figure>
                                 <div class="product-caption text-center">
                                     <div class="product-identity">
-                                        <p class="manufacturer-name"><a href="product-details.html">mony</a></p>
+<p class="manufacturer-name"><a href="product-details.html">mony</a></p>
                                     </div>
                                     <ul class="color-categories">
                                         <li>
@@ -606,7 +616,7 @@
                                     <div class="button-group">
                                         <a href="wishlist.html" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to wishlist"><i class="pe-7s-like"></i></a>
                                         <a href="compare.html" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to Compare"><i class="pe-7s-refresh-2"></i></a>
-                                        <a href="#" data-bs-toggle="modal" data-bs-target="#quick_view"><span data-bs-toggle="tooltip" data-bs-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a>
+<a href="#" data-bs-toggle="modal" data-bs-target="#quick_view"><span data-bs-toggle="tooltip" data-bs-placement="left" title="Quick View"><i class="pe-7s-search"></i></span></a>
                                     </div>
                                     <div class="cart-hover">
                                         <button class="btn btn-cart">add to cart</button>
@@ -652,7 +662,7 @@
                                         <div class="product-label new">
                                             <span>sale</span>
                                         </div>
-                                        <div class="product-label discount">
+<div class="product-label discount">
                                             <span>new</span>
                                         </div>
                                     </div>
@@ -696,7 +706,7 @@
 
                             <!-- product item start -->
                             <div class="product-item">
-                                <figure class="product-thumb">
+<figure class="product-thumb">
                                     <a href="product-details.html">
                                         <img class="pri-img" src="assets/img/product/product-3.jpg" alt="product">
                                         <img class="sec-img" src="assets/img/product/product-16.jpg" alt="product">
@@ -737,7 +747,7 @@
                                         <a href="product-details.html">Perfect Diamond Jewelry</a>
                                     </h6>
                                     <div class="price-box">
-                                        <span class="price-regular">$99.00</span>
+<span class="price-regular">$99.00</span>
                                         <span class="price-old"><del></del></span>
                                     </div>
                                 </div>
@@ -780,7 +790,7 @@
                                             <a class="c-darktan" href="#" title="Darktan"></a>
                                         </li>
                                         <li>
-                                            <a class="c-grey" href="#" title="Grey"></a>
+<a class="c-grey" href="#" title="Grey"></a>
                                         </li>
                                         <li>
                                             <a class="c-brown" href="#" title="Brown"></a>
@@ -823,7 +833,7 @@
                                 </figure>
                                 <div class="product-caption text-center">
                                     <div class="product-identity">
-                                        <p class="manufacturer-name"><a href="product-details.html">mony</a></p>
+<p class="manufacturer-name"><a href="product-details.html">mony</a></p>
                                     </div>
                                     <ul class="color-categories">
                                         <li>
@@ -857,88 +867,7 @@
         <!-- featured product area end -->
 
         <!-- testimonial area start -->
-        <section class="testimonial-area section-padding bg-img" data-bg="assets/img/testimonial/testimonials-bg.jpg">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <!-- section title start -->
-                        <div class="section-title text-center">
-                            <h2 class="title">testimonials</h2>
-                            <p class="sub-title">What they say</p>
-                        </div>
-                        <!-- section title start -->
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12">
-                        <div class="testimonial-thumb-wrapper">
-                            <div class="testimonial-thumb-carousel">
-                                <div class="testimonial-thumb">
-                                    <img src="assets/img/testimonial/testimonial-1.png" alt="testimonial-thumb">
-                                </div>
-                                <div class="testimonial-thumb">
-                                    <img src="assets/img/testimonial/testimonial-2.png" alt="testimonial-thumb">
-                                </div>
-                                <div class="testimonial-thumb">
-                                    <img src="assets/img/testimonial/testimonial-3.png" alt="testimonial-thumb">
-                                </div>
-                                <div class="testimonial-thumb">
-                                    <img src="assets/img/testimonial/testimonial-2.png" alt="testimonial-thumb">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="testimonial-content-wrapper">
-                            <div class="testimonial-content-carousel">
-                                <div class="testimonial-content">
-                                    <p>Vivamus a lobortis ipsum, vel condimentum magna. Etiam id turpis tortor. Nunc scelerisque, nisi a blandit varius, nunc purus venenatis ligula, sed venenatis orci augue nec sapien. Cum sociis natoque</p>
-                                    <div class="ratings">
-                                        <span><i class="fa fa-star-o"></i></span>
-                                        <span><i class="fa fa-star-o"></i></span>
-                                        <span><i class="fa fa-star-o"></i></span>
-                                        <span><i class="fa fa-star-o"></i></span>
-                                        <span><i class="fa fa-star-o"></i></span>
-                                    </div>
-                                    <h5 class="testimonial-author">lindsy niloms</h5>
-                                </div>
-                                <div class="testimonial-content">
-                                    <p>Vivamus a lobortis ipsum, vel condimentum magna. Etiam id turpis tortor. Nunc scelerisque, nisi a blandit varius, nunc purus venenatis ligula, sed venenatis orci augue nec sapien. Cum sociis natoque</p>
-                                    <div class="ratings">
-                                        <span><i class="fa fa-star-o"></i></span>
-                                        <span><i class="fa fa-star-o"></i></span>
-                                        <span><i class="fa fa-star-o"></i></span>
-                                        <span><i class="fa fa-star-o"></i></span>
-                                        <span><i class="fa fa-star-o"></i></span>
-                                    </div>
-                                    <h5 class="testimonial-author">Daisy Millan</h5>
-                                </div>
-                                <div class="testimonial-content">
-                                    <p>Vivamus a lobortis ipsum, vel condimentum magna. Etiam id turpis tortor. Nunc scelerisque, nisi a blandit varius, nunc purus venenatis ligula, sed venenatis orci augue nec sapien. Cum sociis natoque</p>
-                                    <div class="ratings">
-                                        <span><i class="fa fa-star-o"></i></span>
-                                        <span><i class="fa fa-star-o"></i></span>
-                                        <span><i class="fa fa-star-o"></i></span>
-                                        <span><i class="fa fa-star-o"></i></span>
-                                        <span><i class="fa fa-star-o"></i></span>
-                                    </div>
-                                    <h5 class="testimonial-author">Anamika lusy</h5>
-                                </div>
-                                <div class="testimonial-content">
-                                    <p>Vivamus a lobortis ipsum, vel condimentum magna. Etiam id turpis tortor. Nunc scelerisque, nisi a blandit varius, nunc purus venenatis ligula, sed venenatis orci augue nec sapien. Cum sociis natoque</p>
-                                    <div class="ratings">
-                                        <span><i class="fa fa-star-o"></i></span>
-                                        <span><i class="fa fa-star-o"></i></span>
-                                        <span><i class="fa fa-star-o"></i></span>
-                                        <span><i class="fa fa-star-o"></i></span>
-                                        <span><i class="fa fa-star-o"></i></span>
-                                    </div>
-                                    <h5 class="testimonial-author">Maria Mora</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        
         <!-- testimonial area end -->
 
         <!-- group product start -->
@@ -962,7 +891,7 @@
                     <div class="col-lg-3">
                         <div class="categories-group-wrapper">
                             <!-- section title start -->
-                            <div class="section-title-append">
+<div class="section-title-append">
                                 <h4>best seller product</h4>
                                 <div class="slick-append"></div>
                             </div>
@@ -1006,7 +935,7 @@
                                                     <span class="price-regular">$55.00</span>
                                                     <span class="price-old"><del>$30.00</del></span>
                                                 </div>
-                                            </div>
+</div>
                                         </div>
                                     </div>
                                     <!-- group list item end -->
@@ -1052,7 +981,7 @@
                                     <!-- group list item end -->
 
                                     <!-- group list item start -->
-                                    <div class="group-slide-item">
+<div class="group-slide-item">
                                         <div class="group-item">
                                             <div class="group-item-thumb">
                                                 <a href="product-details.html">
@@ -1096,7 +1025,7 @@
                                         <div class="group-item">
                                             <div class="group-item-thumb">
                                                 <a href="product-details.html">
-                                                    <img src="assets/img/product/product-13.jpg" alt="">
+<img src="assets/img/product/product-13.jpg" alt="">
                                                 </a>
                                             </div>
                                             <div class="group-item-desc">
@@ -1143,8 +1072,7 @@
                                 <div class="slick-append"></div>
                             </div>
                             <!-- section title start -->
-
-                            <!-- group list carousel start -->
+<!-- group list carousel start -->
                             <div class="group-list-item-wrapper">
                                 <div class="group-list-carousel">
                                     <!-- group list item start -->
@@ -1188,7 +1116,7 @@
                                     <!-- group list item end -->
 
                                     <!-- group list item start -->
-                                    <div class="group-slide-item">
+<div class="group-slide-item">
                                         <div class="group-item">
                                             <div class="group-item-thumb">
                                                 <a href="product-details.html">
@@ -1232,7 +1160,7 @@
                                         <div class="group-item">
                                             <div class="group-item-thumb">
                                                 <a href="product-details.html">
-                                                    <img src="assets/img/product/product-7.jpg" alt="">
+<img src="assets/img/product/product-7.jpg" alt="">
                                                 </a>
                                             </div>
                                             <div class="group-item-desc">
@@ -1276,7 +1204,7 @@
                                                 </a>
                                             </div>
                                             <div class="group-item-desc">
-                                                <h5 class="group-product-name"><a href="product-details.html">
+<h5 class="group-product-name"><a href="product-details.html">
                                                         Handmade Golden ring</a></h5>
                                                 <div class="price-box">
                                                     <span class="price-regular">$55.00</span>
@@ -1317,175 +1245,11 @@
         <!-- group product end -->
 
         <!-- latest blog area start -->
-        <section class="latest-blog-area section-padding pt-0">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <!-- section title start -->
-                        <div class="section-title text-center">
-                            <h2 class="title">latest blogs</h2>
-                            <p class="sub-title">There are latest blog posts</p>
-                        </div>
-                        <!-- section title start -->
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12">
-                        <div class="blog-carousel-active slick-row-10 slick-arrow-style">
-                            <!-- blog post item start -->
-                            <div class="blog-post-item">
-                                <figure class="blog-thumb">
-                                    <a href="blog-details.html">
-                                        <img src="assets/img/blog/blog-img1.jpg" alt="blog image">
-                                    </a>
-                                </figure>
-                                <div class="blog-content">
-                                    <div class="blog-meta">
-                                        <p>25/03/2019 | <a href="#">Corano</a></p>
-                                    </div>
-                                    <h5 class="blog-title">
-                                        <a href="blog-details.html">Celebrity Daughter Opens Up About Having Her Eye Color Changed</a>
-                                    </h5>
-                                </div>
-                            </div>
-                            <!-- blog post item end -->
-
-                            <!-- blog post item start -->
-                            <div class="blog-post-item">
-                                <figure class="blog-thumb">
-                                    <a href="blog-details.html">
-                                        <img src="assets/img/blog/blog-img2.jpg" alt="blog image">
-                                    </a>
-                                </figure>
-                                <div class="blog-content">
-                                    <div class="blog-meta">
-                                        <p>25/03/2019 | <a href="#">Corano</a></p>
-                                    </div>
-                                    <h5 class="blog-title">
-                                        <a href="blog-details.html">Children Left Home Alone For 4 Days In TV series Experiment</a>
-                                    </h5>
-                                </div>
-                            </div>
-                            <!-- blog post item end -->
-
-                            <!-- blog post item start -->
-                            <div class="blog-post-item">
-                                <figure class="blog-thumb">
-                                    <a href="blog-details.html">
-                                        <img src="assets/img/blog/blog-img3.jpg" alt="blog image">
-                                    </a>
-                                </figure>
-                                <div class="blog-content">
-                                    <div class="blog-meta">
-                                        <p>25/03/2019 | <a href="#">Corano</a></p>
-                                    </div>
-                                    <h5 class="blog-title">
-                                        <a href="blog-details.html">Lotto Winner Offering Up Money To Any Man That Will Date Her</a>
-                                    </h5>
-                                </div>
-                            </div>
-                            <!-- blog post item end -->
-
-                            <!-- blog post item start -->
-                            <div class="blog-post-item">
-                                <figure class="blog-thumb">
-                                    <a href="blog-details.html">
-                                        <img src="assets/img/blog/blog-img4.jpg" alt="blog image">
-                                    </a>
-                                </figure>
-                                <div class="blog-content">
-                                    <div class="blog-meta">
-                                        <p>25/03/2019 | <a href="#">Corano</a></p>
-                                    </div>
-                                    <h5 class="blog-title">
-                                        <a href="blog-details.html">People are Willing Lie When Comes Money, According to Research</a>
-                                    </h5>
-                                </div>
-                            </div>
-                            <!-- blog post item end -->
-
-                            <!-- blog post item start -->
-                            <div class="blog-post-item">
-                                <figure class="blog-thumb">
-                                    <a href="blog-details.html">
-                                        <img src="assets/img/blog/blog-img5.jpg" alt="blog image">
-                                    </a>
-                                </figure>
-                                <div class="blog-content">
-                                    <div class="blog-meta">
-                                        <p>25/03/2019 | <a href="#">Corano</a></p>
-                                    </div>
-                                    <h5 class="blog-title">
-                                        <a href="blog-details.html">romantic Love Stories Of Hollywoodâ€™s Biggest Celebrities</a>
-                                    </h5>
-                                </div>
-                            </div>
-                            <!-- blog post item end -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+       
         <!-- latest blog area end -->
 
         <!-- brand logo area start -->
-        <div class="brand-logo section-padding pt-0">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="brand-logo-carousel slick-row-10 slick-arrow-style">
-                            <!-- single brand start -->
-                            <div class="brand-item">
-                                <a href="#">
-                                    <img src="assets/img/brand/1.png" alt="">
-                                </a>
-                            </div>
-                            <!-- single brand end -->
-
-                            <!-- single brand start -->
-                            <div class="brand-item">
-                                <a href="#">
-                                    <img src="assets/img/brand/2.png" alt="">
-                                </a>
-                            </div>
-                            <!-- single brand end -->
-
-                            <!-- single brand start -->
-                            <div class="brand-item">
-                                <a href="#">
-                                    <img src="assets/img/brand/3.png" alt="">
-                                </a>
-                            </div>
-                            <!-- single brand end -->
-
-                            <!-- single brand start -->
-                            <div class="brand-item">
-                                <a href="#">
-                                    <img src="assets/img/brand/4.png" alt="">
-                                </a>
-                            </div>
-                            <!-- single brand end -->
-
-                            <!-- single brand start -->
-                            <div class="brand-item">
-                                <a href="#">
-                                    <img src="assets/img/brand/5.png" alt="">
-                                </a>
-                            </div>
-                            <!-- single brand end -->
-
-                            <!-- single brand start -->
-                            <div class="brand-item">
-                                <a href="#">
-                                    <img src="assets/img/brand/6.png" alt="">
-                                </a>
-                            </div>
-                            <!-- single brand end -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+       
         <!-- brand logo area end -->
     </main>
 
@@ -1504,7 +1268,7 @@
             <div class="minicart-inner-content">
                 <div class="minicart-close">
                     <i class="pe-7s-close"></i>
-                </div>
+</div>
                 <div class="minicart-content-box">
                     <div class="minicart-item-wrapper">
                         <ul>
@@ -1558,7 +1322,7 @@
                             <li>
                                 <span>VAT (20%)</span>
                                 <span><strong>$60.00</strong></span>
-                            </li>
+</li>
                             <li class="total">
                                 <span>total</span>
                                 <span><strong>$370.00</strong></span>
@@ -1576,5 +1340,3 @@
     </div>
     <!-- offcanvas mini cart end -->
     <?php require_once './views/layout/footer.php';?>
-
- 
