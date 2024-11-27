@@ -88,16 +88,18 @@
                                             <span><?=$sanPham['so_luong'] . ' trong kho'?> </span>
                                         </div>
                                         <p class="pro-desc"><?=$sanPham['mo_ta']?></p>
+                                        <form action="<?= BASE_URL.'?act=them-gio-hang'?>" method="POST">
                                         <div class="quantity-cart-box d-flex align-items-center">
                                             <h6 class="option-title">Số Lượng</h6>
                                             <div class="quantity">
-                                                <div class="pro-qty"><input type="text" value="1"></div>
+                                                <input type="hidden" name="san_pham_id" value="<?=$sanPham['id']?>">
+                                                <div class="pro-qty"><input type="text" value="1" name="so_luong"></div>
                                             </div>
                                             <div class="action_link">
-                                                <a class="btn btn-cart2" href="#"> Thêm Vào Giỏ Hàng</a>
+                                                <a class="btn btn-cart2" type="submit" href="<?= BASE_URL.'?act=them-gio-hang'?>"> Thêm Vào Giỏ Hàng</a>
                                             </div>
                                         </div>
-                                        
+                                        </form>
                                         
                                        
                                        
