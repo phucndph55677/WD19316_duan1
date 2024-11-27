@@ -369,61 +369,6 @@ class AdminSanPhamController {
         }
     }
 
-        $listAnhSanPham = $this->modelSanPham->getListAnhSanPham($id);
-
-        if ($sanPham) {
-            deleteFile($sanPham['hinh_anh']);
-            $this->modelSanPham->destroySanPham($id);
-        }
-        if ($listAnhSanPham) {
-           foreach($listAnhSanPham as $key=>$anhSP) {
-            deleteFile($anhSP['link_hinh_anh']);
-            $this->modelSanPham->destroyAnhSanPham($anhSP['id']);
-           }
-        }
-
-        header("Location: " . BASE_URL_ADMIN . '?act=san-pham');
-        exit();
-    }
-    
-    public function detailSanPham() {
-        $id = $_GET['id_san_pham'];
-
-        $sanPham = $this->modelSanPham->getDetailSanPham($id);
-
-        $listAnhSanPham = $this->modelSanPham->getListAnhSanPham($id);
-        
-        if ($sanPham) {
-            require_once './views/sanpham/detailSanPham.php';
-            
-        } else {
-            header("Location: " . BASE_URL_ADMIN . '?act=san-pham');
-            exit();
-        }
-    }
-
-    public function updateTrangThaiBinhLuan(){
-        $id_binh_luan = $_POST['id_binh_luan'];
-        $name_view = $_POST['name_view'];
-        $id_khach_hang = $_POST['id_khach_hang'];
-        $binhLuan = $this->modelSanPham-getdetailBinhLuan($id_binh_luan);
-        if ($binhLuan){
-            $trang_thai_update = '';
-            if ($binhLuan['trang_thai'] == 1){
-                $trang_thai_update = 2;
-            }
-            else{
-                $trang_thai_update = 1;
-            }
-            $status = $this->moderSanPham->updateTrangThaiBinhLuan($id_binh_luan, $trang_thai_update)
-            if($status){
-                if($name_view == 'detail_khach'){
-                    header("Location:"  BASE_URL_ADMIN . '?act=chi-tiet-khach-hang&id_khach_hang=' . $id_khach_hang);
-                }
-            }
-           
-        }
-    }
 }
 
 ?>

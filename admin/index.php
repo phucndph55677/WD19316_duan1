@@ -29,7 +29,7 @@ $act = $_GET['act'] ?? '/';
 match ($act) {
     
 // route
-    '/'=> (new AdminBaoCaoThongKe())->home(),
+        // '/'=> (new AdminBaoCaoThongKe())->home(),
     // route danh muc
     'danh-muc' => (new AdminDanhMucController())->danhSachDanhMuc(),
 
@@ -60,11 +60,6 @@ match ($act) {
 
     'chi-tiet-san-pham' => (new AdminSanPhamController())->detailSanPham(),
 
-    'chi-tiet-san-pham' => (new AdminSanPhamController())->getDetailSanPham(),
-    
-    // route bình luận
-    'update-trang-thai-binh-luan' => (new AdminSanPhamController())->updateTrangThaiBinhLuan(),
-    
     // route donhang
     'don-hang' => (new AdminDonHangController())->danhSachDonHang(),
 
@@ -93,11 +88,11 @@ match ($act) {
       
 
     ///route user
-     'list-tai-khoan-khach-hang' => (new AdminTaiKhoanController())->danhSachKhachHang(),
+    // 'list-tai-khoan-quan-tri' => (new AdminDonHangController())->listTaiKhoanQuanTri(),
 
-     'form-sua-khach-hang' => (new AdminTaiKhoanController()) ->formEditKhachHang(),
 
-     'sua-khach-hang' => (new AdminTaiKhoanController())->postEditKhachHang(),
-     
-     'chi-tiet-khach-hang' => (new AdminTaiKhoanController())->deltailKhachHang(),
+    // 'list-tai-khoan-khach-hang' => (new AdminDonHangController())->listTaiKhoanKhachHang(),
+
+    // 'list-tai-khoan-ca-nhan' => (new AdminDonHangController())->listTaiKhoanCaNhan()
+
 };
