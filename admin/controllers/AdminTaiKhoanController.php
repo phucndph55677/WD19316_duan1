@@ -4,8 +4,12 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 class AdminTaiKhoanController{
     public $modelTaiKhoan;
+    public $modelDonHang;
+    public $modelSanPham;
     public function __construct(){
         $this->modelTaiKhoan = new AdminTaiKhoan();
+        $this->modelDonHang = new AdminDonHang();
+        $this->modelSanPham = new AdminSanPham();
 }
 public function danhsachQuanTri($chuc_vu_id){
     $listQuanTri = $this->modelTaiKhoan->getAllTaiKhoan(1);
@@ -49,7 +53,8 @@ public function postAddQuanTri() {
         } else {
             $_SESSION['flash'] = true;
             // Tra ve form vaf bao loi
-            require_once('./views/taikhoan/quantri/addQuanTri.php');
+            header("Location: " . BASE_URL_ADMIN . '?act=form-them-quan-tri');
+            exit();
         }
     }
 }
@@ -67,7 +72,7 @@ public function postEditQuanTri(){
        $id = $_POST['id'];
        $ho_ten = $_POST['ho_ten'];
        $email = $_POST['email'];
-      $so_dien_thoai = $_POST['so_dien_thoai'];
+       $so_dien_thoai = $_POST['so_dien_thoai'];
        $trang_thai= $_POST['trang_thai'];
        
         $errors = [];
@@ -110,5 +115,110 @@ public function resetPassword(){
    }    
     
 }
+public function danhSachKhachHang()
+{
+    $listKhachHang = $this->modelTaiKhoan->getAllTaiKhoan(2);
 
+    require_once('./views/taikhoan/khachhang/listKhachHang.php');
+}
+public function formEditKhachHang(){
+    $id_khach_hang = $_GET['id_khach_hang'];
+     $khachHang = $this->modelTaiKhoan->getDetailTaiKhoan($id_khach_hang);
+     
+    require_once('./views/taikhoan/khachhang/editKhachHang.php');
+    deleteSessionError();
+}
+
+public function postEditKhachHang(){
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      
+        // Lay ra du lieu
+       $khach_hang_id = $_POST['khach_hang_id'];
+       $ho_ten = $_POST['ho_ten'];
+       $email = $_POST['email'];
+       $so_dien_thoai = $_POST['so_dien_thoai'];
+       $ngay_sinh = $_POST['ngay_sinh'];
+       $gioi_tinh = $_POST['gioi_tinh'];
+       $dia_chi = $_POST['dia_chi'];
+       $trang_thai= $_POST['trang_thai'];
+       
+        $errors = [];
+        if (empty($ho_ten)) {
+            $errors['ho_ten'] = 'Họ tên Không được Để Trống';
+        }
+        if (empty($email)) {
+            $errors['email'] = 'Email Không được Để Trống';
+        }
+        if (empty($ngay_sinh)) {
+            $errors['ngay_sinh'] = 'Ngày sinh Không được Để Trống';
+        }
+        if (empty($gioi_tinh)) {
+            $errors['gioi_tinh'] = 'Giới tính hông được Để Trống';
+        }
+        if (!isset($trang_thai) || !in_array($trang_thai, ['1', '0'], true)) {
+            $errors['trang_thai'] = 'Trạng thái không hợp lệ hoặc chưa được chọn.';
+        }
+         $_SESSION['error'] = $errors;
+         
+           
+        if (empty($errors)) {
+            $this->modelTaiKhoan->updateKhachHang($khach_hang_id, $ho_ten, $email, $so_dien_thoai, $ngay_sinh, $gioi_tinh, $dia_chi, $trang_thai);
+            header("Location: " . BASE_URL_ADMIN . '?act=list-tai-khoan-khach-hang');
+            exit();         
+        } else {
+            $_SESSION['flash'] = true;
+            $_SESSION['error'] = $errors;
+             // Neu co loi thi tra ve form va bao loi
+             header("Location: " . BASE_URL_ADMIN . '?act=form-sua-khach-hang&id_khach_hang='. $khach_hang_id);
+             exit();
+           
+        }
+       
+    }
+}
+public function detailKhachHang(){
+    $id_khach_hang = $_GET['id_khach_hang'];
+    $khachHang = $this->modelTaiKhoan->getDetailTaiKhoan($id_khach_hang);
+
+    $listDonHang = $this->modelDonHang->getDonHangFromKhachHang($id_khach_hang);
+    
+    $listBinhLuan =$this->modelSanPham->getBinhLuanFromKhachHang($id_khach_hang);
+    require_once('./views/taikhoan/khachhang/detailKhachHang.php');
+}
+
+
+public function formLogin(){
+    require_once('./views/auth/formLogin.php');
+
+    deleteSessionError();
+}
+
+public function login(){
+    if($_SERVER["REQUEST_METHOD"] == 'POST'){
+        //Lấy email và pass gửi lên từ form
+
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+        
+        // var_dump($password);die;
+
+        $user = $this->modelTaiKhoan->checkLogin($email, $password);
+
+        if ($user){
+            //Trường hợp đăng nhập thành công
+            //Lưu thông tin vào SESSION
+            $_SESSION['user_admin'] = $user;
+            header("Location: " . BASE_URL_ADMIN);
+            exit();
+        }else{
+            //Trường hợp lỗi thì lưu lỗi vào SESSION
+            $_SESSION['error'] = $user;
+
+            $_SESSION['flash'] = true;
+
+            header("Location: " . BASE_URL_ADMIN .'?act=login-admin');
+            exit();
+        }
+    }
+}
 }

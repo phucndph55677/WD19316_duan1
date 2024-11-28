@@ -29,63 +29,44 @@ $act = $_GET['act'] ?? '/';
 match ($act) {
     
 // route
-        // '/'=> (new AdminBaoCaoThongKe())->home(),
+     '/'=> (new AdminBaoCaoThongKe())->home(),
     // route danh muc
     'danh-muc' => (new AdminDanhMucController())->danhSachDanhMuc(),
-
     'form-them-danh-muc' => (new AdminDanhMucController())->formAddDanhMuc(),
-
     'them-danh-muc' => (new AdminDanhMucController())->postAddDanhMuc(),
-
     'form-sua-danh-muc' => (new AdminDanhMucController())->formEditDanhMuc(),
-
     'sua-danh-muc' => (new AdminDanhMucController())->postEditDanhMuc(),
-
     'xoa-danh-muc' => (new AdminDanhMucController())->deleteDanhMuc(),
 
     // route san pham
     'san-pham' => (new AdminSanPhamController())->danhSachSanPham(),
-
     'form-them-san-pham' => (new AdminSanPhamController())->formAddSanPham(),
-
     'them-san-pham' => (new AdminSanPhamController())->postAddSanPham(),
-
     'form-sua-san-pham' => (new AdminSanPhamController())->formEditSanPham(),
-
     'sua-san-pham' => (new AdminSanPhamController())->postEditSanPham(),
-
     'sua-album-anh-san-pham' => (new AdminSanPhamController())->postEditAnhSanPham(),
-
     'xoa-san-pham' => (new AdminSanPhamController())->deleteSanPham(),
-
     'chi-tiet-san-pham' => (new AdminSanPhamController())->detailSanPham(),
+
+    // route bình luận
+    'update-trang-thai-binh-luan' => (new AdminSanPhamController())->updateTrangThaiBinhLuan(),
 
     // route donhang
     'don-hang' => (new AdminDonHangController())->danhSachDonHang(),
+    'chi-tiet-don-hang' => (new AdminDonHangController())->detailDonHang(),
+    'form-sua-don-hang' => (new AdminDonHangController())->formEditDonHang(),
+    'sua-don-hang' => (new AdminDonHangController())->postEditDonHang(),
+    // 'sua-don-hang' => (new AdminDonHangController())->postEditDonHang(),
 
-     'chi-tiet-don-hang' => (new AdminDonHangController())->detailDonHang(),
-
-     'form-sua-don-hang' => (new AdminDonHangController())->formEditDonHang(),
-
-      'sua-don-hang' => (new AdminDonHangController())->postEditDonHang(),
-
-      // 'sua-don-hang' => (new AdminDonHangController())->postEditDonHang(),
-
-    ///route user
+    ///Quản lý tài khoản quản trị 
     'list-tai-khoan-quan-tri' => (new AdminTaiKhoanController())->danhsachQuanTri(1),
-
     'form-them-quan-tri' => (new AdminTaiKhoanController())->formAddQuanTri(),
-
     'them-quan-tri' => (new AdminTaiKhoanController())->postAddQuanTri(),
-
     'form-sua-quan-tri' => (new AdminTaiKhoanController())->formEditQuanTri(),
-
     'sua-quan-tri' => (new AdminTaiKhoanController())->postEditQuanTri(),
 
-    'rest-password' => (new AdminTaiKhoanController())->resetPassword()
-
-   
-      
+    // Resset password
+    'rest-password' => (new AdminTaiKhoanController())->resetPassword(),
 
     ///route user
     // 'list-tai-khoan-quan-tri' => (new AdminDonHangController())->listTaiKhoanQuanTri(),
@@ -93,6 +74,16 @@ match ($act) {
 
     // 'list-tai-khoan-khach-hang' => (new AdminDonHangController())->listTaiKhoanKhachHang(),
 
-    // 'list-tai-khoan-ca-nhan' => (new AdminDonHangController())->listTaiKhoanCaNhan()
+     'list-tai-khoan-ca-nhan' => (new AdminTaiKhoanController())->listTaiKhoanCaNhan(),
+
+    // Quản lý tài khoản khách hàng
+     'list-tai-khoan-khach-hang' => (new AdminTaiKhoanController())->danhSachKhachHang(),
+     'form-sua-khach-hang' => (new AdminTaiKhoanController()) ->formEditKhachHang(),
+     'sua-khach-hang' => (new AdminTaiKhoanController())->postEditKhachHang(),    
+     'chi-tiet-khach-hang' => (new AdminTaiKhoanController())->deltailKhachHang(),
+
+     // Route Auth
+     'login-admin' => (new AdminTaiKhoanController())->formLogin(),
+     'check-login-admin' => (new AdminTaiKhoanController())->login(),
 
 };
