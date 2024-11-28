@@ -1,6 +1,6 @@
 <?php include 'views/layout/header.php'; ?>
 <?php include 'views/layout/menu.php'; ?>
-<?php include './views/layout/miniCart.php'; ?>
+<?php require_once './views/layout/miniCart.php'; ?>
 <main>
     <!-- breadcrumb area start -->
     <div class="breadcrumb-area">
@@ -54,12 +54,12 @@
                                         <span><?= formatPrice($value['gia_khuyen_mai'] ?: $value['gia_san_pham']) . 'đ'; ?></span>
                                     </td>
                                     <td class="pro-quantity">
-        <div class="pro-qty">
-            <span class="dec qtybtn"></span>
-            <input type="text" min="1" value="3" data-price="50.00" class="quantity-input">
-            <span class="inc qtybtn"></span>
-        </div>
-    </td>
+                                        <div class="pro-qty">
+                                            <span class="dec qtybtn"></span>
+                                            <input type="text" min="1" value="3" data-price="50.00" class="quantity-input">
+                                            <span class="inc qtybtn"></span>
+                                        </div>
+                                    </td>
                                     <td class="pro-subtotal">
                                         <span><?= formatPrice(($value['gia_khuyen_mai'] ?: $value['gia_san_pham']) * $value['so_luong']) . 'đ'; ?></span>
                                     </td>
@@ -74,7 +74,7 @@
                         </table>
                     </div>
                     <!-- Cart Update Option -->
-                    <div class="cart-update-option d-block d-md-flex justify-content-between">
+                    <!-- <div class="cart-update-option d-block d-md-flex justify-content-between">
                         <div class="apply-coupon-wrapper">
                             <form action="#" method="post" class=" d-block d-md-flex">
                                 <input type="text" placeholder="Enter Your Coupon Code" required />
@@ -84,7 +84,7 @@
                         <div class="cart-update">
                            <button class="btn btn-sqr" >Update Cart</button>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <div class="row">
@@ -112,7 +112,7 @@
                                 </table>
                             </div>
                         </div>
-                        <a href="checkout.html" class="btn btn-sqr d-block">Tiến Hành Thanh Toán</a>
+                        <a href="<?=BASE_URL.'?act=thanh-toan'?>" class="btn btn-sqr d-block">Tiến Hành Thanh Toán</a>
                     </div>
                 </div>
             </div>

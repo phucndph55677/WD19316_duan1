@@ -4,32 +4,44 @@ class HomeController
     public $modelSanPham;
     public $modelTaiKhoan;
     public $modelGioHang;
+    public $modelDanhMuc;
+   public $modelDonHang;
 
     public function __construct()
     {
         $this->modelSanPham = new SanPham();
         $this->modelTaiKhoan = new TaiKhoan();
         $this->modelGioHang = new GioHang();
+        $this->modelDanhMuc = new DanhMuc();
+        $this->modelDonHang = new DonHang();
         
     }
 
     public function home(){
         $listSanPham = $this->modelSanPham->getAllSanPham();
+        $listDanhMuc = $this->modelDanhMuc->getAllDanhMuc();
         require_once './views/home.php';
 
 
     }
-
+    public function sanPham(){
+        $listSanPham = $this->modelSanPham->getAllSanPham();
+        $listDanhMuc = $this->modelDanhMuc->getAllDanhMuc();
+        require_once './views/listProduct.php';
+    }
+    
     public function trangChu(){
         echo "Day la trang chu cua toi";
     }
 
     public function chiTietSanPham(){
+        
         $id = $_GET['id_san_pham'];
         $sanPham = $this->modelSanPham->getDetailSanPham($id);
         $ListAnhSanPham = $this->modelSanPham->getListAnhSanPham($id);
         $listBinhLuan = $this->modelSanPham->getBinhLuanfromSanPham($id);
         $ListSanPhamCungDanhMuc = $this->modelSanPham->getListSanPhamCungDanhMuc($sanPham['danh_muc_id']);
+        $listDanhMuc = $this->modelDanhMuc->getAllDanhMuc();
         if($sanPham){
         require_once './views/detailSanPham.php';  
         }else{
@@ -38,6 +50,7 @@ class HomeController
         }
     }
     public function formLogin(){
+        $listDanhMuc = $this->modelDanhMuc->getAllDanhMuc();
         require_once './views/auth/formLogin.php';
         deleteSessionError();
         exit();
@@ -106,6 +119,7 @@ public function addGioHang() {
 
 } 
 public function gioHang(){
+    $listDanhMuc = $this->modelDanhMuc->getAllDanhMuc();
     // Kiểm tra nếu người dùng đã đăng nhập
     if(isset($_SESSION['user_client'])){
         $mail = $this->modelTaiKhoan->getTaiKhoanFromEmail($_SESSION['user_client']);
@@ -133,6 +147,83 @@ public function gioHang(){
     }
 }
 
+public function sanPhamTheoDanhMuc() {
+    if (isset($_GET['danh_muc_id'])) {
+        $danhMucId = $_GET['danh_muc_id'];
+        $listSanPham = $this->modelSanPham->getSanPhamByDanhMuc($danhMucId);
+        require_once './views/sanPhamTheoDanhMuc.php';
+    } else {
+        header("Location: " . BASE_URL);
+        exit();
+    }
+}
+public function thanhToan() {
+    $listDanhMuc = $this->modelDanhMuc->getAllDanhMuc();
+    if(isset($_SESSION['user_client'])){
+        $user = $this->modelTaiKhoan->getTaiKhoanFromEmail($_SESSION['user_client']);
+
+        // Kiểm tra xem người dùng đã có giỏ hàng chưa
+        $gioHang = $this->modelGioHang->getGioHangFromUser($user['id']);
+        if(!$gioHang){
+            // Nếu chưa có giỏ hàng, thêm giỏ hàng mới
+            $gioHangId = $this->modelGioHang->addGioHang($user['id']);
+            $gioHang = ['id' => $gioHangId];
+        }
+        
+        // Lấy chi tiết giỏ hàng
+        $chitietgiohang = $this->modelGioHang->getDetailGioHang($gioHang['id']);
+        
+        // Trực tiếp yêu cầu file view
+        require_once './views/thanhToan.php';
+        
+    } else {
+        // Thông báo người dùng chưa đăng nhập
+        header('Location:'. BASE_URL . '?act=login');
+        // Có thể thêm redirect đến trang đăng nhập
+        // header('Location: /login');
+       
+    }
+  
+}
+public function postThanhToan() {
+    if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        
+       $ten_nguoi_nhan = $_POST['ten_nguoi_nhan'];
+       $email_nguoi_nhan = $_POST['email_nguoi_nhan'];
+       $sdt_nguoi_nhan = $_POST['sdt_nguoi_nhan'];
+       $dia_chi_nguoi_nhan = $_POST['dia_chi_nguoi_nhan'];
+       $ghi_chu = $_POST['ghi_chu'];
+       $tong_tien = $_POST['tong_tien'];
+       $phuong_thuc_thanh_toan_id = $_POST['phuong_thuc_thanh_toan_id'];
+       $ngay_dat =  date('Y-m-d');
+       $trang_thai_id = 1;
+       $ma_don_hang = 'D-H'.rand(1000,9999);
+       $user = $this->modelTaiKhoan->getTaiKhoanFromEmail($_SESSION['user_client']);
+       $tai_khoan_id = $user['id'];
+       
+       $donHang = $this->modelDonHang->addDonHang( $ma_don_hang,$tai_khoan_id,$ten_nguoi_nhan,$sdt_nguoi_nhan,$email_nguoi_nhan,$dia_chi_nguoi_nhan,$ngay_dat,$tong_tien,$ghi_chu,$phuong_thuc_thanh_toan_id,$trang_thai_id);
+
+       
+       $gioHang = $this->modelGioHang->getGioHangFromUser($tai_khoan_id);
+       if($donHang){
+        $chitietgiohang = $this->modelGioHang->getDetailGioHang($gioHang['id']);
+        foreach($chitietgiohang as $detail){
+            $dongia = $detail['gia_khuyen_mai'] ?? $detail['gia_san_pham'];
+            $this->modelDonHang->addchiTietDonHang($donHang,$detail['san_pham_id'],
+                $dongia,$detail['so_luong'],$dongia*$detail['so_luong']);
+        }
+        $this->modelGioHang->clearDetailGioHang($gioHang['id']);
+        $this->modelGioHang->clearGioHang($tai_khoan_id);
+        // header('Location:'. BASE_URL . '?act=lich-su-don-dang');
+        exit();
 
 
+       }else{
+        var_dump('khong thanh cong');
+        exit();
+       }
+       
+}
+
+}
 }

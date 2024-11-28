@@ -33,20 +33,14 @@
                                             </li>
                                             
                                            
-                                            <li><a href="blog-left-sidebar.html">Sản Phẩm <i class="fa fa-angle-down"></i></a>
-                                                <ul class="dropdown">
-                                                    <li><a href="blog-left-sidebar.html">blog left sidebar</a></li>
-                                                    <li><a href="blog-list-left-sidebar.html">blog list left sidebar</a></li>
-                                                    <li><a href="blog-right-sidebar.html">blog right sidebar</a></li>
-                                                    <li><a href="blog-list-right-sidebar.html">blog list right sidebar</a></li>
-                                                    <li><a href="blog-grid-full-width.html">blog grid full width</a></li>
-                                                    <li><a href="blog-details.html">blog details</a></li>
-                                                    <li><a href="blog-details-left-sidebar.html">blog details left sidebar</a></li>
-                                                    <li><a href="blog-details-audio.html">blog details audio</a></li>
-                                                    <li><a href="blog-details-video.html">blog details video</a></li>
-                                                    <li><a href="blog-details-image.html">blog details image</a></li>
+                                            <li><a href="<?= BASE_URL . '?act=san-pham' ?>">Sản Phẩm <i class="fa fa-angle-down"></i></a>
+                                                 <ul class="dropdown">
+                                                 <?php foreach ($listDanhMuc as $danhmuc): ?>
+                                                    <li><a href="<?= BASE_URL.'?act=listProduct&id_danh_muc='.$danhmuc['id'] ?>"><?= $danhmuc['ten_danh_muc'] ?></a></li>
+                                                    <? endforeach; ?>
+                                                    
                                                 </ul>
-                                            </li>
+                                            </li> 
                                             <li><a href="contact-us.html">Giới thiệu</a></li>
                                             <li><a href="contact-us.html">Liên Hệ</a></li>
                                         </ul>

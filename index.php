@@ -11,7 +11,9 @@ require_once './controllers/HomeController.php';
 require_once './models/Student.php';
 require_once './models/SanPham.php';
 require_once './models/TaiKhoan.php';
+require_once './models/DanhMuc.php';
 require_once './models/GioHang.php';
+require_once './models/DonHang.php';
 
 
 // Route
@@ -32,11 +34,15 @@ match ($act) {
     '/' => (new HomeController())->home(), // TH dac biet
 
     'trangChu' => (new HomeController())->trangChu(),
+    'san-pham' => (new HomeController())->sanPham(),
+    
     // BASE_URL/?act=trangchu
 
     'chiTietSanPham' => (new HomeController())->chiTietSanPham(),
     'them-gio-hang' => (new HomeController())->addGioHang(),
     'gio-hang' => (new HomeController())->gioHang(),
+    'thanh-toan' => (new HomeController())->thanhToan(),
+    'xu-ly-thanh-toan' => (new HomeController())->postThanhToan(),
     //auth
     'login' => (new HomeController())->formLogin(),
     'check-login' => (new HomeController())->postLogin(),
