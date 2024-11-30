@@ -1,6 +1,6 @@
 <?php require_once 'views/layout/header.php'; ?>
 <?php require_once 'views/layout/menu.php'; ?>
-<?php require_once 'views/layout/miniCart.php'; ?>
+
 <main>
     <!-- breadcrumb area start -->
     <div class="breadcrumb-area">
@@ -35,7 +35,7 @@
                                 
                                     <ul class="shop-categories">
                                     <?php foreach ($listDanhMuc as $danhmuc): ?>
-                                        <li><a href="<?= BASE_URL.'?act=listProduct&id_danh_muc='.$danhmuc['id'] ?>"><?= $danhmuc['ten_danh_muc'] ?></a></li>
+                                        <li><a href="<?= BASE_URL.'?act=san-pham-theo-danh-muc&id_danh_muc='.$danhmuc['id'] ?>"><?= $danhmuc['ten_danh_muc'] ?></a></li>
                                         <? endforeach; ?>
                                     </ul>
 

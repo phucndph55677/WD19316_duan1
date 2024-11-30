@@ -51,6 +51,92 @@ class DonHang
         echo "Loi" . $e->getMessage();
     }
     }
+    public function getDonHangFromUser ($tai_khoan_id){
+       try {
+          $sql = 'SELECT * FROM don_hangs WHERE tai_khoan_id = :tai_khoan_id';
+
+          $stmt = $this->conn->prepare($sql);
+
+          $stmt->execute([
+              ':tai_khoan_id' => $tai_khoan_id
+          ]) ;
+          return $stmt->fetchAll(PDO::FETCH_ASSOC);
+       } catch (Exception $e) {
+        echo "Loi" . $e->getMessage();
+    }
+    }
+    public function getTrangThaiDonHang (){
+       try {
+          $sql = 'SELECT * FROM trang_thai_don_hangs ';
+
+          $stmt = $this->conn->prepare($sql);
+
+          $stmt->execute([]) ;
+          return $stmt->fetchAll(PDO::FETCH_ASSOC);
+       } catch (Exception $e) {
+        echo "Loi" . $e->getMessage();
+    }
+    }
+      
+    
+    public function getPhuongThucThanhToan (){
+       try {
+          $sql = 'SELECT * FROM phuong_thuc_thanh_toans ';
+          $stmt = $this->conn->prepare($sql);
+
+          $stmt->execute([]) ;
+          return $stmt->fetchAll(PDO::FETCH_ASSOC);
+       } catch (Exception $e) {
+        echo "Loi" . $e->getMessage();
+    }
+    }
+      
+    public function getDonHangById ($don_hang_id){
+       try {
+          $sql = 'SELECT * FROM don_hangs WHERE id = :id';
+          $stmt = $this->conn->prepare($sql);
+
+          $stmt->execute([
+            ':id' => $don_hang_id
+          ]) ;
+          return $stmt->fetch(PDO::FETCH_ASSOC);
+       } catch (Exception $e) {
+        echo "Loi" . $e->getMessage();
+    }
+    }
+      
+    public function updateTrangThaiDonHang ($don_hang_id,$trang_thai_id){
+       try {
+          $sql = 'UPDATE don_hangs SET trang_thai_id = :trang_thai_id WHERE id = :id';
+          $stmt = $this->conn->prepare($sql);
+
+          $stmt->execute([
+            ':trang_thai_id' => $trang_thai_id,
+            ':id' => $don_hang_id
+          ]) ;
+          return true;
+       } catch (Exception $e) {
+        echo "Loi" . $e->getMessage();
+    }
+    }
+    public function getChiTietDonHangById ($don_hang_id){
+       try {
+          $sql = 'SELECT chi_tiet_don_hangs.*,san_phams.ten_san_pham ,san_phams.hinh_anh 
+          FROM chi_tiet_don_hangs 
+          INNER JOIN san_phams ON chi_tiet_don_hangs.san_pham_id = san_phams.id
+          WHERE chi_tiet_don_hangs.don_hang_id = :id ';
+          
+          $stmt = $this->conn->prepare($sql);
+
+          $stmt->execute([
+            
+            ':id' => $don_hang_id
+          ]) ;
+          return $stmt->fetchAll(PDO::FETCH_ASSOC);
+       } catch (Exception $e) {
+        echo "Loi" . $e->getMessage();
+    }
+    }
       
     
 }

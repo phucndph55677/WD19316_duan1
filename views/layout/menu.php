@@ -36,7 +36,7 @@
                                             <li><a href="<?= BASE_URL . '?act=san-pham' ?>">Sản Phẩm <i class="fa fa-angle-down"></i></a>
                                                  <ul class="dropdown">
                                                  <?php foreach ($listDanhMuc as $danhmuc): ?>
-                                                    <li><a href="<?= BASE_URL.'?act=listProduct&id_danh_muc='.$danhmuc['id'] ?>"><?= $danhmuc['ten_danh_muc'] ?></a></li>
+                                                    <li><a href="<?= BASE_URL.'?act=san-pham-theo-danh-muc&id_danh_muc='.$danhmuc['id'] ?>"><?= $danhmuc['ten_danh_muc'] ?></a></li>
                                                     <? endforeach; ?>
                                                     
                                                 </ul>
@@ -85,6 +85,8 @@
                                             <?php }else{ ?>
                                                
                                                 <li><a href="my-account.html">Tài Khoản</a></li>
+                                                <li><a href="<?= BASE_URL. '?act=lich-su-mua-hang' ?>">Lịch Sử Mua Hàng</a></li>
+
                                                 <li><a href="<?= BASE_URL. '?act=log-out' ?>">Đăng Xuất</a></li>
                                                 <?php }?>
                                             </ul>
@@ -93,7 +95,7 @@
                                        
                                         <li>
                                             
-                                            <a href="#" class="minicart-btn">
+                                            <a href="<?= BASE_URL. '?act=gio-hang' ?>" class="minicart-btn">
                                                 <i class="pe-7s-shopbag"></i>
                                                 <div class="notification">2</div>
                                             </a>
@@ -112,4 +114,4 @@
        
     </header>
     <!-- end Header Area -->
-    <?php include './views/layout/miniCart.php'; ?>
+  

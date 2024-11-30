@@ -55,9 +55,8 @@
                                     </td>
                                     <td class="pro-quantity">
                                         <div class="pro-qty">
-                                            <span class="dec qtybtn"></span>
-                                            <input type="text" min="1" value="3" data-price="50.00" class="quantity-input">
-                                            <span class="inc qtybtn"></span>
+                                            
+                                            <input type="text" min="1" value="<?= $value['so_luong'] ?>" data-price="<?= $value['gia_khuyen_mai'] ?: $value['gia_san_pham'] ?>" class="quantity-input">                                          
                                         </div>
                                     </td>
                                     <td class="pro-subtotal">
@@ -126,65 +125,72 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-    // Cập nhật giỏ hàng
+    // Hàm cập nhật tổng tiền
     const updateCart = () => {
         let grandTotal = 0;
-
-        // Duyệt qua từng dòng trong giỏ hàng để tính lại tổng tiền
         document.querySelectorAll('tbody tr').forEach(row => {
-            const priceInput = row.querySelector('.quantity-input');
-            
-            if (!priceInput) {
-                return; // Nếu không tìm thấy input, bỏ qua dòng này
-            }
+            const input = row.querySelector('.quantity-input');
+            const price = parseFloat(input.dataset.price) || 0;
+            const quantity = parseInt(input.value, 10) || 1;
 
-            const price = parseFloat(priceInput.dataset.price);
-            const quantity = parseInt(priceInput.value, 10);
+            // Tính tổng tiền từng sản phẩm
+            const subtotal = price * quantity;
             const subtotalElement = row.querySelector('.pro-subtotal span');
-
-            if (!isNaN(price) && !isNaN(quantity)) {
-                const subtotal = price * quantity;
+            if (subtotalElement) {
                 subtotalElement.textContent = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(subtotal);
-                grandTotal += subtotal;
             }
+
+            grandTotal += subtotal; // Cộng tổng tiền
         });
 
-        // Cập nhật tổng số tiền giỏ hàng
+        // Cập nhật tổng tiền và tổng với phí vận chuyển
+        const shippingFee = 200000; // Phí vận chuyển cố định
         document.querySelector('.cart-total span').textContent = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(grandTotal);
-        document.querySelector('.total-amount span').textContent = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(grandTotal + 200000); // Phí vận chuyển
+        document.querySelector('.total-amount span').textContent = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(grandTotal + shippingFee);
     };
 
-    // Xử lý khi nhấn nút giảm số lượng
+    // Gán sự kiện cho nút tăng
+    document.querySelectorAll('.inc').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const input = btn.closest('.pro-qty').querySelector('.quantity-input');
+            let currentValue = parseInt(input.value, 10) || 1;
+
+            if (currentValue > 1) {
+                input.value = currentValue + 1; // Giảm đúng 1
+                updateCart(); // Cập nhật lại giỏ hàng
+            }
+        });
+    });
+    
+    // Gán sự kiện cho nút giảm
     document.querySelectorAll('.dec').forEach(btn => {
-        btn.addEventListener('click', event => {
-            const input = btn.nextElementSibling; // Trường input nằm sau nút giảm
-            let quantity = parseInt(input.value, 10);
-            if (quantity > 1) {
-                quantity -= 1; // Giảm số lượng
-                input.value = quantity;
-                updateCart();
+        btn.addEventListener('click', () => {
+            const input = btn.closest('.pro-qty').querySelector('.quantity-input');
+            let currentValue = parseInt(input.value, 10) || 1;
+
+            if (currentValue > 1) {
+                input.value = currentValue - 1; // Giảm đúng 1
+                updateCart(); // Cập nhật lại giỏ hàng
             }
         });
     });
 
-    // Xử lý khi nhấn nút tăng số lượng
-    document.querySelectorAll('.inc').forEach(btn => {
-        btn.addEventListener('click', event => {
-            const input = btn.previousElementSibling; // Trường input nằm trước nút tăng
-            let quantity = parseInt(input.value, 10);
-            quantity += 1; // Tăng số lượng
-            input.value = quantity;
-            updateCart();
+    // Khi nhập số lượng trực tiếp
+    document.querySelectorAll('.quantity-input').forEach(input => {
+        input.addEventListener('input', () => {
+            let currentValue = parseInt(input.value, 10);
+
+            if (isNaN(currentValue) || currentValue < 1) {
+                input.value = 1; // Đảm bảo số lượng không nhỏ hơn 1
+            }
+
+            updateCart(); // Cập nhật giỏ hàng sau khi thay đổi
         });
     });
-
-    // Cập nhật giỏ hàng khi người dùng thay đổi trực tiếp số lượng
-    document.querySelectorAll('.quantity-input').forEach(input => {
-        input.addEventListener('input', updateCart);
-    });
-
-    // Khởi tạo giỏ hàng khi trang được tải xong
+    // Khởi tạo giá trị ban đầu
     updateCart();
 });
+
+
 
 </script>

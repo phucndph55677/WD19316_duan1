@@ -6,7 +6,24 @@ class SanPham {
     {
         $this->conn = connectDB();
     }
-
+    public function getSanPhamHot() {
+        try {
+            // Câu truy vấn SQL để lấy sản phẩm hot
+            $sql = 'SELECT * FROM san_phams WHERE gia_khuyen_mai > 0 and ngay_nhap > DATE_SUB(NOW(), INTERVAL 7 DAY)';
+    
+            // Chuẩn bị câu lệnh SQL
+            $stmt = $this->conn->prepare($sql);
+    
+            // Thực thi câu lệnh
+            $stmt->execute();
+    
+            // Trả về tất cả các kết quả
+            return $stmt->fetchAll();
+        } catch (Exception $e) {
+            // Xử lý lỗi và trả về thông báo lỗi
+            echo 'Error: ' . $e->getMessage();
+        }
+    }
     // Viet ham lay toan bo danh sach san pham
     public function getAllSanPham(){
         try {
@@ -100,6 +117,42 @@ class SanPham {
             return $stmt->fetchAll();
         } catch (Exception $e) {
             echo "Lỗi: " . $e->getMessage();
+        }
+    }
+    public function getSanPhamTuDanhMucMeo() {
+        try {
+            // Câu truy vấn SQL trực tiếp lấy sản phẩm từ danh mục "Mèo"
+            $sqlSanPham = 'SELECT * FROM san_phams WHERE danh_muc_id = (SELECT id FROM danh_mucs WHERE ten_danh_muc = "Mèo")';
+    
+            // Chuẩn bị câu lệnh SQL
+            $stmtSanPham = $this->conn->prepare($sqlSanPham);
+    
+            // Thực thi câu lệnh
+            $stmtSanPham->execute();
+    
+            // Trả về tất cả các sản phẩm từ danh mục "Mèo"
+            return $stmtSanPham->fetchAll();
+        } catch (Exception $e) {
+            // Xử lý lỗi và trả về thông báo lỗi
+            echo 'Error: ' . $e->getMessage();
+        }
+    }
+    public function getSanPhamTuDanhMucCho() {
+        try {
+            // Câu truy vấn SQL trực tiếp lấy sản phẩm từ danh mục "Mèo"
+            $sqlSanPham = 'SELECT * FROM san_phams WHERE danh_muc_id = (SELECT id FROM danh_mucs WHERE ten_danh_muc = "Chó")';
+    
+            // Chuẩn bị câu lệnh SQL
+            $stmtSanPham = $this->conn->prepare($sqlSanPham);
+    
+            // Thực thi câu lệnh
+            $stmtSanPham->execute();
+    
+            // Trả về tất cả các sản phẩm từ danh mục "Mèo"
+            return $stmtSanPham->fetchAll();
+        } catch (Exception $e) {
+            // Xử lý lỗi và trả về thông báo lỗi
+            echo 'Error: ' . $e->getMessage();
         }
     }
 

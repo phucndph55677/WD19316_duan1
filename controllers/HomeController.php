@@ -20,6 +20,10 @@ class HomeController
     public function home(){
         $listSanPham = $this->modelSanPham->getAllSanPham();
         $listDanhMuc = $this->modelDanhMuc->getAllDanhMuc();
+        $SanPhamHot = $this->modelSanPham->getSanPhamHot();
+        $SanPhamMeo = $this->modelSanPham->getSanPhamTuDanhMucMeo();
+        $SanPhamCho = $this->modelSanPham->getSanPhamTuDanhMucCho();
+       
         require_once './views/home.php';
 
 
@@ -27,7 +31,14 @@ class HomeController
     public function sanPham(){
         $listSanPham = $this->modelSanPham->getAllSanPham();
         $listDanhMuc = $this->modelDanhMuc->getAllDanhMuc();
+        
         require_once './views/listProduct.php';
+    }
+    public function sanPhamTheoDanhMuc(){
+        $danh_muc_id = $_GET['id_danh_muc'];
+        $listSanPham = $this->modelSanPham->getSanPhamByDanhMuc($danh_muc_id);
+        $listDanhMuc = $this->modelDanhMuc->getAllDanhMuc();
+        require_once './views/listSanPhamDanhMuc.php';
     }
     
     public function trangChu(){
@@ -147,11 +158,11 @@ public function gioHang(){
     }
 }
 
-public function sanPhamTheoDanhMuc() {
-    if (isset($_GET['danh_muc_id'])) {
-        $danhMucId = $_GET['danh_muc_id'];
+public function sanPhamDanhMuc() {
+    if (isset($_GET['id_danh_muc'])) {
+        $danhMucId = $_GET['id_danh_muc'];
         $listSanPham = $this->modelSanPham->getSanPhamByDanhMuc($danhMucId);
-        require_once './views/sanPhamTheoDanhMuc.php';
+        require_once './views/listsanPhamTheoDanhMuc.php';
     } else {
         header("Location: " . BASE_URL);
         exit();
@@ -226,4 +237,71 @@ public function postThanhToan() {
 }
 
 }
+public function lichSuMuaHang() {
+    $listDanhMuc = $this->modelDanhMuc->getAllDanhMuc();
+    if(isset($_SESSION['user_client'])){
+        $user = $this->modelTaiKhoan->getTaiKhoanFromEmail($_SESSION['user_client']);
+        $tai_khoan_id = $user['id'];
+
+        $arrTrangThaiDonHang = $this->modelDonHang->getTrangThaiDonHang();
+        $TrangThaiDonHang = array_column($arrTrangThaiDonHang, 'ten_trang_thai', 'id');
+        $arrphuongThucThanhToan = $this->modelDonHang->getPhuongThucThanhToan();
+        $phuongThucThanhToan = array_column($arrphuongThucThanhToan, 'ten_phuong_thuc', 'id');
+
+        $donHangs = $this->modelDonHang->getDonHangFromUser($tai_khoan_id);
+        require_once './views/lichSuMuaHang.php';
+
+    }else{
+        header('Location:'. BASE_URL . '?act=login');
+        die();
+    }
+
+}
+    public function chiTietMuaHang() {
+    $listDanhMuc = $this->modelDanhMuc->getAllDanhMuc();
+    if(isset($_SESSION['user_client'])){
+        $user = $this->modelTaiKhoan->getTaiKhoanFromEmail($_SESSION['user_client']);
+        $tai_khoan_id = $user['id'];
+        $don_hang_id = $_GET['id'];
+       
+        $arrTrangThaiDonHang = $this->modelDonHang->getTrangThaiDonHang();
+        $TrangThaiDonHang = array_column($arrTrangThaiDonHang, 'ten_trang_thai', 'id');
+        $arrphuongThucThanhToan = $this->modelDonHang->getPhuongThucThanhToan();
+        $phuongThucThanhToan = array_column($arrphuongThucThanhToan, 'ten_phuong_thuc', 'id');
+        $donHang = $this->modelDonHang->getDonHangById($don_hang_id);
+        $chitietdonhang = $this->modelDonHang->getChiTietDonHangById($don_hang_id);
+        if($donHang['tai_khoan_id'] != $tai_khoan_id ){
+           echo 'Bạn Không Có Quyen Xem Đơn Hàng Này';
+        }
+
+        require_once './views/chiTietMuaHang.php';
+    }else{
+        header('Location:'. BASE_URL . '?act=login');
+        die();
+    }
+    }
+public function huyDonHang() {
+    if(isset($_SESSION['user_client'])){
+        $user = $this->modelTaiKhoan->getTaiKhoanFromEmail($_SESSION['user_client']);
+        $tai_khoan_id = $user['id'];
+        $don_hang_id = $_GET['id'];
+        $donHang = $this->modelDonHang->getDonHangById($don_hang_id);
+        if($donHang['tai_khoan_id'] != $tai_khoan_id){
+            echo 'Bạn Không Có Quyen Hủy Đơn Hàng Này';
+            exit();
+        }
+        if($donHang['trang_thai_id'] != 1){
+            echo 'Chỉ Đơn Hàng (Chưa Xác Nhận) Mới Có Thể Hủy';
+            exit();
+
+        }
+        $this->modelDonHang->updateTrangThaiDonHang($don_hang_id,11);
+        header('Location:'. BASE_URL . '?act=lich-su-mua-hang');
+    }else{
+        header('Location:'. BASE_URL . '?act=login');
+        die();
+    }
+
+}
+
 }

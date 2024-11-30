@@ -1,6 +1,6 @@
 <?php require_once './views/layout/header.php';?>
 <?php require_once './views/layout/menu.php';?>
-<?php require_once './views/layout/miniCart.php'; ?>
+
 <body>
    
 
@@ -249,14 +249,75 @@
             <div class="col-12">
                 <!-- section title start -->
                 <div class="section-title text-center">
-                    <h2 class="title">Sản Phẩm Nổi Bật</h2>
+                    <h2 class="title">Mèo Cảnh</h2>
                     <p class="sub-title">Add featured products to weekly lineup</p>
                 </div>
                 <!-- section title end -->
             </div>
         </div>
         <div class="row">
-            <?php foreach ($listSanPham as $key => $sanPham) : ?>
+            <?php foreach ($SanPhamMeo as $key => $sanPham) : ?>
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-4"> <!-- 4 sản phẩm một hàng -->
+                    <div class="product-item">
+                        <figure class="product-thumb">
+                            <a href="<?= BASE_URL . '?act=chiTietSanPham&id_san_pham=' . $sanPham['id'] ?>">
+                                <img class="pri-img" src="<?= BASE_URL . $sanPham['hinh_anh'] ?>" alt="product">
+                                <img class="sec-img" src="<?= BASE_URL . $sanPham['hinh_anh'] ?>" alt="product">
+                            </a>
+                            <div class="product-badge">
+                                <?php
+                                $ngayNhap = new DateTime($sanPham['ngay_nhap']);
+                                $ngayHienTai = new DateTime('now');
+                                $tinhNgay = $ngayHienTai->diff($ngayNhap);
+                                if ($tinhNgay->days <= 7) {
+                                ?>
+                                    <div class="product-label new">
+                                        <span>Mới</span>
+                                    </div>
+                                <?php } ?>
+                                <?php if ($sanPham['gia_khuyen_mai']) { ?>
+                                    <div class="product-label discount">
+                                        <span>Giảm Giá</span>
+                                    </div>
+                                <?php } ?>
+                            </div>
+                            <div class="cart-hover">
+                                <button class="btn btn-cart">Xem Chi Tiết</button>
+                            </div>
+                        </figure>
+                        <div class="product-caption text-center">
+                            <h6 class="product-name">
+                                <a href="<?= BASE_URL . '?act=chiTietSanPham&id_san_pham=' . $sanPham['id'] ?>"><?= $sanPham['ten_san_pham'] ?></a>
+                            </h6>
+                            <div class="price-box">
+                                <?php if ($sanPham['gia_khuyen_mai']) { ?>
+                                    <span class="price-regular"><?= formatPrice($sanPham['gia_khuyen_mai']) . 'đ' ?></span>
+                                    <span class="price-old"><del><?= formatPrice($sanPham['gia_san_pham']) . 'đ' ?></del></span>
+                                <?php } else { ?>
+                                    <span class="price-regular"><?= formatPrice($sanPham['gia_san_pham']) . 'đ' ?></span>
+                                <?php } ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</section>
+        <section class="feature-product section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <!-- section title start -->
+                <div class="section-title text-center">
+                    <h2 class="title">Chó Cảnh</h2>
+                    <p class="sub-title">Add featured products to weekly lineup</p>
+                </div>
+                <!-- section title end -->
+            </div>
+        </div>
+        <div class="row">
+            <?php foreach ($SanPhamCho as $key => $sanPham) : ?>
                 <div class="col-lg-3 col-md-4 col-sm-6 mb-4"> <!-- 4 sản phẩm một hàng -->
                     <div class="product-item">
                         <figure class="product-thumb">
