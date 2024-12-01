@@ -205,6 +205,19 @@ class AdminSanPham {
             echo $e->getMessage();
         }
     }
+    public function getBinhLuanFromKhachHang($id)
+    {
+        try {
+           $sql = 'SELECT binh_luans.* ,trang_thai_don_hangs.ten_trang_thai
+            FROM binh_luans INNER JOIN san_phams ON binh_luans.trang_thai_id = trang_thai_don_hangs.id 
+            WHERE don_hangs.tai_khoan_id = :id';
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([':id' => $id]); // Sửa lỗi ở đây
+            return $stmt->fetchAll();
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+    }
 }
 
 ?>

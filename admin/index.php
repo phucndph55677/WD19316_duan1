@@ -79,7 +79,7 @@ match ($act) {
 
     // 'list-tai-khoan-khach-hang' => (new AdminDonHangController())->listTaiKhoanKhachHang(),
 
-     'list-tai-khoan-ca-nhan' => (new AdminTaiKhoanController())->listTaiKhoanCaNhan(),
+    // 'list-tai-khoan-ca-nhan' => (new AdminTaiKhoanController())->listTaiKhoanCaNhan(),
 
     // Quản lý tài khoản khách hàng
      'list-tai-khoan-khach-hang' => (new AdminTaiKhoanController())->danhSachKhachHang(),
@@ -90,6 +90,7 @@ match ($act) {
      // Route quản lý tài khoản cá nhân (Quản trị)
      'form-sua-thong-tin-ca-nhan-quan-tri' => (new AdminTaiKhoanController())->formEditCaNhanQuanTri(),
      'sua-thong-tin-ca-nhan-quan-tri' => (new AdminTaiKhoanController())->postEditCaNhanQuanTri(),
+     'sua-mat-khau-ca-nhan-quan-tri' => (new AdminTaiKhoanController())->postEditMatKhauCaNhan(),
 
      // Route Auth
      'login-admin' => (new AdminTaiKhoanController())->formLogin(),

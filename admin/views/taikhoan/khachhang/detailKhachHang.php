@@ -154,9 +154,8 @@
                                         <input type="hidden" name="id_khach_hang"
                                             value="<? $binhLuan['tai_khoan_id'] ?>">
                                         <button onclick="return confirm('Bạn Có Muốn ẩn bình luận này không?')"
-                                            class="btn btn-danger">danhSachDanhMuc
-
-                                            < </button>
+                                            class="btn btn-danger">Ẩn/Bỏ ẩn
+                                        </button>
                                     </form>
                                 </td>
                             </tr>

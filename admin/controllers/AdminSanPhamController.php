@@ -359,6 +359,8 @@ class AdminSanPhamController {
         $sanPham = $this->modelSanPham->getDetailSanPham($id);
 
         $listAnhSanPham = $this->modelSanPham->getListAnhSanPham($id);
+
+        $listbinhLuan = $this->modelSanPham->getBinhLuanFromSanPham($id);
         
         if ($sanPham) {
             require_once './views/sanpham/detailSanPham.php';
