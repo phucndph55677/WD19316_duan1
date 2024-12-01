@@ -81,7 +81,7 @@
                         </div>
                         <?php } ?>
 
-                        <form action="<?=BASE_URL_ADMIN . './' ?>" method="post">
+                        <form action="<?=BASE_URL_ADMIN . '?act=sua-mat-khau-ca-nhan-quan-tri' ?>" method="post">
                             <div class="form-group">
                                 <label class="col-md-3 control-label">Mật khẩu cũ:</label>
                                 <div class="col-md-12">
