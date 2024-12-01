@@ -105,9 +105,9 @@ public function postEditQuanTri(){
 }
 public function resetPassword(){
     $id_quan_tri = $_GET['id_quan_tri'];
-    $tai_khoan = $this ->modelTaiKhoan->getDetailTaiKhoan($tai_khoan_id);
+    $tai_khoan = $this ->modelTaiKhoan->getDetailTaiKhoan($id_quan_tri);
     $password = password_hash('123456', PASSWORD_BCRYPT);
-    $Status = $this->modelTaiKhoan->restPassword($id_quan_tri, $password);
+    $Status = $this->modelTaiKhoan->restPassword($password,$id_quan_tri);
    if($Status){
     header("Location: " . BASE_URL_ADMIN . '?act=list-tai-khoan-quan-tri');
     exit();
@@ -268,7 +268,7 @@ public function postEditMatKhauCaNhan(){
         if(!$errors){
             //Thực hiện đổi mật khẩu
             $hashPass = password_hash($new_pass, PASSWORD_BCRYPT);
-            $Status = $this->modelTaiKhoan->resetPassword($user['id'], $hashPass);
+            $Status = $this->modelTaiKhoan->restPassword($user['id'], $hashPass);
             if($Status){
                 $_SESSION['success'] = "Đã đổi mật khẩu thành công";
                 $_SESSION['flash'] = true;

@@ -154,7 +154,8 @@
                                         <input type="hidden" name="id_khach_hang"
                                             value="<? $binhLuan['tai_khoan_id'] ?>">
                                         <button onclick="return confirm('Bạn Có Muốn ẩn bình luận này không?')"
-                                            class="btn btn-danger">Ẩn/Bỏ ẩn
+                                            class="btn btn-warning">
+                                            <?= $binhLuan['trang_thai'] == 1 ? 'Ẩn': ' Bỏ ẩn' ?>
                                         </button>
                                     </form>
                                 </td>
@@ -180,11 +181,11 @@
 </body>
 <script>
 $(function() {
-    $(" #example1").DataTable({
+    $("#example1").DataTable({
         "responsive": true,
         "lengthChange": false,
         "autoWidth": false,
-        ["copy", "csv", "excel", "pdf", "print", "colvis"]
+        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
     $('#example2').DataTable({
         "responsive": true,
@@ -193,5 +194,6 @@ $(function() {
     });
 });
 </script>
+
 
 </html>

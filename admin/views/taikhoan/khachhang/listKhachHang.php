@@ -48,15 +48,15 @@
                                     <?php foreach($listKhachHang as $key=>$KhachHang): ?>
                                     <tr>
                                         <td><?= $key + 1 ?></td>
-                                        <td><?= $$KhachHang['ho_ten'] ?></td>
-                                        <td><?= $$KhachHang['so_dien_thoai'] ?></td>
+                                        <td><?= $KhachHang['ho_ten'] ?></td>
+                                        <td><?= $KhachHang['so_dien_thoai'] ?></td>
                                         <td>
                                             <img src="<?= BASE_URL . $KhachHang['anh_dai_dien'] ?>" style="width: 100px"
                                                 alt=""
                                                 onerror="this.onerror=null; this.src='https://i.pinimg.com/564x/59/36/69/5936698bace4c5852463a2581e890bec.jpg'">
                                         </td>
-                                        <td><?= $$KhachHang['email'] ?></td>
-                                        <td class><?= $$KhachHang['trang_thai']==1 ?'Active':'Inactive' ?></td>
+                                        <td><?= $KhachHang['email'] ?></td>
+                                        <td class><?= $KhachHang['trang_thai']==1 ?'Active':'Inactive' ?></td>
                                         <td>
                                             <div class="btn-group">
                                                 <a
