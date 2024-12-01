@@ -212,7 +212,7 @@ public function postThanhToan() {
        $user = $this->modelTaiKhoan->getTaiKhoanFromEmail($_SESSION['user_client']);
        $tai_khoan_id = $user['id'];
        
-       $donHang = $this->modelDonHang->addDonHang( $ma_don_hang,$tai_khoan_id,$ten_nguoi_nhan,$sdt_nguoi_nhan,$email_nguoi_nhan,$dia_chi_nguoi_nhan,$ngay_dat,$tong_tien,$ghi_chu,$phuong_thuc_thanh_toan_id,$trang_thai_id);
+       $donHang = $this->modelDonHang->addDonHang( $ma_don_hang,$tai_khoan_id,$ten_nguoi_nhan,$email_nguoi_nhan,$sdt_nguoi_nhan,$dia_chi_nguoi_nhan,$ngay_dat,$tong_tien,$ghi_chu,$phuong_thuc_thanh_toan_id,$trang_thai_id);
 
        
        $gioHang = $this->modelGioHang->getGioHangFromUser($tai_khoan_id);

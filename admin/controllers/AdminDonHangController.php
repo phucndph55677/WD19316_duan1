@@ -42,9 +42,8 @@ if (session_status() === PHP_SESSION_NONE) {
             // Lay ra du lieu
            $id = $_POST['id'];
            $ten_nguoi_nhan = $_POST['ten_nguoi_nhan'];
-           $sdt_nguoi_nhan = $_POST['sdt_nguoi_nhan'];
-          
            $email_nguoi_nhan = $_POST['email_nguoi_nhan'];
+           $sdt_nguoi_nhan = $_POST['sdt_nguoi_nhan'];
            $dia_chi_nguoi_nhan = $_POST['dia_chi_nguoi_nhan'];
            $ghi_chu = $_POST['ghi_chu'];
            $trang_thai_id = $_POST['trang_thai_id'];
@@ -77,7 +76,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
             
             if (empty($errors)) {
-                $this->modelDonHang->updateDonHang($id, $ten_nguoi_nhan, $sdt_nguoi_nhan, $email_nguoi_nhan, $dia_chi_nguoi_nhan, $ghi_chu, $trang_thai_id);
+                $this->modelDonHang->updateDonHang($id, $ten_nguoi_nhan, $email_nguoi_nhan, $sdt_nguoi_nhan, $dia_chi_nguoi_nhan, $ghi_chu, $trang_thai_id);
                 header("Location: " . BASE_URL_ADMIN . '?act=don-hang');
                 exit();
                

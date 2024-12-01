@@ -56,7 +56,7 @@
                     <td><?= $donhang['ten_nguoi_nhan'] ?></td>
                     <td><?= $donhang['sdt_nguoi_nhan'] ?></td>
                     <td><?= formatDate($donhang['ngay_dat']) ?></td>
-                    <td><?= $donhang['tong_tien'] ?></td>
+                    <td><?=formatPrice($donhang['tong_tien']).'đ'; ?></td>
                     <td><?= $donhang['ten_trang_thai'] ?></td>
                     
                     

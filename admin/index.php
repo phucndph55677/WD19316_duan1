@@ -73,21 +73,17 @@ match ($act) {
     // Resset password
     'rest-password' => (new AdminTaiKhoanController())->resetPassword(),
 
-    ///route user
-    // 'list-tai-khoan-quan-tri' => (new AdminDonHangController())->listTaiKhoanQuanTri(),
-
-
-    // 'list-tai-khoan-khach-hang' => (new AdminDonHangController())->listTaiKhoanKhachHang(),
-
-     'list-tai-khoan-ca-nhan' => (new AdminTaiKhoanController())->listTaiKhoanCaNhan(),
+    
+   
 
     // Quản lý tài khoản khách hàng
      'list-tai-khoan-khach-hang' => (new AdminTaiKhoanController())->danhSachKhachHang(),
      'form-sua-khach-hang' => (new AdminTaiKhoanController()) ->formEditKhachHang(),
      'sua-khach-hang' => (new AdminTaiKhoanController())->postEditKhachHang(),    
-     'chi-tiet-khach-hang' => (new AdminTaiKhoanController())->deltailKhachHang(),
+     'chi-tiet-khach-hang' => (new AdminTaiKhoanController())->detailKhachHang(),
 
      // Route quản lý tài khoản cá nhân (Quản trị)
+     // 'list-tai-khoan-ca-nhan' => (new AdminTaiKhoanController())->listTaiKhoanCaNhan(),
      'form-sua-thong-tin-ca-nhan-quan-tri' => (new AdminTaiKhoanController())->formEditCaNhanQuanTri(),
      'sua-thong-tin-ca-nhan-quan-tri' => (new AdminTaiKhoanController())->postEditCaNhanQuanTri(),
 

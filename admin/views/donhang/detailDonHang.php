@@ -92,7 +92,7 @@
                         <div class="col-sm-4 invoice-col">
                             <b>Mã Đơn Hàng: <?= $donHang['ma_don_hang'] ?></b><br>
                             <br>
-                            <b>Tổng Tiền:</b> <?= $donHang['tong_tien'] ?><br>
+                            <b>Tổng Tiền:</b> <?=formatDate($donHang['tong_tien']).'đ' ?><br>
                             <b>Ghi Chú:</b> <?= $donHang['ghi_chu'] ?><br>
                             <b>Phương Thức:</b> <?= $donHang['ten_phuong_thuc'] ?>
                         </div>
@@ -119,9 +119,9 @@
                                     <tr>
                                         <td><?= $key + 1 ?></td>
                                         <td><?= $SP['ten_san_pham'] ?></td>
-                                        <td>$<?= $SP['don_gia'] ?></td>
+                                        <td><?= formatPrice($SP['don_gia']).'đ' ?></td>
                                         <td><?= $SP['so_luong'] ?></td>
-                                        <td><?= $SP['thanh_tien'] ?></td>
+                                        <td><?=formatPrice ($SP['thanh_tien']).'đ' ?></td>
                                     </tr>
                                     <? $tongtien+=$SP['thanh_tien']; ?>
                                   <?endforeach?>
@@ -143,16 +143,16 @@
                                 <table class="table">
                                     <tr>
                                         <th style="width:50%">Thành Tiền:</th>
-                                        <td><?= $tongtien ?></td>
+                                        <td><?= formatPrice($tongtien).'đ';?></td>
                                     </tr>
                                     
                                     <tr>
                                         <th>Phí Vận Chuyển:</th>
-                                        <td>200.000</td>
+                                        <td>200.000đ</td>
                                     </tr>
                                     <tr>
                                         <th>Tổng Tiền:</th>
-                                        <td><?=$tongtien+200000?></td>
+                                        <td><?=formatPrice($tongtien+200000).'đ'?></td>
                                     </tr>
                                 </table>
                             </div>

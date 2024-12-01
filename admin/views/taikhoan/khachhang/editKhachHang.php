@@ -30,17 +30,17 @@
           <div class="col-12">
           <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Sửa Thông Tin Tài Khoản Khách Hàng:<?= $KhachHang['ho_ten'] ?>  </h3>
+                <h3 class="card-title">Sửa Thông Tin Tài Khoản Khách Hàng:<?= $khachHang['ho_ten'] ?>  </h3>
               </div>
       
               <form action="<?= BASE_URL_ADMIN . '?act=sua-khach-hang' ?>" method="POST">
-               <input type="hidden" name="khach_hang_id" value="<?= $KhachHang['id'] ?>">
+               <input type="hidden" name="khach_hang_id" value="<?= $khachHang['id'] ?>">
                
                 <div class="card-body">
                   <div class="form-group">
                     
                     <label>Họ Tên</label>
-                    <input type="text" class="form-control" name="ho_ten" placeholder="Nhập Họ Tên" value="<?= $KhachHang['ho_ten'] ?>">
+                    <input type="text" class="form-control" name="ho_ten" placeholder="Nhập Họ Tên" value="<?= $khachHang['ho_ten'] ?>">
                     <?php if (isset($_SESSION['error']['ho_ten'])) { ?>
                         <p class="text-danger"><?= $_SESSION['error']['ho_ten'] ?></p>
                        
@@ -48,21 +48,21 @@
                   </div>
                   <div class="form-group">
                     <label>Email</label>
-                    <input type="email" class="form-control" name="email" placeholder="Nhập Email" value="<?= $KhachHang['email'] ?>">
+                    <input type="email" class="form-control" name="email" placeholder="Nhập Email" value="<?= $khachHang['email'] ?>">
                     <?php if (isset($_SESSION['error']['email'])) { ?>
                         <p class="text-danger"><?= $_SESSION['error']['email'] ?></p>
                     <?php } ?>
                   </div>
                   <div class="form-group">
                     <label>Số Điện Thoại</label>
-                    <input type="text" class="form-control" name="so_dien_thoai" placeholder="Nhập Số Điện Thoại" value="<?= $KhachHang['so_dien_thoai'] ?>">
+                    <input type="text" class="form-control" name="so_dien_thoai" placeholder="Nhập Số Điện Thoại" value="<?= $khachHang['so_dien_thoai'] ?>">
                     <?php if (isset($_SESSION['error']['so_dien_thoai'])) { ?>
                         <p class="text-danger"><?= $_SESSION['error']['so_dien_thoai'] ?></p>
                     <?php } ?>
                   </div>
                   <div class="form-group">
                     <label>Ngày sinh</label>
-                    <input type="date" class="form-control" name="ngay_sinh" value="<?= $KhachHang['ngay_sinh'] ?>">
+                    <input type="date" class="form-control" name="ngay_sinh" value="<?= $khachHang['ngay_sinh'] ?>">
                     <?php if (isset($_SESSION['error']['so_dien_thoai'])) { ?>
                         <p class="text-danger"><?= $_SESSION['error']['ngay_sinh'] ?></p>
                     <?php } ?>
@@ -70,13 +70,13 @@
                   <div class="form-group">
                     <label>Giới tính</label>
                     <select name="gioi_tinh" class="form-control">
-                        <option value="1" <?=$KhachHang['gioi_tinh'] == 1 ? 'selected' : ''?>>Nam</option>
-                        <option value="0" <?=$KhachHang['gioi_tinh'] == 0 ? 'selected' : ''?>>Nữ</option>
+                        <option value="1" <?=$khachHang['gioi_tinh'] == 1 ? 'selected' : ''?>>Nam</option>
+                        <option value="0" <?=$khachHang['gioi_tinh'] == 0 ? 'selected' : ''?>>Nữ</option>
                     </select>
                   </div>
                   <div class="form-group">
                     <label>Địa chỉ</label>
-                    <input type="text" class="form-control" name="dia_chi" placeholder="Nhập địa chỉ" value="<?= $KhachHang['so_dien_thoai'] ?>">
+                    <input type="text" class="form-control" name="dia_chi" placeholder="Nhập địa chỉ" value="<?= $khachHang['so_dien_thoai'] ?>">
                     <?php if (isset($_SESSION['error']['dia_chi'])) { ?>
                         <p class="text-danger"><?= $_SESSION['error']['dia_chi'] ?></p>
                     <?php } ?>
@@ -84,8 +84,8 @@
                   <div class="form-group">
                     <label>Trạng Thái</label>
                     <select name="trang_thai" class="form-control">
-                        <option value="1" <?=$KhachHang['trang_thai'] == 1 ? 'selected' : ''?>>Active</option>
-                        <option value="0" <?=$KhachHang['trang_thai'] == 0 ? 'selected' : ''?>>Inactive</option>
+                        <option value="1" <?=$khachHang['trang_thai'] == 1 ? 'selected' : ''?>>Active</option>
+                        <option value="0" <?=$khachHang['trang_thai'] == 0 ? 'selected' : ''?>>Inactive</option>
                     </select>
                     <?php if (isset($_SESSION['error']['trang_thai'])) { ?>
                         <p class="text-danger"><?= $_SESSION['error']['trang_thai'] ?></p>

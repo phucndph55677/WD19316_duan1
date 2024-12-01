@@ -70,7 +70,7 @@ class AdminDonHang
         }
     }
         
-    public function updateDonHang($id, $ten_nguoi_nhan, $sdt_nguoi_nhan, $email_nguoi_nhan, $dia_chi_nguoi_nhan, $ghi_chu, $trang_thai_id) {
+    public function updateDonHang($id, $ten_nguoi_nhan, $email_nguoi_nhan, $sdt_nguoi_nhan, $dia_chi_nguoi_nhan, $ghi_chu, $trang_thai_id) {
         try {
         $sql = 'UPDATE don_hangs SET 
         ten_nguoi_nhan = :ten_nguoi_nhan, 
@@ -86,8 +86,9 @@ class AdminDonHang
                 
         ':id' => $id,
         ':ten_nguoi_nhan' => $ten_nguoi_nhan,
-        ':sdt_nguoi_nhan' => $sdt_nguoi_nhan,
         ':email_nguoi_nhan' => $email_nguoi_nhan,
+        ':sdt_nguoi_nhan' => $sdt_nguoi_nhan,
+        
         ':dia_chi_nguoi_nhan' => $dia_chi_nguoi_nhan,
         ':ghi_chu' => $ghi_chu,
         ':trang_thai_id' => $trang_thai_id

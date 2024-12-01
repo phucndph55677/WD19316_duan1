@@ -31,7 +31,7 @@
 
                 <div class="col-md-3">
                     <div class="text-center">
-                        <img src="<?= BASE_URL . $thongTin['anh_dai_dien']?>" style="width: 100px"
+                        <img src="<?= BASE_URL_ADMIN . $thongTin['anh_dai_dien']?>" style="width: 100px"
                             class="avatar img-circle" alt="avatar"
                             onerror="this.onerror=null; this.src='https://i.pinimg.com/564x/59/36/69/5936698bace4c5852463a2581e890bec.jpg'">
 
@@ -51,50 +51,17 @@
                             <div class="form-group">
                                 <label class="col-lg-3 control-label">Họ tên:</label>
                                 <div class="col-lg-12">
-                                    <input class="form-control" type="text" value="" name="name">
+                                    <input class="form-control" type="text" value="<?= $thongTin['ho_ten']?>" name="name">
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="col-lg-3 control-label">Last name:</label>
-                                <div class="col-lg-12">
-                                    <input class="form-control" type="text" value="Bishop">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-lg-3 control-label">Company:</label>
-                                <div class="col-lg-12">
-                                    <input class="form-control" type="text" value="">
-                                </div>
-                            </div>
+                         
                             <div class="form-group">
                                 <label class="col-lg-3 control-label">Email:</label>
                                 <div class="col-lg-12">
-                                    <input class="form-control" type="text" value="janesemail@gmail.com">
+                                    <input class="form-control" type="text" value="<?= $thongTin['email']?>">
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="col-lg-3 control-label">Time Zone:</label>
-                                <div class="col-lg-12">
-                                    <div class="ui-select">
-                                        <select id="user_time_zone" class="form-control">
-                                            <option value="Hawaii">(GMT-10:00) Hawaii</option>
-                                            <option value="Alaska">(GMT-09:00) Alaska</option>
-                                            <option value="Pacific Time (US &amp; Canada)">(GMT-08:00) Pacific Time (US
-                                                &amp; Canada)</option>
-                                            <option value="Arizona">(GMT-07:00) Arizona</option>
-                                            <option value="Mountain Time (US &amp; Canada)">(GMT-07:00) Mountain Time
-                                                (US
-                                                &amp; Canada)</option>
-                                            <option value="Central Time (US &amp; Canada)" selected="selected">
-                                                (GMT-06:00)
-                                                Central Time (US &amp; Canada)</option>
-                                            <option value="Eastern Time (US &amp; Canada)">(GMT-05:00) Eastern Time (US
-                                                &amp; Canada)</option>
-                                            <option value="Indiana (East)">(GMT-05:00) Indiana (East)</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
+                           
                             <div class="form-group">
                                 <label class="col-md-3 control-label"></label>
                                 <div class="col-md-12">
