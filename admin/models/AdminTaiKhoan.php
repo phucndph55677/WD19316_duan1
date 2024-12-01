@@ -128,13 +128,13 @@ class AdminTaiKhoan{
         try{
             $sql = "SELECT * FROM tai_khoans WHERE email = :email";
             $stmt = $this->conn->prepare($sql);
-            $stmt->excute(['email'=>$email]);
+            $stmt->execute(['email'=>$email]);
             $user = $stmt->fetch();
 
             if ($user && password_verify($mat_khau,$user['mat_khau'])) {
                 if ($user['chuc_vu_id'] == 1) {
                     if  ($user['trang_thai'] == 1){
-                        return true;
+                        return $user['email'];
                     }else{
                         return "Tài khoản bị cấm";
                     }
@@ -149,4 +149,5 @@ class AdminTaiKhoan{
             return false;
         }
     }
+   
 }

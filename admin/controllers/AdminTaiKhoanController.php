@@ -204,7 +204,7 @@ public function login(){
 
         $user = $this->modelTaiKhoan->checkLogin($email, $password);
 
-        if ($user){
+        if ($user == $email){
             //Trường hợp đăng nhập thành công
             //Lưu thông tin vào SESSION
             $_SESSION['user_admin'] = $user;
@@ -213,12 +213,19 @@ public function login(){
         }else{
             //Trường hợp lỗi thì lưu lỗi vào SESSION
             $_SESSION['error'] = $user;
+            // var_dump($_SESSION['error']);die;
 
             $_SESSION['flash'] = true;
 
             header("Location: " . BASE_URL_ADMIN .'?act=login-admin');
             exit();
         }
+    }
+}
+public function logout(){
+    if (isset($_SESSION['user_admin'])){
+        unset($_SESSION['user_admin']);
+        header("Location:" . BASE_URL_ADMIN . '?act=login-admin');
     }
 }
 }

@@ -74,4 +74,10 @@ function formatPrice($price) {
     return number_format($price, 0, '', '.');
 }
 
+function checkloginAdmin(){
+    if(!isset($_SESSION['user_admin'])){
+        require_once './views/auth/formLogin.php';
+        exit();
+    }
+}
 // Debug
