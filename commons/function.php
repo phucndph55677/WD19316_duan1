@@ -53,6 +53,7 @@ function deleteSessionError() {
     if (isset($_SESSION['flash'])) {
         // Huy session sau khi da tai trang
         unset($_SESSION['flash']);
+        unset($_SESSION['error']);
         session_unset();
         session_destroy();
     }
@@ -76,7 +77,7 @@ function formatPrice($price) {
 
 function checkloginAdmin(){
     if(!isset($_SESSION['user_admin'])){
-        require_once './views/auth/formLogin.php';
+        header("Location: " . BASE_URL_ADMIN . '?act=login-admin');
         exit();
     }
 }
