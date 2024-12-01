@@ -97,7 +97,7 @@
                                             
                                             <a href="<?= BASE_URL. '?act=gio-hang' ?>" class="minicart-btn">
                                                 <i class="pe-7s-shopbag"></i>
-                                                <div class="notification">2</div>
+                                               
                                             </a>
                                         </li>
                                     </ul>

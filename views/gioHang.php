@@ -56,9 +56,9 @@
                                     <td class="pro-quantity">
                                         <div class="pro-qty">
                                             
-                                            <input type="text" min="1" value="<?= $value['so_luong'] ?>" data-price="<?= $value['gia_khuyen_mai'] ?: $value['gia_san_pham'] ?>" class="quantity-input">                                          
-                                        </div>
-                                    </td>
+                                       
+                                        <input type="text"  value="<?= $value['so_luong'] ?>" data-price="<?= $value['gia_khuyen_mai'] ?: $value['gia_san_pham'] ?>" class="quantity-input">    
+                                                                  </td>
                                     <td class="pro-subtotal">
                                         <span><?= formatPrice(($value['gia_khuyen_mai'] ?: $value['gia_san_pham']) * $value['so_luong']) . 'đ'; ?></span>
                                     </td>
@@ -123,74 +123,3 @@
 <?php require_once 'views/layout/footer.php'; ?>
 
 
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    // Hàm cập nhật tổng tiền
-    const updateCart = () => {
-        let grandTotal = 0;
-        document.querySelectorAll('tbody tr').forEach(row => {
-            const input = row.querySelector('.quantity-input');
-            const price = parseFloat(input.dataset.price) || 0;
-            const quantity = parseInt(input.value, 10) || 1;
-
-            // Tính tổng tiền từng sản phẩm
-            const subtotal = price * quantity;
-            const subtotalElement = row.querySelector('.pro-subtotal span');
-            if (subtotalElement) {
-                subtotalElement.textContent = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(subtotal);
-            }
-
-            grandTotal += subtotal; // Cộng tổng tiền
-        });
-
-        // Cập nhật tổng tiền và tổng với phí vận chuyển
-        const shippingFee = 200000; // Phí vận chuyển cố định
-        document.querySelector('.cart-total span').textContent = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(grandTotal);
-        document.querySelector('.total-amount span').textContent = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(grandTotal + shippingFee);
-    };
-
-    // Gán sự kiện cho nút tăng
-    document.querySelectorAll('.inc').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const input = btn.closest('.pro-qty').querySelector('.quantity-input');
-            let currentValue = parseInt(input.value, 10) || 1;
-
-            if (currentValue > 1) {
-                input.value = currentValue + 1; // Giảm đúng 1
-                updateCart(); // Cập nhật lại giỏ hàng
-            }
-        });
-    });
-    
-    // Gán sự kiện cho nút giảm
-    document.querySelectorAll('.dec').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const input = btn.closest('.pro-qty').querySelector('.quantity-input');
-            let currentValue = parseInt(input.value, 10) || 1;
-
-            if (currentValue > 1) {
-                input.value = currentValue - 1; // Giảm đúng 1
-                updateCart(); // Cập nhật lại giỏ hàng
-            }
-        });
-    });
-
-    // Khi nhập số lượng trực tiếp
-    document.querySelectorAll('.quantity-input').forEach(input => {
-        input.addEventListener('input', () => {
-            let currentValue = parseInt(input.value, 10);
-
-            if (isNaN(currentValue) || currentValue < 1) {
-                input.value = 1; // Đảm bảo số lượng không nhỏ hơn 1
-            }
-
-            updateCart(); // Cập nhật giỏ hàng sau khi thay đổi
-        });
-    });
-    // Khởi tạo giá trị ban đầu
-    updateCart();
-});
-
-
-
-</script>
