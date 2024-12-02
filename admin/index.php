@@ -63,13 +63,13 @@ match ($act) {
     // route donhang
     'don-hang' => (new AdminDonHangController())->danhSachDonHang(),
 
-     'chi-tiet-don-hang' => (new AdminDonHangController())->detailDonHang(),
+    'chi-tiet-don-hang' => (new AdminDonHangController())->detailDonHang(),
 
-     'form-sua-don-hang' => (new AdminDonHangController())->formEditDonHang(),
+    'form-sua-don-hang' => (new AdminDonHangController())->formEditDonHang(),
 
-      'sua-don-hang' => (new AdminDonHangController())->postEditDonHang(),
+    'sua-don-hang' => (new AdminDonHangController())->postEditDonHang(),
 
-      // 'sua-don-hang' => (new AdminDonHangController())->postEditDonHang(),
+    // 'sua-don-hang' => (new AdminDonHangController())->postEditDonHang(),
 
     ///route user
     'list-tai-khoan-quan-tri' => (new AdminTaiKhoanController())->danhsachQuanTri(1),
@@ -82,7 +82,7 @@ match ($act) {
 
     'sua-quan-tri' => (new AdminTaiKhoanController())->postEditQuanTri(),
 
-    'rest-password' => (new AdminTaiKhoanController())->resetPassword()
+    'rest-password' => (new AdminTaiKhoanController())->resetPassword(),
 
    
       
@@ -93,6 +93,10 @@ match ($act) {
 
     // 'list-tai-khoan-khach-hang' => (new AdminDonHangController())->listTaiKhoanKhachHang(),
 
-    // 'list-tai-khoan-ca-nhan' => (new AdminDonHangController())->listTaiKhoanCaNhan()
+    // 'list-tai-khoan-ca-nhan' => (new AdminDonHangController())->listTaiKhoanCaNhan(),
 
+  // route auth
+  'login-admin' => (new AdminTaiKhoanController())->formLogin(),
+
+  'check-login-admin' => (new AdminTaiKhoanController())->login()
 };
