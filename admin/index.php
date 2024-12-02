@@ -63,13 +63,13 @@ match ($act) {
     // route donhang
     'don-hang' => (new AdminDonHangController())->danhSachDonHang(),
 
-     'chi-tiet-don-hang' => (new AdminDonHangController())->detailDonHang(),
+    'chi-tiet-don-hang' => (new AdminDonHangController())->detailDonHang(),
 
-     'form-sua-don-hang' => (new AdminDonHangController())->formEditDonHang(),
+    'form-sua-don-hang' => (new AdminDonHangController())->formEditDonHang(),
 
-      'sua-don-hang' => (new AdminDonHangController())->postEditDonHang(),
+    'sua-don-hang' => (new AdminDonHangController())->postEditDonHang(),
 
-      // 'sua-don-hang' => (new AdminDonHangController())->postEditDonHang(),
+    // 'sua-don-hang' => (new AdminDonHangController())->postEditDonHang(),
 
     ///route user
     'list-tai-khoan-quan-tri' => (new AdminTaiKhoanController())->danhsachQuanTri(1),
