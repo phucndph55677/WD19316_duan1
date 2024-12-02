@@ -16,8 +16,8 @@ if (session_status() === PHP_SESSION_NONE) {
         
         $donHang = $this->modelDonHang->getDetailDonHang($don_hang_id);
         
-        $sanPhamDonHang = $this->modelDonHang->getListPDonHang($don_hang_id);
-        $listTrangThaiDonHang = $this->modelDonHang->getAllTrangThai();
+        $sanPhamDonHang = $this->modelDonHang->getDetailDonHang($don_hang_id);
+        $listTrangThaiDonHang = $this->modelDonHang->getAllTrangThaiDonHang();
        
         require_once('./views/donhang/detailDonHang.php');
     }
@@ -26,7 +26,7 @@ if (session_status() === PHP_SESSION_NONE) {
         $id = $_GET['id_don_hang'];
         $donHang = $this->modelDonHang->getDetailDonHang($id);
          
-        $listTrangThaiDonHang = $this->modelDonHang->getAllTrangThai();
+        $listTrangThaiDonHang = $this->modelDonHang->getAllTrangThaiDonHang();
         if($donHang){
             require_once('./views/donhang/editDonHang.php');
         }else{

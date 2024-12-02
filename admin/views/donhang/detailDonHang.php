@@ -116,14 +116,15 @@
                                 <tbody>
                                     <? $tongtien=0;?>
                                     <? foreach ($sanPhamDonHang as $key => $SP)  :?>
+                                       
                                     <tr>
-                                        <td><?= $key + 1 ?></td>
+                                        <td><?= $key +1 ?></td>
                                         <td><?= $SP['ten_san_pham'] ?></td>
                                         <td><?= formatPrice($SP['don_gia']).'đ' ?></td>
                                         <td><?= $SP['so_luong'] ?></td>
                                         <td><?=formatPrice ($SP['thanh_tien']).'đ' ?></td>
                                     </tr>
-                                    <? $tongtien+=$SP['thanh_tien']; ?>
+                                    <? $tongtien += $SP['thanh_tien']; ?>
                                   <?endforeach?>
                                 </tbody>
                             </table>

@@ -29,7 +29,7 @@ $act = $_GET['act'] ?? '/';
 match ($act) {
     
 // route
-     '/'=> (new AdminBaoCaoThongKe())->home(),
+     // '/'=> (new AdminBaoCaoThongKe())->home(),
     // route danh muc
     'danh-muc' => (new AdminDanhMucController())->danhSachDanhMuc(),
 
@@ -90,7 +90,7 @@ match ($act) {
 
     // 'list-tai-khoan-khach-hang' => (new AdminDonHangController())->listTaiKhoanKhachHang(),
 
-     'list-tai-khoan-ca-nhan' => (new AdminTaiKhoanController())->listTaiKhoanCaNhan(),
+     // 'list-tai-khoan-ca-nhan' => (new AdminTaiKhoanController())->listTaiKhoanCaNhan(),
 
     // Quản lý tài khoản khách hàng
      'list-tai-khoan-khach-hang' => (new AdminTaiKhoanController())->danhSachKhachHang(),
@@ -100,7 +100,7 @@ match ($act) {
 
      // Route quản lý tài khoản cá nhân (Quản trị)
      'form-sua-thong-tin-ca-nhan-quan-tri' => (new AdminTaiKhoanController())->formEditCaNhanQuanTri(),
-     'sua-thong-tin-ca-nhan-quan-tri' => (new AdminTaiKhoanController())->postEditCaNhanQuanTri(),
+     // 'sua-thong-tin-ca-nhan-quan-tri' => (new AdminTaiKhoanController())->postEditCaNhanQuanTri(),
 
      // Route Auth
      'login-admin' => (new AdminTaiKhoanController())->formLogin(),
