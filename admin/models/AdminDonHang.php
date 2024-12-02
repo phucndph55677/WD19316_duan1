@@ -70,45 +70,36 @@ class AdminDonHang
         }
     }
         
-    public function updateDonHang($id, $ten_nguoi_nhan, $sdt_nguoi_nhan, $email_nguoi_nhan, $dia_chi_nguoi_nhan, $ghi_chu, $trang_thai_id) {
-        try {
-        $sql = 'UPDATE don_hangs SET 
-        ten_nguoi_nhan = :ten_nguoi_nhan, 
-        sdt_nguoi_nhan = :sdt_nguoi_nhan, 
-        email_nguoi_nhan = :email_nguoi_nhan,
-        dia_chi_nguoi_nhan = :dia_chi_nguoi_nhan,
-        ghi_chu = :ghi_chu, 
-        trang_thai_id = :trang_thai_id 
-        WHERE id = :id';   
-        $stmt = $this->conn->prepare($sql);
-            
-        $stmt->execute([
-                
-        ':id' => $id,
-        ':ten_nguoi_nhan' => $ten_nguoi_nhan,
-        ':sdt_nguoi_nhan' => $sdt_nguoi_nhan,
-        ':email_nguoi_nhan' => $email_nguoi_nhan,
-        ':dia_chi_nguoi_nhan' => $dia_chi_nguoi_nhan,
-        ':ghi_chu' => $ghi_chu,
-        ':trang_thai_id' => $trang_thai_id
-        ]);
-            
-        return true;
-        } catch (Exception $e) {
-            echo $e->getMessage();
-        }
-    }
-    public function getDonHangFromKhachHang($id)
-        {
+         public function updateDonHang($id, $ten_nguoi_nhan, $sdt_nguoi_nhan, $email_nguoi_nhan, $dia_chi_nguoi_nhan, $ghi_chu, $trang_thai_id) {
             try {
-                $sql = 'SELECT don_hangs.* ,trang_thai_don_hangs.ten_trang_thai
-                FROM don_hangs INNER JOIN trang_thai_don_hangs ON don_hangs.trang_thai_id = trang_thai_don_hangs.id 
-                WHERE don_hangs.tai_khoan_id = :id';
-                $stmt = $this->conn->prepare($sql);
-                $stmt->execute([':id' => $id]); // Sửa lỗi ở đây
-                return $stmt->fetchAll();
+             $sql = 'UPDATE don_hangs SET 
+             ten_nguoi_nhan = :ten_nguoi_nhan, 
+             sdt_nguoi_nhan = :sdt_nguoi_nhan, 
+             email_nguoi_nhan = :email_nguoi_nhan,
+              dia_chi_nguoi_nhan = :dia_chi_nguoi_nhan,
+               ghi_chu = :ghi_chu, 
+               trang_thai_id = :trang_thai_id 
+               WHERE id = :id';   
+             $stmt = $this->conn->prepare($sql);
+            
+             $stmt->execute([
+                
+                 ':id' => $id,
+                 ':ten_nguoi_nhan' => $ten_nguoi_nhan,
+                 ':sdt_nguoi_nhan' => $sdt_nguoi_nhan,
+                 ':email_nguoi_nhan' => $email_nguoi_nhan,
+                 ':dia_chi_nguoi_nhan' => $dia_chi_nguoi_nhan,
+                 ':ghi_chu' => $ghi_chu,
+                 ':trang_thai_id' => $trang_thai_id
+             ]);
+            
+             return true;
             } catch (Exception $e) {
                 echo $e->getMessage();
             }
-        }
-}
+            }
+    
+         }
+
+
+
