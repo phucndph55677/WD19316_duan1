@@ -71,30 +71,37 @@ match ($act) {
 
     // 'sua-don-hang' => (new AdminDonHangController())->postEditDonHang(),
 
-    ///route user
-    'list-tai-khoan-quan-tri' => (new AdminTaiKhoanController())->danhsachQuanTri(1),
+    // route quan ly tai khoan
+        // quan ly tai khoan quan tri
+        'list-tai-khoan-quan-tri' => (new AdminTaiKhoanController())->danhSachQuanTri(),  
 
-    'form-them-quan-tri' => (new AdminTaiKhoanController())->formAddQuanTri(),
+        'form-them-quan-tri' => (new AdminTaiKhoanController())->formAddQuanTri(),
 
-    'them-quan-tri' => (new AdminTaiKhoanController())->postAddQuanTri(),
+        'them-quan-tri' => (new AdminTaiKhoanController())->postAddQuanTri(),
 
-    'form-sua-quan-tri' => (new AdminTaiKhoanController())->formEditQuanTri(),
+        'form-sua-quan-tri' => (new AdminTaiKhoanController())->formEditQuanTri(),
 
-    'sua-quan-tri' => (new AdminTaiKhoanController())->postEditQuanTri(),
+        'sua-quan-tri' => (new AdminTaiKhoanController())->postEditQuanTri(),
 
-    'rest-password' => (new AdminTaiKhoanController())->resetPassword(),
+        // route reset password tai khoan
+        'reset-password' =>(new AdminTaiKhoanController())->resetPassword(),
 
-   
-      
+        // Quan ly tai khoan khach hang
+        'list-tai-khoan-khach-hang' => (new AdminTaiKhoanController())->danhSachKhachHang(),
 
-    ///route user
-    // 'list-tai-khoan-quan-tri' => (new AdminDonHangController())->listTaiKhoanQuanTri(),
+        'form-sua-khach-hang' => (new AdminTaiKhoanController())->formEditKhachHang(),
 
+        'sua-khach-hang' => (new AdminTaiKhoanController())->postEditKhachHang(),
 
-    // 'list-tai-khoan-khach-hang' => (new AdminDonHangController())->listTaiKhoanKhachHang(),
+        'chi-tiet-khach-hang' => (new AdminTaiKhoanController())->deltailKhachHang(),
 
-    // 'list-tai-khoan-ca-nhan' => (new AdminDonHangController())->listTaiKhoanCaNhan(),
+        // route quan ly tai khoan ca nhan(quan tri)
+        'form-sua-thong-tin-ca-nhan-quan-tri' =>(new AdminTaiKhoanController())->formEditCaNhanQuanTri(),
 
+        // 'sua-thong-tin-ca-nhan-quan-tri' =>(new AdminTaiKhoanController())->postEditCaNhanQuanTri(),
+        
+        'sua-mat-khau-ca-nhan-quan-tri' =>(new AdminTaiKhoanController())->postEditMatKhauCaNhan(),
+        
   // route auth
   'login-admin' => (new AdminTaiKhoanController())->formLogin(),
 
