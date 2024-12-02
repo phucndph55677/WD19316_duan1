@@ -111,7 +111,9 @@
                         <!-- product item list wrapper start -->
                         <div class="shop-product-wrap grid-view row mbn-30">
                             <!-- product single item start -->
+                             
                              <?php foreach ($listSanPham as $sanpham) : ?>
+                                <?if($sanpham['trang_thai'] == 1) {?>
                             <div class="col-md-4 col-sm-6">
 
                                 <!-- product grid start -->
@@ -166,6 +168,7 @@
                                 </div>
 
                             </div>
+                            <?php } ?>
 
                             <?php endforeach ?>
 

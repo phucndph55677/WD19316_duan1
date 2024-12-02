@@ -89,46 +89,107 @@ public function logout(){
     header("Location: " . BASE_URL );
     exit();
 }
-public function addGioHang() {   
-    if($_SERVER['REQUEST_METHOD'] == 'POST'){
-        $mail = $this->modelTaiKhoan->getTaiKhoanFromEmail($_SESSION['user_client']);
+// public function addGioHang() {   
+//     if($_SERVER['REQUEST_METHOD'] == 'POST'){
+//         $mail = $this->modelTaiKhoan->getTaiKhoanFromEmail($_SESSION['user_client']);
         
         
-        $gioHang = $this->modelGioHang->getGioHangFromUser($mail['id']);
-        if(!$gioHang){
-            $gioHangId = $this->modelGioHang->addGioHang($mail['id']);
-            $gioHang = ['id' => $gioHangId];
-        }else{
-            $chitietgiohang = $this->modelGioHang->getDetailGioHang($gioHang['id']);
-        }
-        $san_pham_id = $_POST['san_pham_id'];
-        $so_luong = $_POST['so_luong'];
-        $checkSanPham = false;
+//         $gioHang = $this->modelGioHang->getGioHangFromUser($mail['id']);
+//         if(!$gioHang){
+//             $gioHangId = $this->modelGioHang->addGioHang($mail['id']);
+//             $gioHang = ['id' => $gioHangId];
+//         }else{
+//             $chitietgiohang = $this->modelGioHang->getDetailGioHang($gioHang['id']);
+//         }
+//         $san_pham_id = $_POST['san_pham_id'];
+//         $so_luong = $_POST['so_luong'];
+//         $checkSanPham = false;
 
-        foreach($chitietgiohang as $detail){
-            if($detail['san_pham_id'] == $san_pham_id){
-                $newSoLuong = $detail['so_luong'] + $so_luong;
-                $this->modelGioHang->updateSoLuong($gioHang['id'], $san_pham_id, $newSoLuong);
-                $checkSanPham = true;
-            break;
-            }
+//         foreach($chitietgiohang as $detail){
+//             if($detail['san_pham_id'] == $san_pham_id){
+//                 $newSoLuong = $detail['so_luong'] + $so_luong;
+//                 $this->modelGioHang->updateSoLuong($gioHang['id'], $san_pham_id, $newSoLuong);
+//                 $checkSanPham = true;
+//             break;
+//             }
             
      
      
      
-        }
-        if(!$checkSanPham){
-            $this->modelGioHang->addDetailGioHang($gioHang['id'], $san_pham_id, $so_luong);
-        }
-        header("Location: " . BASE_URL . '?act=gio-hang' );
+//         }
+//         if(!$checkSanPham){
+//             $this->modelGioHang->addDetailGioHang($gioHang['id'], $san_pham_id, $so_luong);
+//         }
+//         header("Location: " . BASE_URL . '?act=gio-hang' );
 
 
-    }else{
-        var_dump('chưa đăng nhập');die();
-    }
+//     }else{
+//         var_dump('chưa đăng nhập');die();
+//     }
            
 
-} 
+// } 
+public function addGioHang() {   
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        // Lấy thông tin tài khoản người dùng
+        $mail = $this->modelTaiKhoan->getTaiKhoanFromEmail($_SESSION['user_client']);
+        $gioHang = $this->modelGioHang->getGioHangFromUser($mail['id']);
+
+        if (!$gioHang) {
+            $gioHangId = $this->modelGioHang->addGioHang($mail['id']);
+            $gioHang = ['id' => $gioHangId];
+        } else {
+            $chitietgiohang = $this->modelGioHang->getDetailGioHang($gioHang['id']);
+        }
+
+        // Lấy thông tin sản phẩm và số lượng
+        $san_pham_id = $_POST['san_pham_id'];
+        $so_luong = $_POST['so_luong'];
+
+        // Kiểm tra tồn kho
+        $sanPham = $this->modelSanPham->getDetailSanPham($san_pham_id); // Lấy thông tin sản phẩm
+        if ($so_luong > $sanPham['so_luong']) {
+            // Hiển thị thông báo lỗi và ngăn không thêm vào giỏ hàng
+            $_SESSION['error_message'] = "Số lượng bạn chọn vượt quá số lượng trong kho.";
+            header('Location: ' . $_SERVER['HTTP_REFERER']);
+            exit;
+        }
+
+        // Kiểm tra và cập nhật giỏ hàng
+        $checkSanPham = false;
+        foreach ($chitietgiohang as $detail) {
+            if ($detail['san_pham_id'] == $san_pham_id) {
+                $newSoLuong = $detail['so_luong'] + $so_luong;
+
+                // Kiểm tra lại tồn kho khi cập nhật số lượng
+                if ($newSoLuong > $sanPham['so_luong']) {
+                    $_SESSION['error_message'] = "Số lượng bạn chọn vượt quá số lượng trong kho.";
+                    header('Location: ' . $_SERVER['HTTP_REFERER']);
+                    exit;
+                }
+
+                $this->modelGioHang->updateSoLuong($gioHang['id'], $san_pham_id, $newSoLuong);
+                $checkSanPham = true;
+                break;
+            }
+        }
+
+        // Thêm sản phẩm mới nếu chưa có trong giỏ hàng
+        if (!$checkSanPham) {
+            $this->modelGioHang->addDetailGioHang($gioHang['id'], $san_pham_id, $so_luong);
+        }
+
+        // Điều hướng về giỏ hàng
+        header("Location: " . BASE_URL . '?act=gio-hang');
+        exit;
+    } else {
+        // Xử lý trường hợp chưa đăng nhập
+        header('Location: ' . BASE_URL . '?act=login');
+        
+        exit;
+    }
+}
+
 public function gioHang(){
     $listDanhMuc = $this->modelDanhMuc->getAllDanhMuc();
     // Kiểm tra nếu người dùng đã đăng nhập

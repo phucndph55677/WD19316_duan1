@@ -34,7 +34,7 @@ if($act !=='login-admin' && $act !=='check-login-admin' && $act !=='logout-admin
 match ($act) {
     
 // route
-     '/'=> (new AdminBaoCaoThongKe())->home(),
+     '/'=>  (new AdminThongKeController())->thongKe(),
     // route danh muc
     'danh-muc' => (new AdminDanhMucController())->danhSachDanhMuc(),
     'form-them-danh-muc' => (new AdminDanhMucController())->formAddDanhMuc(),
@@ -85,7 +85,7 @@ match ($act) {
      // Route quản lý tài khoản cá nhân (Quản trị)
      // 'list-tai-khoan-ca-nhan' => (new AdminTaiKhoanController())->listTaiKhoanCaNhan(),
      'form-sua-thong-tin-ca-nhan-quan-tri' => (new AdminTaiKhoanController())->formEditCaNhanQuanTri(),
-     'sua-thong-tin-ca-nhan-quan-tri' => (new AdminTaiKhoanController())->postEditCaNhanQuanTri(),
+     // 'sua-thong-tin-ca-nhan-quan-tri' => (new AdminTaiKhoanController())->postEditCaNhanQuanTri(),
 
      // Route Auth
      'login-admin' => (new AdminTaiKhoanController())->formLogin(),

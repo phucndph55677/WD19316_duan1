@@ -381,7 +381,7 @@ class AdminSanPhamController {
             else{
                 $trang_thai_update = 1;
             }
-            $status = $this->moderSanPham->updateTrangThaiBinhLuan($id_binh_luan, $trang_thai_update);
+            $status = $this->modelSanPham->updateTrangThaiBinhLuan($id_binh_luan, $trang_thai_update);
             if($status){
                 if($name_view == 'detail_khach'){
                     header("Location:" . BASE_URL_ADMIN . '?act=chi-tiet-khach-hang&id_khach_hang=' . $id_khach_hang);

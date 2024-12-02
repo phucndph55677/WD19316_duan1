@@ -97,7 +97,7 @@
                                     </tr>
                                     <tr>
                                         <td>Tổng Tiền</td>
-                                        <td><?= formatPrice($donHang['tong_tien']) ?></td>
+                                        <td><?= formatPrice($donHang['tong_tien']).'đ' ?></td>
                                     </tr>
                                     <tr>
                                         <td>Ghi Chú</td>

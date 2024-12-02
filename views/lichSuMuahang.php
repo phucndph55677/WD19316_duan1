@@ -47,7 +47,7 @@
                                     <tr>
                                         <td class="text-center"><?=$donhang['ma_don_hang']?></td>
                                         <td><?= formatDate($donhang['ngay_dat'])?></td>
-                                        <td><?= formatPrice($donhang['tong_tien'])?></td>
+                                        <td><?= formatPrice($donhang['tong_tien']).'đ'?></td>
                                         <td><?= $phuongThucThanhToan[$donhang['phuong_thuc_thanh_toan_id']]?></td>
                                         <td><?=$TrangThaiDonHang[$donhang['trang_thai_id']]?></td>
                                         <td>

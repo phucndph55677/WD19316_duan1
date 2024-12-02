@@ -257,7 +257,8 @@
         </div>
         <div class="row">
             <?php foreach ($SanPhamMeo as $key => $sanPham) : ?>
-                <div class="col-lg-3 col-md-4 col-sm-6 mb-4"> <!-- 4 sản phẩm một hàng -->
+                <?php if ($sanPham['trang_thai'] == 1) { ?>               
+                     <div class="col-lg-3 col-md-4 col-sm-6 mb-4"> <!-- 4 sản phẩm một hàng -->
                     <div class="product-item">
                         <figure class="product-thumb">
                             <a href="<?= BASE_URL . '?act=chiTietSanPham&id_san_pham=' . $sanPham['id'] ?>">
@@ -300,6 +301,7 @@
                         </div>
                     </div>
                 </div>
+                <?php } ?>
             <?php endforeach; ?>
         </div>
     </div>
@@ -318,6 +320,7 @@
         </div>
         <div class="row">
             <?php foreach ($SanPhamCho as $key => $sanPham) : ?>
+                <?php if ($sanPham['trang_thai'] == 1) { ?>
                 <div class="col-lg-3 col-md-4 col-sm-6 mb-4"> <!-- 4 sản phẩm một hàng -->
                     <div class="product-item">
                         <figure class="product-thumb">
@@ -361,6 +364,7 @@
                         </div>
                     </div>
                 </div>
+                <?php }?>
             <?php endforeach; ?>
         </div>
     </div>
