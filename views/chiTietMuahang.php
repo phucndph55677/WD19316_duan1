@@ -1,6 +1,6 @@
 <?php include 'views/layout/header.php'; ?>
 <?php include 'views/layout/menu.php'; ?>
-<?php require_once './views/layout/miniCart.php'; ?>
+
 
 <main>
     <!-- breadcrumb area start -->
