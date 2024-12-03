@@ -34,12 +34,12 @@
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>
-                                        <th>Ma don hang</th>
-                                        <th>Ngay dat</th>
-                                        <th>Tong tien </th>
-                                        <th>Phuong thuc thanh toan</th>
-                                        <th>Trang thai don hang</th>
-                                        <th>Thao tac</th>
+                                        <th>Mã đơn hàng</th>
+                                        <th>Ngày đặt</th>
+                                        <th>Tổng tiền </th>
+                                        <th>Phương thức thanh toán</th>
+                                        <th>Trạng thái đơn hàng</th>
+                                        <th>Thao tác</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -54,13 +54,13 @@
                                             <td><?= $trangThaiDonHang[$donHang['trang_thai_id']] ?></td>
                                             <td>
                                                 <a href="<?= BASE_URL ?>?act=chi-tiet-mua-hang&id=<?= $donHang['id'] ?>"class="btn btn-sqr">
-                                                    Chi tiet don hang
+                                                    Chi tiết đơn hàng
                                                 </a>
 
                                                 <?php if ($donHang['trang_thai_id'] == 1): ?> 
                                                     <a href="<?= BASE_URL ?>?act=huy-don-hang&id=<?= $donHang['id'] ?>" class="btn btn-sqr"
                                                     onclick="return confirm('Xac nhan hủy đơn hàng')">
-                                                        Huy
+                                                        Hủy
                                                     </a>
                                                 <?php endif ?>
                                             </td>
