@@ -15,7 +15,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Quan ly danh muc san pham</h1>
+          <h1>Quản lý danh mục sản phẩm</h1>
         </div>
       </div>
     </div><!-- /.container-fluid -->
@@ -29,7 +29,7 @@
           <div class="card">
             <div class="card-header">
               <a href="<?= BASE_URL_ADMIN . '?act=form-them-danh-muc' ?>">  
-                <button class="btn btn-success">Them danh muc</button>
+                <button class="btn btn-success">Thêm danh mục</button>
               </a>
             </div>
             <!-- /.card-header -->
@@ -38,9 +38,9 @@
                 <thead>
                   <tr>
                     <th>STT</th>
-                    <th>Ten danh muc</th>
-                    <th>Mo ta</th>
-                    <th>Thao tac</th>
+                    <th>Tên danh mục</th>
+                    <th>Mô tả</th>
+                    <th>Thao tác</th>
                   </tr>
                 </thead>
 
@@ -66,9 +66,9 @@
                 <tfoot>
                   <tr>
                     <th>STT</th>
-                    <th>Ten danh muc</th>
-                    <th>Mo ta</th>
-                    <th>Thao tac</th>
+                    <th>Tên danh mục</th>
+                    <th>Mô tả</th>
+                    <th>Thao tác</th>
                   </tr>
                 </tfoot>
               </table>

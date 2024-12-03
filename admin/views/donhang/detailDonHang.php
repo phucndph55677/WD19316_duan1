@@ -15,7 +15,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-10">
-        <h1>Quan ly danh sach don hang - Don hang: <?= $donHang['ma_don_hang'] ?></h1>
+        <h1>Quản lý danh sách đơn hàng - Đơn hàng: <?= $donHang['ma_don_hang'] ?></h1>
         </div>
 
         <div class="col-sm-2">
@@ -53,7 +53,7 @@
                 }        
             ?>
             <div class="alert alert-<?= $colorAlerts ?>" role="alert">
-                Don hang: <?= $donHang['ten_trang_thai'] ?>
+                Đơn hàng: <?= $donHang['ten_trang_thai'] ?>
             </div>
            
             <!-- Main content -->
@@ -62,7 +62,7 @@
               <div class="row">
                 <div class="col-12">
                   <h4>
-                    <i class="fas fa-cat"></i> Thu Cung FPL.
+                    <i class="fas fa-cat"></i> Thú Cưng PFL.
                     <small class="float-right">Ngày đặt: <?= formatDate($donHang['ngay_dat']) ?></small>
                   </h4>
                 </div>
@@ -71,30 +71,29 @@
               <!-- info row -->
               <div class="row invoice-info">
                 <div class="col-sm-4 invoice-col">
-                    Thong tin nguoi dat
+                    Thông tin người đặt
                     <address>
                         <strong><?= $donHang['ho_ten'] ?></strong><br>
                         Email: <?= $donHang['email'] ?><br>
-                        So dien thoai: <?= $donHang['so_dien_thoai'] ?><br>
+                        Số điện thoại: <?= $donHang['so_dien_thoai'] ?><br>
                     </address>
                 </div>
                 <!-- /.col -->
                 <div class="col-sm-4 invoice-col">
-                    Nguoi nhan
+                    Người nhận
                     <address>
                         <strong><?= $donHang['ten_nguoi_nhan'] ?></strong><br>
                         Email: <?= $donHang['email_nguoi_nhan'] ?><br>
-                        So dien thoai: <?= $donHang['sdt_nguoi_nhan'] ?><br>
-                        Dia chi: <?= $donHang['dia_chi_nguoi_nhan'] ?><br>
+                        Số điện thoại: <?= $donHang['sdt_nguoi_nhan'] ?><br>
+                        Địa chỉ: <?= $donHang['dia_chi_nguoi_nhan'] ?><br>
                     </address>
                 </div>
                 <!-- /.col -->
                 <div class="col-sm-4 invoice-col">
-                    <b>Ma don hang: <?= $donHang['ma_don_hang'] ?></b><br>
-                    <br>
-                    <b>Tong tien: </b><?= $donHang['tong_tien'] ?><br>
-                    <b>Ghi chu: </b><?= $donHang['ghi_chu'] ?><br>
-                    <b>Thanh toan: </b><?= $donHang['ten_phuong_thuc'] ?><br>
+                    <b>Mã đơn hàng: <?= $donHang['ma_don_hang'] ?></b><br>
+                    <b>Tổng tiền: </b><?= $donHang['tong_tien'] ?><br>
+                    <b>Ghi chú: </b><?= $donHang['ghi_chu'] ?><br>
+                    <b>Thanh toán: </b><?= $donHang['ten_phuong_thuc'] ?><br>
                 </div>
                 <!-- /.col -->
               </div>
@@ -149,7 +148,7 @@
                       </tr>
                       <tr>
                         <th>Vận chuyển:</th>
-                        <td>200.000</td>
+                        <td>30.000</td>
                       </tr>
                       <tr>
                         <th>Tổng tiền:</th>

@@ -15,7 +15,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Quan ly tai khoan khach hang</h1>
+                    <h1>Quanr lý tài khoản khách hàng</h1>
                 </div>
             </div>
         </div><!-- /.container-fluid -->
@@ -147,7 +147,7 @@
 
                                             <input type="hidden" name="name_view" value="detail_khach">
                                             
-                                            <button onclick="return confirm('Bạn có muốn ẩn bình luận này không?')" class="btn btn-warning">
+                                            <button onclick="return confirm('Bạn có muốn ẩn/ bỏ ẩn bình luận này không?')" class="btn btn-warning">
                                                 <?= $binhLuan['trang_thai'] == 1 ? 'Ẩn':'Bỏ ẩn' ?>
                                             </button>
                                         </form>

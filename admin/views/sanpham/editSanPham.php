@@ -54,6 +54,9 @@
                             <div class="form-group">
                                 <label for="gia_san_pham">Giá sản phẩm</label>
                                 <input type="number" id="gia_san_pham" name="gia_san_pham" class="form-control" value="<?= $sanPham['gia_san_pham'] ?>">
+                                <?php if (isset($_SESSION['error']['gia_san_pham'])) { ?>
+                                    <p class="text-danger"><?= $_SESSION['error']['gia_san_pham'] ?></p>
+                                <?php } ?>
                             </div>
 
                             <div class="form-group">
@@ -69,6 +72,9 @@
                             <div class="form-group">
                                 <label for="so_luong">Số lượng</label>
                                 <input type="number" id="so_luong" name="so_luong" class="form-control" value="<?= $sanPham['so_luong'] ?>">
+                                <?php if (isset($_SESSION['error']['so_luong'])) { ?>
+                                    <p class="text-danger"><?= $_SESSION['error']['so_luong'] ?></p>
+                                <?php } ?>
                             </div>
 
                             <div class="form-group">
@@ -88,8 +94,8 @@
                             <div class="form-group">
                                 <label for="trang_thai">Trạng thái sản phẩm</label>
                                 <select id="trang_thai" name="trang_thai" class="form-control custom-select">
-                                    <option <?= $sanPham['trang_thai'] == 1 ? 'selected' : '' ?> value="1">Con ban</option>
-                                    <option <?= $sanPham['trang_thai'] == 2 ? 'selected' : '' ?> value="2">Dung ban</option>
+                                    <option <?= $sanPham['trang_thai'] == 1 ? 'selected' : '' ?> value="1">Còn bán</option>
+                                    <option <?= $sanPham['trang_thai'] == 2 ? 'selected' : '' ?> value="2">Dừng bán</option>
                                 </select>
                             </div>
 

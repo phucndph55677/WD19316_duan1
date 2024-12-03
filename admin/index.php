@@ -103,7 +103,7 @@ match ($act) {
 
         // 'sua-thong-tin-ca-nhan-quan-tri' =>(new AdminTaiKhoanController())->postEditCaNhanQuanTri(),
         
-        'sua-mat-khau-ca-nhan-quan-tri' =>(new AdminTaiKhoanController())->postEditMatKhauCaNhan(),
+        // 'sua-mat-khau-ca-nhan-quan-tri' =>(new AdminTaiKhoanController())->postEditMatKhauCaNhan(),
 
     // route auth
     'login-admin' => (new AdminTaiKhoanController())->formLogin(),
