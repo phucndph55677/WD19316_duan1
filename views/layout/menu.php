@@ -12,7 +12,7 @@
                         <div class="col-lg-2">
                             <div class="logo">
                                 <a href="<?= BASE_URL ?>">
-                                    <img src="assets/img/logo/logo1.png" alt="Brand Logo">
+                                    <img src="assets/img/logo/logo.png" alt="Brand Logo">
                                 </a>
                             </div>
                         </div>
@@ -25,20 +25,21 @@
                                     <!-- main menu navbar start -->
                                     <nav class="desktop-menu">
                                         <ul>
-                                            <li><a href="<?= BASE_URL ?>">Trang chu</i></a>
-                                                
+                                            <li>
+                                                <a href="<?= BASE_URL ?>">Trang chủ</i></a>                                              
                                             </li>
-                                           
-                                            <li><a href="#">San pham <i class="fa fa-angle-down"></i></a>
-                                                <ul class="dropdown">
-                                                    <li><a href="blog-left-sidebar.html">blog left sidebar</a></li>
 
+                                            <li><a href="<?= BASE_URL . '?act=san-pham' ?>">Sản Phẩm <i class="fa fa-angle-down"></i></a>
+                                                 <ul class="dropdown">
+                                                    <?php foreach ($listDanhMuc as $danhmuc): ?>
+                                                        <li><a href="<?= BASE_URL .'?act=san-pham-theo-danh-muc&id_danh_muc='. $danhmuc['id'] ?>"><?= $danhmuc['ten_danh_muc'] ?></a></li>
+                                                    <?php endforeach; ?>                                                  
                                                 </ul>
-                                            </li>
+                                            </li> 
 
-                                            <li><a href="#">Gioi thieu</a></li>
+                                            <li><a href="#">Giới thiệu</a></li>
 
-                                            <li><a href="#">Lien he</a></li>
+                                            <li><a href="#">Liên hệ</a></li>
                                         </ul>
                                     </nav>
                                     <!-- main menu navbar end -->
@@ -53,7 +54,7 @@
                                 <div class="header-search-container">
                                     <button class="search-trigger d-xl-none d-lg-block"><i class="pe-7s-search"></i></button>
                                     <form class="header-search-box d-lg-none d-xl-block">
-                                        <input type="text" placeholder="Nhap ten san pham" class="header-search-field">
+                                        <input type="text" placeholder="Nhập tên sản phẩm" class="header-search-field">
                                         <button class="header-search-btn"><i class="pe-7s-search"></i></button>
                                     </form>
                                 </div>
@@ -74,7 +75,10 @@
                                                     <li><a href="<?= BASE_URL . '?act=login' ?>">Đăng nhập</a></li>
                                                 <?php } else { ?>
                                                     <li><a href="my-account.html">Tài khoản</a></li>
-                                                    <li><a href="<?= BASE_URL . '?act=lich-su-mua-hang' ?>">Don hang</a></li>
+
+                                                    <li><a href="<?= BASE_URL . '?act=lich-su-mua-hang' ?>">Đơn hàng</a></li>
+
+                                                    <!-- <li><a href="<?= BASE_URL. '?act=log-out' ?>">Đăng Xuất</a></li> -->
                                                 <?php } ?>
                                             </ul>
                                         </li>

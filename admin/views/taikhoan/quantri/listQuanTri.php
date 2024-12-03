@@ -15,7 +15,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Quan ly tai khoan quan tri vien</h1>
+          <h1>Quản lý tài khoản quản trị viên</h1>
         </div>
       </div>
     </div><!-- /.container-fluid -->
@@ -38,11 +38,11 @@
                 <thead>
                   <tr>
                     <th>STT</th>
-                    <th>Ho ten</th>
+                    <th>Họ tên</th>
                     <th>Email</th>
-                    <th>So dien thoai</th>
-                    <th>Trang thai</th>
-                    <th>Thao tac</th>
+                    <th>Số điện thoại</th>
+                    <th>Trạng thái</th>
+                    <th>Thao tác</th>
                   </tr>
                 </thead>
 
@@ -71,11 +71,11 @@
                 <tfoot>
                   <tr>
                     <th>STT</th>
-                    <th>Ho ten</th>
+                    <th>Họ tên</th>
                     <th>Email</th>
-                    <th>So dien thoai</th>
-                    <th>Trang thai</th>
-                    <th>Thao tac</th>
+                    <th>Số điện thoại</th>
+                    <th>Trạng thái</th>
+                    <th>Thao tác</th>
                   </tr>
                 </tfoot>
               </table>

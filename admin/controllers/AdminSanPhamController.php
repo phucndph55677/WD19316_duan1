@@ -60,28 +60,28 @@ class AdminSanPhamController {
             $errors = [];
 
             if (empty($ten_san_pham)) {
-                $errors['ten_san_pham'] = 'Ten san pham khong duoc de trong';
+                $errors['ten_san_pham'] = 'Tên sản phẩm không được để trống';
             }
             if (empty($gia_san_pham)) {
-                $errors['gia_san_pham'] = 'Gia san pham khong duoc de trong';
+                $errors['gia_san_pham'] = 'Giá sản phẩm không được để trống';
             }
             if (empty($gia_khuyen_mai)) {
-                $errors['gia_khuyen_mai'] = 'Gia khuyen mai san pham kh duoc de trong';
+                $errors['gia_khuyen_mai'] = 'Giá khuyến mãi không được để trống';
             }
             if (empty($so_luong)) {
-                $errors['so_luong'] = 'So luong san pham kh duoc de trong';
+                $errors['so_luong'] = 'Số lượng sản phẩm không được để trống';
             }
             if (empty($ngay_nhap)) {
-                $errors['ngay_nhap'] = 'Ngay nhap san pham kh duoc de trong';
+                $errors['ngay_nhap'] = 'Ngay nhập sản phẩm không được để trống';
             }
             if (empty($danh_muc_id)) {
-                $errors['danh_muc_id'] = 'Danh muc san pham phai chon';
+                $errors['danh_muc_id'] = 'Danh mục sản phẩm phải chọn';
             }
             if (empty($trang_thai)) {
-                $errors['trang_thai'] = 'Trang thai san pham phai chon';
+                $errors['trang_thai'] = 'Trạng thái sản phẩm phải chọn';
             }
             if ($hinh_anh['error'] !== 0) {
-                $errors['hinh_anh'] = 'Phai chon anh san pham';
+                $errors['hinh_anh'] = 'Phải chọn ảnh sản phẩm';
             }
 
             $_SESSION['error'] = $errors;
@@ -181,25 +181,25 @@ class AdminSanPhamController {
             // Tao 1 mang trong de chua du lieu
             $errors = [];
             if (empty($ten_san_pham)) {
-                $errors['ten_san_pham'] = 'Ten san pham kh duoc de trong';
+                $errors['ten_san_pham'] = 'Tên sản phẩm không được để trống';
             }
             if (empty($gia_san_pham)) {
-                $errors['gia_san_pham'] = 'Gia san pham kh duoc de trong';
+                $errors['gia_san_pham'] = 'Giá sản phẩm không được để trống';
             }
             if (empty($gia_khuyen_mai)) {
-                $errors['gia_khuyen_mai'] = 'Gia khuyen mai san pham kh duoc de trong';
+                $errors['gia_khuyen_mai'] = 'Giá khuyến mãi không được để trống';
             }
             if (empty($so_luong)) {
-                $errors['so_luong'] = 'So luong san pham kh duoc de trong';
+                $errors['so_luong'] = 'Số lượng sản phẩm không được để trống';
             }
             if (empty($ngay_nhap)) {
-                $errors['ngay_nhap'] = 'Ngay nhap san pham kh duoc de trong';
+                $errors['ngay_nhap'] = 'Ngày nhập không được để trống';
             }
             if (empty($danh_muc_id)) {
-                $errors['danh_muc_id'] = 'Danh muc san pham phai chon';
+                $errors['danh_muc_id'] = 'Danh mục sản phẩm phải chọn';
             }
             if (empty($trang_thai)) {
-                $errors['trang_thai'] = 'Trang thai san pham phai chon';
+                $errors['trang_thai'] = 'Trạng thái sản phẩm phải chọn';
             }
 
             $_SESSION['error'] = $errors;

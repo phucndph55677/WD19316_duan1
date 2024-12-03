@@ -102,10 +102,10 @@ class AdminTaiKhoanController
             $errors = [];
             
             if (empty($ho_ten)) {
-                $errors['ho_ten'] = 'Tên người dùng không được để trống';
+                $errors['ho_ten'] = 'Tên quản trị không được để trống';
             }
             if (empty($email)) {
-                $errors['email'] = 'Email người dùng không được để trống';
+                $errors['email'] = 'Email quản trị không được để trống';
             }
 
             if (empty($trang_thai)) {
@@ -325,70 +325,6 @@ class AdminTaiKhoanController
         // var_dump($thongTin);die;
         require_once './views/taikhoan/canhan/editCaNhan.php';
         deleteSessionError();
-    }
-
-    public function postEditMatKhauCaNhan()
-    {
-        // var_dump($_POST);die;
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $old_pass = $_POST['old_pass'];
-            $new_pass = $_POST['new_pass'];
-            $confirm_pass = $_POST['confirm_pass'];
-            
-            //Lay thong tin user tu session
-            $user = $this->modelTaiKhoan->getTaiKhoanformEmail($_SESSION['user_admin']);
-
-            // var_dump($user);die;
-            $checkPass = password_verify($old_pass, $user['mat_khau']);
-
-            $errors = [];
-
-            if (!$checkPass) {
-                $errors['old_pass'] = 'Mật khẩu người dùng không đúng';
-            }
-
-            if ($new_pass !== $confirm_pass) {
-                $errors['confirm_pass'] = 'Mật khẩu nhập lại không đúng';
-            }
-
-            if (empty($old_pass)) {
-                $errors['old_pass'] = 'Vui lòng điền trường dữ liệu này';
-            }
-
-            if (empty($new_pass)) {
-                $errors['new_pass'] = 'Vui lòng điền trường dữ liệu này';
-            }
-
-            if (empty($confirm_pass)) {
-                $errors['confirm_pass'] = 'Vui lòng điền trường dữ liệu này';
-            }
-
-            $_SESSION['error'] = $errors;
-
-            if (!$errors) {
-                // Thuc hien doi mat khau
-                $hashPass = password_hash($new_pass, PASSWORD_BCRYPT);
-
-                $status = $this->modelTaiKhoan->resetPassword($user['id'], $hashPass);
-
-                if ($status) {
-                    
-                    $_SESSION['success'] = "Đã đổi mật khẩu thành công";
-
-                    $_SESSION['flash'] = true;
-
-                    header("Location: " . BASE_URL_ADMIN . '?act=form-sua-thong-tin-ca-nhan-quan-tri');
-                }
-            }else{
-                // Loi thi luu loi vao session
-
-                $_SESSION['flash'] = true;
-
-                header("Location: " . BASE_URL_ADMIN . '?act=form-sua-thong-tin-ca-nhan-quan-tri');
-                exit();
-                
-            }
-        }
     }
 
 }
