@@ -8,6 +8,7 @@ class SanPham {
         $this->conn = connectDB();
     }
 
+    
     public function getAllSanPham()
     {
         try {

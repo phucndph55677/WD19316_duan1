@@ -51,6 +51,7 @@
                 <!-- shop main wrapper start -->
                 <div class="col-lg-9 order-1 order-lg-2">
                     <div class="shop-product-wrapper">
+                        
                         <!-- product item list wrapper start -->
                         <div class="shop-product-wrap grid-view row mbn-30">
                             <?php foreach ($listSanPham as $sanpham) : ?>
@@ -59,7 +60,7 @@
                                         <!-- product grid start -->
                                         <div class="product-item">
                                             <figure class="product-thumb">
-                                                <a href="<?= BASE_URL . '?act=chiTietSanPham&id_san_pham=' . $sanpham['id'] ?>">
+                                                <a href="<?= BASE_URL . '?act=chi-tiet-san-pham&id_san_pham=' . $sanpham['id'] ?>">
                                                     <img class="pri-img" src="<?= BASE_URL . $sanpham['hinh_anh'] ?>" alt="product">
                                                     <img class="sec-img" src="<?= BASE_URL . $sanpham['hinh_anh'] ?>" alt="product">
                                                 </a>

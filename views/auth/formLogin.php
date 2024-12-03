@@ -32,11 +32,11 @@
 
                                 <form action="<?= BASE_URL . '?act=check-login' ?>" method="post">
                                     <div class="single-input-item">
-                                        <input type="email" placeholder="Email or Username" name="email" required />
+                                        <input type="email" placeholder="Email or Username" name="email"  />
                                     </div>
 
                                     <div class="single-input-item">
-                                        <input type="password" placeholder="Enter your Password" name="password" required />
+                                        <input type="password" placeholder="Enter your Password" name="password"  />
                                     </div>
 
                                     <div class="single-input-item">

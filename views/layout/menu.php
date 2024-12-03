@@ -51,13 +51,13 @@
                         <!-- mini cart area start -->
                         <div class="col-lg-4">
                             <div class="header-right d-flex align-items-center justify-content-xl-between justify-content-lg-end">
-                                <div class="header-search-container">
-                                    <button class="search-trigger d-xl-none d-lg-block"><i class="pe-7s-search"></i></button>
-                                    <form class="header-search-box d-lg-none d-xl-block">
-                                        <input type="text" placeholder="Nhập tên sản phẩm" class="header-search-field">
-                                        <button class="header-search-btn"><i class="pe-7s-search"></i></button>
-                                    </form>
-                                </div>
+                            <div class="header-search-container">
+                                        <button class="search-trigger d-xl-none d-lg-block"><i class="pe-7s-search"></i></button>
+                                        <form class="header-search-box d-lg-none d-xl-block" action="<?= BASE_URL . '?act=tim-kiem' ?>" method="GET">
+                                            <input type="text" name="query" placeholder="Nhập tên sản phẩm" class="header-search-field" required>
+                                            <button type="submit" class="header-search-btn"><i class="pe-7s-search"></i></button>
+                                        </form>
+                                    </div>
                                 <div class="header-configure-area">
                                     <ul class="nav justify-content-end">                  
                                         <label for="">
