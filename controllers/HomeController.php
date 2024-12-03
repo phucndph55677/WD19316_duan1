@@ -313,6 +313,7 @@ class HomeController {
 
     public function chiTietMuaHang()
     {
+        $listDanhMuc = $this->modelDanhMuc->getAllDanhMuc();
 
         if (isset($_SESSION['user_client'])) {
             // Lya ra ttin tk dang nhap

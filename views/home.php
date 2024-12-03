@@ -108,11 +108,7 @@
                         <a href="#">
                             <img src="assets/img/slider/slider3.png" alt="product banner">
                         </a>
-                        <div class="banner-content text-right">
-                            <h5 class="banner-text1">BEAUTIFUL</h5>
-                            <h2 class="banner-text2">Wedding<span>Rings</span></h2>
-                            <a href="shop.html" class="btn btn-text">Shop Now</a>
-                        </div>
+                        
                     </figure>
                 </div>
 
@@ -121,11 +117,7 @@
                         <a href="#">
                             <img src="assets/img/slider/slider2.png" alt="product banner">
                         </a>
-                        <div class="banner-content text-center">
-                            <h5 class="banner-text1">EARRINGS</h5>
-                            <h2 class="banner-text2">Tangerine Floral <span>Earring</span></h2>
-                            <a href="shop.html" class="btn btn-text">Shop Now</a>
-                        </div>
+                       
                     </figure>
                 </div>
                 

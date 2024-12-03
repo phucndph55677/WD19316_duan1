@@ -57,22 +57,40 @@ class AdminThongKe {
     }
 
     // Hàm mới để xem doanh thu và tổng đơn hàng của 7 ngày
-    public function getDoanhThuVaDonHang7Ngay() {
+    public function getDoanhThuVaDonHangThang12() {
         try {
-            // Lấy ngày hiện tại và ngày cách đây 7 ngày
-            $today = date('Y-m-d');
-            $sevenDaysAgo = date('Y-m-d', strtotime('-7 days'));
-
-            // Lấy tổng đơn hàng và doanh thu trong 7 ngày
+            // Xác định khoảng thời gian của tháng 12
+            $startOfDecember = date('Y') . '-12-01'; // Ngày đầu tiên của tháng 12
+            $endOfDecember = date('Y') . '-12-31';  // Ngày cuối cùng của tháng 12
+    
+            // Lấy tổng đơn hàng và doanh thu trong tháng 12
             $sql = "SELECT COUNT(*) as tong_don_hang, SUM(tong_tien) as doanh_thu 
                     FROM don_hangs 
-                    WHERE ngay_dat BETWEEN '$sevenDaysAgo' AND '$today'";
+                    WHERE ngay_dat BETWEEN '$startOfDecember' AND '$endOfDecember'";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
-            return $stmt->fetch(PDO::FETCH_ASSOC); // Trả về mảng với tổng đơn hàng và doanh thu
+            return $stmt->fetch(PDO::FETCH_ASSOC); // Trả về mảng chứa tổng đơn hàng và doanh thu
         } catch (PDOException $e) {
             echo "Lỗi: " . $e->getMessage();
-            return null; // Hoặc có thể trả về giá trị mặc định
+            return null; // Trả về null nếu có lỗi
+        }
+    }
+    public function getDoanhThuVaDonHangThang11() {
+        try {
+            // Xác định khoảng thời gian của tháng 12
+            $startOfNovember = date('Y') . '-11-01'; // Ngày đầu tiên của tháng 12
+            $endOfNovember = date('Y') . '-11-30';  // Ngày cuối cùng của tháng 12
+    
+            // Lấy tổng đơn hàng và doanh thu trong tháng 12
+            $sql = "SELECT COUNT(*) as tong_don_hang, SUM(tong_tien) as doanh_thu 
+                    FROM don_hangs 
+                    WHERE ngay_dat BETWEEN '$startOfNovember' AND '$endOfNovember'";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+            return $stmt->fetch(PDO::FETCH_ASSOC); // Trả về mảng chứa tổng đơn hàng và doanh thu
+        } catch (PDOException $e) {
+            echo "Lỗi: " . $e->getMessage();
+            return null; // Trả về null nếu có lỗi
         }
     }
    

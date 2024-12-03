@@ -90,7 +90,7 @@
                                 <!-- product grid start -->
                                 <div class="product-item">
                                     <figure class="product-thumb">
-                                        <a href="<?= BASE_URL.'?act=chiTietSanPham&id_san_pham='.$sanpham['id']?>">
+                                        <a href="<?= BASE_URL.'?act=chi-tiet-san-pham&id_san_pham='.$sanpham['id']?>">
                                             <img class="pri-img" src="<?= BASE_URL . $sanpham['hinh_anh']?>" alt="product">
                                             <img class="sec-img" src="<?= BASE_URL . $sanpham['hinh_anh']?>" alt="product">
                                         </a>
