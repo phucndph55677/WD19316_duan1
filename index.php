@@ -45,17 +45,21 @@ match ($act) {
     'xu-ly-thanh-toan' => (new HomeController())->postThanhToan(),
 
     'lich-su-mua-hang' => (new HomeController())->lichSuMuaHang(),
-
+    
     'chi-tiet-mua-hang' => (new HomeController())->chiTietMuaHang(),
-    'san-pham-theo-danh-muc' => (new HomeController())->sanPhamTheoDanhMuc(),
 
     'huy-don-hang' => (new HomeController())->huyDonHang(),
-     'san-pham' => (new HomeController())->sanPham(),
+
+    'san-pham' => (new HomeController())->sanPham(),
+
+    'san-pham-theo-danh-muc' => (new HomeController())->sanPhamTheoDanhMuc(),
 
 
     // Auth
     'login' => (new HomeController())->formLogin(),
+
     'log-out' => (new HomeController())->logout(),
+
     'check-login' => (new HomeController())->postLogin(),
 
 };
