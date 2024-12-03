@@ -6,6 +6,7 @@ class HomeController {
     public $modelTaiKhoan;
     public $modelGioHang;
     public $modelDonHang;
+    public $modelDanhMuc;
 
     public function __construct() 
     {
@@ -13,16 +14,21 @@ class HomeController {
         $this->modelTaiKhoan = new TaiKhoan();
         $this->modelGioHang = new GioHang();
         $this->modelDonHang = new DonHang();
+        $this->modelDanhMuc = new DanhMuc();
     }
+   
 
     public function home() 
+
     {
+        $listDanhMuc = $this->modelDanhMuc->getAllDanhMuc();
         $listSanPham = $this->modelSanPham->getAllSanPham();
         require_once './views/home.php';
     }
 
     public function chiTietSanPham()
     {
+        $listDanhMuc = $this->modelDanhMuc->getAllDanhMuc();
         $id = $_GET['id_san_pham'];
 
         $sanPham = $this->modelSanPham->getDetailSanPham($id);
@@ -45,6 +51,7 @@ class HomeController {
 
     public function formLogin()
     {     
+        $listDanhMuc = $this->modelDanhMuc->getAllDanhMuc();
         require_once './views/auth/formLogin.php';
 
         deleteSessionError();
@@ -136,6 +143,7 @@ class HomeController {
 
     public function gioHang()
     {
+        $listDanhMuc = $this->modelDanhMuc->getAllDanhMuc();
         if (isset($_SESSION['user_client'])) {
             $mail = $this->modelTaiKhoan->getTaiKhoanFromEmail($_SESSION['user_client']);
 
@@ -162,6 +170,7 @@ class HomeController {
 
     public function thanhToan()
     {
+        $listDanhMuc = $this->modelDanhMuc->getAllDanhMuc();
         if (isset($_SESSION['user_client'])) {
 
             $user = $this->modelTaiKhoan->getTaiKhoanFromEmail($_SESSION['user_client']);
@@ -262,6 +271,7 @@ class HomeController {
 
     public function lichSuMuaHang()
     {
+        $listDanhMuc = $this->modelDanhMuc->getAllDanhMuc();
         if (isset($_SESSION['user_client'])) {
             // Lya ra ttin tk dang nhap
              $user = $this->modelTaiKhoan->getTaiKhoanFromEmail($_SESSION['user_client']);
@@ -287,6 +297,7 @@ class HomeController {
 
     public function chiTietMuaHang()
     {
+
         if (isset($_SESSION['user_client'])) {
             // Lya ra ttin tk dang nhap
             $user = $this->modelTaiKhoan->getTaiKhoanFromEmail($_SESSION['user_client']);

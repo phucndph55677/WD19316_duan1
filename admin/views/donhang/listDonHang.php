@@ -15,7 +15,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Quan ly danh sach don hang</h1>
+          <h1>Quản lý danh sách đơn hàng</h1>
         </div>
       </div>
     </div><!-- /.container-fluid -->
@@ -35,11 +35,11 @@
                 <thead>
                   <tr>
                     <th>STT</th>
-                    <th>Ma don hang</th>
-                    <th>Ten nguoi nhan</th>
-                    <th>So dien thoai</th>
-                    <th>Ngay dat</th>
-                    <th>Tong tien</th>
+                    <th>Mã đơn hàng</th>
+                    <th>Tên người nhận</th>
+                    <th>Số điện thoại</th>
+                    <th>Ngày đặt</th>
+                    <th>Tổng tiền</th>
                     <th>Trạng thái</th>
                     <th>Thao tác</th>
                   </tr>
@@ -72,11 +72,11 @@
                 <tfoot>
                   <tr>
                     <th>STT</th>
-                    <th>Ma don hang</th>
-                    <th>Ten nguoi nhan</th>
-                    <th>So dien thoai</th>
-                    <th>Ngay dat</th>
-                    <th>Tong tien</th>
+                    <th>Mã đơn hàng</th>
+                    <th>Tên người nhận</th>
+                    <th>Số điện thoại</th>
+                    <th>Ngày đặt</th>
+                    <th>Tổng tiền</th>
                     <th>Trạng thái</th>
                     <th>Thao tác</th>
                   </tr>

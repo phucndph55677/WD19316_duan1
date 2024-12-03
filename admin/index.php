@@ -104,6 +104,20 @@ match ($act) {
      'form-sua-khach-hang' =>(new AdminTaiKhoanController())->formEditKhachHang(),
 
      'chi-tiet-khach-hang' => (new AdminTaiKhoanController())->deltailKhachHang(),
+     // 'sua-khach-hang' => (new AdminTaiKhoanController())->postEditKhachHang(),
+
+    // route auth
+    'login-admin' => (new AdminTaiKhoanController())->formLogin(),
+
+    'check-login-admin' => (new AdminTaiKhoanController())->login(),
+
+    'logout-admin' => (new AdminTaiKhoanController())->logout(),
+    
+     'list-tai-khoan-khach-hang' => (new AdminTaiKhoanController())->danhSachKhachHang(),
+
+     'form-sua-khach-hang' =>(new AdminTaiKhoanController())->formEditKhachHang(),
+
+     'chi-tiet-khach-hang' => (new AdminTaiKhoanController())->deltailKhachHang(),
      'sua-khach-hang' => (new AdminTaiKhoanController())->postEditKhachHang(),
 
   // route auth

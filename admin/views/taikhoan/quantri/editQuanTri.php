@@ -15,7 +15,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Quan ly tai khoan quan tri vien</h1>
+                    <h1>Quản lý tài khoản quản trị viên</h1>
                 </div>
             </div>
         </div><!-- /.container-fluid -->
@@ -28,7 +28,7 @@
                 <div class="col-12">
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">Sua thong tin tai khoan quan tri: <?= $quanTri['ho_ten'] ?></h3>
+                            <h3 class="card-title">Sửa thông tin tài khoản quản trị: <?= $quanTri['ho_ten'] ?></h3>
                         </div>
 
                         <form action="<?= BASE_URL_ADMIN . '?act=sua-quan-tri' ?>" method="POST">

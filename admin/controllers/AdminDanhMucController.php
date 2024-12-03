@@ -38,7 +38,7 @@ class AdminDanhMucController {
             // Tao 1 mang trong de chua du lieu
             $errors = [];
             if (empty($ten_danh_muc)) {
-                $errors['ten_danh_muc'] = 'Ten danh muc kh duoc de trong';
+                $errors['ten_danh_muc'] = 'Tên danh mục không được để trống';
             }
 
             // Neu kh co loi thi tien hanh them danh muc
@@ -84,7 +84,7 @@ class AdminDanhMucController {
             // Tao 1 mang trong de chua du lieu
             $errors = [];
             if (empty($ten_danh_muc)) {
-                $errors['ten_danh_muc'] = 'Ten danh muc kh duoc de trong';
+                $errors['ten_danh_muc'] = 'Tên danh mục không được để trống';
             }
 
             // Neu kh co loi thi tien hanh sua danh muc

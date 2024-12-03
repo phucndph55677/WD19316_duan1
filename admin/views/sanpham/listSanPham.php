@@ -15,7 +15,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Quan ly danh sach thu cung</h1>
+          <h1>Quản lý danh sách thú cưng</h1>
         </div>
       </div>
     </div><!-- /.container-fluid -->
@@ -29,7 +29,7 @@
           <div class="card">
             <div class="card-header">
               <a href="<?= BASE_URL_ADMIN . '?act=form-them-san-pham' ?>">  
-                <button class="btn btn-success">Them thu cung moi</button>
+                <button class="btn btn-success">Thêm thú cưng mới</button>
               </a>
             </div>
             <!-- /.card-header -->
@@ -71,7 +71,7 @@
                             <button class="btn btn-warning"><i class="fas fa-cogs"></i></button>
                           </a>
                           <a href="<?= BASE_URL_ADMIN . '?act=xoa-san-pham&id_san_pham=' . $sanPham['id'] ?>" 
-                            onclick="return confirm('Ban co dong y xoa hay kh?')">
+                            onclick="return confirm('Bạn có đồng ý xóa hay không?')">
                             <button class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
                           </a>
                         </div>
