@@ -12,6 +12,7 @@ require_once './controllers/HomeController.php';
 // Require toàn bộ file Models
 require_once './models/SanPham.php';
 require_once './models/TaiKhoan.php';
+require_once './models/DanhMuc.php';
 require_once './models/GioHang.php';
 require_once './models/DonHang.php';
 
@@ -46,13 +47,15 @@ match ($act) {
     'lich-su-mua-hang' => (new HomeController())->lichSuMuaHang(),
 
     'chi-tiet-mua-hang' => (new HomeController())->chiTietMuaHang(),
+    'san-pham-theo-danh-muc' => (new HomeController())->sanPhamTheoDanhMuc(),
 
     'huy-don-hang' => (new HomeController())->huyDonHang(),
+     'san-pham' => (new HomeController())->sanPham(),
 
 
     // Auth
     'login' => (new HomeController())->formLogin(),
-
+    'log-out' => (new HomeController())->logout(),
     'check-login' => (new HomeController())->postLogin(),
 
 };

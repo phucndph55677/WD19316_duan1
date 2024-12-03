@@ -89,21 +89,22 @@ match ($act) {
         // route reset password tai khoan
         'reset-password' =>(new AdminTaiKhoanController())->resetPassword(),
 
-        // Quan ly tai khoan khach hang
-        'list-tai-khoan-khach-hang' => (new AdminTaiKhoanController())->danhSachKhachHang(),
+   
+      
 
-        'form-sua-khach-hang' => (new AdminTaiKhoanController())->formEditKhachHang(),
-
-        'sua-khach-hang' => (new AdminTaiKhoanController())->postEditKhachHang(),
-
-        'chi-tiet-khach-hang' => (new AdminTaiKhoanController())->deltailKhachHang(),
+    ///route user
+    // 'list-tai-khoan-quan-tri' => (new AdminDonHangController())->listTaiKhoanQuanTri(),
 
         // route quan ly tai khoan ca nhan(quan tri)
         'form-sua-thong-tin-ca-nhan-quan-tri' =>(new AdminTaiKhoanController())->formEditCaNhanQuanTri(),
 
-        // 'sua-thong-tin-ca-nhan-quan-tri' =>(new AdminTaiKhoanController())->postEditCaNhanQuanTri(),
-        
-        // 'sua-mat-khau-ca-nhan-quan-tri' =>(new AdminTaiKhoanController())->postEditMatKhauCaNhan(),
+    
+     'list-tai-khoan-khach-hang' => (new AdminTaiKhoanController())->danhSachKhachHang(),
+
+     'form-sua-khach-hang' =>(new AdminTaiKhoanController())->formEditKhachHang(),
+
+     'chi-tiet-khach-hang' => (new AdminTaiKhoanController())->deltailKhachHang(),
+     // 'sua-khach-hang' => (new AdminTaiKhoanController())->postEditKhachHang(),
 
     // route auth
     'login-admin' => (new AdminTaiKhoanController())->formLogin(),
@@ -112,4 +113,15 @@ match ($act) {
 
     'logout-admin' => (new AdminTaiKhoanController())->logout(),
     
+     'list-tai-khoan-khach-hang' => (new AdminTaiKhoanController())->danhSachKhachHang(),
+
+     'form-sua-khach-hang' =>(new AdminTaiKhoanController())->formEditKhachHang(),
+
+     'chi-tiet-khach-hang' => (new AdminTaiKhoanController())->deltailKhachHang(),
+     'sua-khach-hang' => (new AdminTaiKhoanController())->postEditKhachHang(),
+
+  // route auth
+  'login-admin' => (new AdminTaiKhoanController())->formLogin(),
+
+  'check-login-admin' => (new AdminTaiKhoanController())->login()
 };
