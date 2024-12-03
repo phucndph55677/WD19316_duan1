@@ -20,11 +20,10 @@ function connectDB() {
     } catch (PDOException $e) {
         echo ("Connection failed: " . $e->getMessage());
     }
-   
 }
 
 // Them file
-function upLoadFile($file, $folderUpload) {
+function uploadFile($file, $folderUpload){
     $pathStorage = $folderUpload . time() . $file['name'];
 
     $from = $file['tmp_name'];
@@ -37,15 +36,11 @@ function upLoadFile($file, $folderUpload) {
 }
 
 // Xoa file
-function deleteFile($file) {
+function deleteFile($file){
     $pathDelete = PATH_ROOT . $file;
-    if (file_exists(($pathDelete))) {
+    if (file_exists($pathDelete)) {
         unlink($pathDelete);
     }
-}
-
-function formatDate($date) {
-    return date("d/m/Y", strtotime($date)); // Định dạng ngày theo kiểu dd/mm/yyyy
 }
 
 // Xoa session sau khi load trang
@@ -53,13 +48,14 @@ function deleteSessionError() {
     if (isset($_SESSION['flash'])) {
         // Huy session sau khi da tai trang
         unset($_SESSION['flash']);
-        session_unset();
-        session_destroy();
+        unset($_SESSION['error']);
+        // session_unset();
+
     }
 }
 
 // Upload - update album anh
-function uploadFileAlbum($file, $folderUpload, $key) {
+function uploadFileAlbum($file, $folderUpload, $key){
     $pathStorage = $folderUpload . time() . $file['name'][$key];
 
     $from = $file['tmp_name'][$key];
@@ -70,8 +66,22 @@ function uploadFileAlbum($file, $folderUpload, $key) {
     }
     return null;
 }
-function formatPrice($price) {
-    return number_format($price, 0, '', '.');
+
+// format date
+function formatDate($date) {
+    return date("d/m/Y", strtotime($date)); // Dinh dang theo kieu dd/mm/yyyy
 }
 
-// Debug
+// Kiem tra dang nhap admin - Ngan chan viec thay doi url co the vao truc tiep
+function checkLoginAdmin(){
+    if (!isset($_SESSION['user_admin'])) { // Kh co session thi redirect va trang login
+
+        header("Location: " . BASE_URL_ADMIN . '?act=login-admin');
+        exit();
+    }
+}
+
+// Format lai gia tien o trang admin
+function formatPrice($price){
+    return number_format($price, 0, ',', '.');
+}

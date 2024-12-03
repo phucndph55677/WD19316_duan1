@@ -1,10 +1,7 @@
- <!-- Start Header Area -->
- <header class="header-area header-wide">
+<!-- Start Header Area -->
+<header class="header-area header-wide">
         <!-- main header start -->
         <div class="main-header d-none d-lg-block">
-            <!-- header top start -->
-            
-            <!-- header top end -->
 
             <!-- header middle area start -->
             <div class="header-main-area sticky">
@@ -15,7 +12,7 @@
                         <div class="col-lg-2">
                             <div class="logo">
                                 <a href="<?= BASE_URL ?>">
-                                    <img src="assets/img/logo/LOGO.png" alt="Brand Logo">
+                                    <img src="assets/img/logo/logo1.png" alt="Brand Logo">
                                 </a>
                             </div>
                         </div>
@@ -28,27 +25,20 @@
                                     <!-- main menu navbar start -->
                                     <nav class="desktop-menu">
                                         <ul>
-                                            <li><a href="<?= BASE_URL ?>">Trang Chủ</i></a>
-                                               
+                                            <li><a href="<?= BASE_URL ?>">Trang chu</i></a>
+                                                
                                             </li>
-                                            
                                            
-                                            <li><a href="blog-left-sidebar.html">Sản Phẩm <i class="fa fa-angle-down"></i></a>
+                                            <li><a href="#">San pham <i class="fa fa-angle-down"></i></a>
                                                 <ul class="dropdown">
                                                     <li><a href="blog-left-sidebar.html">blog left sidebar</a></li>
-                                                    <li><a href="blog-list-left-sidebar.html">blog list left sidebar</a></li>
-                                                    <li><a href="blog-right-sidebar.html">blog right sidebar</a></li>
-                                                    <li><a href="blog-list-right-sidebar.html">blog list right sidebar</a></li>
-                                                    <li><a href="blog-grid-full-width.html">blog grid full width</a></li>
-                                                    <li><a href="blog-details.html">blog details</a></li>
-                                                    <li><a href="blog-details-left-sidebar.html">blog details left sidebar</a></li>
-                                                    <li><a href="blog-details-audio.html">blog details audio</a></li>
-                                                    <li><a href="blog-details-video.html">blog details video</a></li>
-                                                    <li><a href="blog-details-image.html">blog details image</a></li>
+
                                                 </ul>
                                             </li>
-                                            <li><a href="contact-us.html">Giới thiệu</a></li>
-                                            <li><a href="contact-us.html">Liên Hệ</a></li>
+
+                                            <li><a href="#">Gioi thieu</a></li>
+
+                                            <li><a href="#">Lien he</a></li>
                                         </ul>
                                     </nav>
                                     <!-- main menu navbar end -->
@@ -63,37 +53,32 @@
                                 <div class="header-search-container">
                                     <button class="search-trigger d-xl-none d-lg-block"><i class="pe-7s-search"></i></button>
                                     <form class="header-search-box d-lg-none d-xl-block">
-                                        <input type="text" placeholder="Nhập Tên Sản Phẩm" class="header-search-field">
+                                        <input type="text" placeholder="Nhap ten san pham" class="header-search-field">
                                         <button class="header-search-btn"><i class="pe-7s-search"></i></button>
                                     </form>
                                 </div>
                                 <div class="header-configure-area">
-                                    <ul class="nav justify-content-end">
-                                        <li>
-                                        <label for="" >
+                                    <ul class="nav justify-content-end">                  
+                                        <label for="">
                                             <?php if (isset($_SESSION['user_client'])) {
                                                 echo $_SESSION['user_client'];
-                                            }
-                                            ?>
+                                            } ?>
                                         </label>
-                                        </li>
-                                       
+
                                         <li class="user-hover">
                                             <a href="#">
                                                 <i class="pe-7s-user"></i>
                                             </a>
                                             <ul class="dropdown-list">
-                                            <?php if (!isset($_SESSION['user_client'])) {?>
-                                            <li><a href="<?= BASE_URL. '?act=login' ?>">Đăng Nhập</a></li>
-                                            
-                                            <?php }else{ ?>
-                                               
-                                                <li><a href="my-account.html">Tài Khoản</a></li>
-                                                <?php }?>
+                                                <?php if (!isset($_SESSION['user_client'])) { ?>
+                                                    <li><a href="<?= BASE_URL . '?act=login' ?>">Đăng nhập</a></li>
+                                                <?php } else { ?>
+                                                    <li><a href="my-account.html">Tài khoản</a></li>
+                                                    <li><a href="<?= BASE_URL . '?act=lich-su-mua-hang' ?>">Don hang</a></li>
+                                                <?php } ?>
                                             </ul>
-                                            
                                         </li>
-                                       
+                                        
                                         <li>
                                             <a href="#" class="minicart-btn">
                                                 <i class="pe-7s-shopbag"></i>
@@ -111,6 +96,7 @@
             </div>
             <!-- header middle area end -->
         </div>
-       
+        <!-- main header start -->
+
     </header>
     <!-- end Header Area -->

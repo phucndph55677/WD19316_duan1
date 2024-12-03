@@ -1,6 +1,6 @@
 <footer class="main-footer">
     <div class="float-right d-none d-sm-block">
-     by <b>Du an 1</b> Nhom 6
+      by<b>Nhom 6</b>
     </div>
     <strong>Website ban thu cung</strong>
   </footer>
