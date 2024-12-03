@@ -45,7 +45,7 @@
                                     <tbody>
                                         <?php 
                                             $tongGioHang = 0; 
-                                            foreach($chiTietGioHang as $key => $sanPham): 
+                                            foreach($chiTietGioHang as $key=>$sanPham): 
                                         ?>
                                         <tr>
                                             <td class="pro-thumbnail"><a href="#"><img class="img-fluid" src="<?= BASE_URL . $sanPham['hinh_anh'] ?>" alt="Product" /></a></td>

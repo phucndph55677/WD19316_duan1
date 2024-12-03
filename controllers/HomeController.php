@@ -335,11 +335,12 @@ class HomeController {
             $donHang = $this->modelDonHang->getDonHangById($donHangId);
 
             // Lay thong tin sp cua don hang trong bang chi tiet don hang
-            $chiTietDonHang = $this->modelDonHang->getChiTietDonHangByDonHang($donHangId);
-
+            $chiTietDonHang = $this->modelDonHang->getChiTietDonHangByDonHang($donHangId);    
             
+            // echo "<pre>";
+            // print_r($donHang);
+            // print_r($chiTietDonHang);
              
-
             if ($donHang['tai_khoan_id'] != $tai_khoan_id) {
                echo "Ban khong co quyen truy cap don hang nay.";
                exit;
@@ -385,15 +386,22 @@ class HomeController {
             var_dump('Chưa đăng nhập');die;
         }
     }
-    public function sanPham(){
+    public function sanPham()
+    {
         $listDanhMuc = $this->modelDanhMuc->getAllDanhMuc();
+
         $listSanPham = $this->modelSanPham->getAllSanPham();
+
         require_once './views/listProduct.php';
     }
-    public function sanPhamTheoDanhMuc(){
+    public function sanPhamTheoDanhMuc()
+    {
         $danh_muc_id = $_GET['id_danh_muc'];
+
         $listSanPham = $this->modelSanPham->getSanPhamByDanhMuc($danh_muc_id);
+
         $listDanhMuc = $this->modelDanhMuc->getAllDanhMuc();
+
         require_once './views/listSanPhamDanhMuc.php';
     }
     

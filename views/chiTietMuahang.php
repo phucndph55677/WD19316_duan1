@@ -34,16 +34,15 @@
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>
-                                        <th colspan="5">Thong tin san pham</th>
-                                    </tr>
+                                        <th colspan="5">Thông tin sản phẩm</th>
                                 </thead>
                                 <tbody>
                                     <tr class="text-center">
-                                        <th>Hinh anh</th>
-                                        <th>Ten san pham</th>
-                                        <th>Don gia</th>
-                                        <th>So luong</th>
-                                        <th>Thanh tien</th>
+                                        <th>Hình ảnh</th>
+                                        <th>Tên sản phẩm</th>
+                                        <th>Đơn giá</th>
+                                        <th>Số lượng</th>
+                                        <th>Thành tiền</th>
                                     </tr>
                                     <?php foreach ($chiTietDonHang as $item): ?>
                                         <tr>
@@ -68,17 +67,17 @@
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>
-                                        <th colspan="2">Thong tin don hang</th>
+                                        <th colspan="2">Thông tin đơn hàng</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr class="text-center">
-                                        <th>Ma don hang:</th>
+                                        <th>Mã đơn hàng:</th>
                                         <td><?= $donHang['ma_don_hang'] ?></td>
                                     </tr>
 
                                     <tr class="text-center">
-                                        <th>Nguoi nhan:</th>
+                                        <th>Người nhận:</th>
                                         <td><?= $donHang['ten_nguoi_nhan'] ?></td>
                                     </tr>
 
@@ -88,37 +87,37 @@
                                     </tr>
 
                                     <tr class="text-center">
-                                        <th>So dien thoai:</th>
+                                        <th>Số điện thoại:</th>
                                         <td><?= $donHang['sdt_nguoi_nhan'] ?></td>
                                     </tr>
 
                                     <tr class="text-center">
-                                        <th>Dia chi:</th>
+                                        <th>Địa chỉ:</th>
                                         <td><?= $donHang['dia_chi_nguoi_nhan'] ?></td>
                                     </tr>
 
                                     <tr class="text-center">
-                                        <th>Ngay dat:</th>
+                                        <th>Ngày đặt:</th>
                                         <td><?= $donHang['ngay_dat'] ?></td>
                                     </tr>
 
                                     <tr class="text-center">
-                                        <th>Ghi chu:</th>
+                                        <th>Ghi chú:</th>
                                         <td><?= $donHang['ghi_chu'] ?></td>
                                     </tr>
 
                                     <tr class="text-center">
-                                        <th>Tong tien</th>
+                                        <th>Tổng tiền</th>
                                         <td><?= number_format($donHang['tong_tien'], 0, ',',  '.') ?> d</td>
                                     </tr>
 
                                     <tr class="text-center">
-                                        <th>Phuong thuc thanh toan:</th>
+                                        <th>Phương thức thanh toán:</th>
                                         <td><?= $phuongThucThanhToan[$donHang['phuong_thuc_thanh_toan_id']] ?></td>
                                     </tr>
 
                                     <tr class="text-center">
-                                        <th>Trang thai don hang:</th>
+                                        <th>Trạng thái đơn hàng:</th>
                                         <td><?= $trangThaiDonHang[$donHang['trang_thai_id']] ?></td>
                                     </tr>
                                 </tbody>

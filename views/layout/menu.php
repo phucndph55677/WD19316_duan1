@@ -29,7 +29,7 @@
                                                 <a href="<?= BASE_URL ?>">Trang chủ</i></a>                                              
                                             </li>
 
-                                            <li><a href="<?= BASE_URL . '?act=san-pham' ?>">Sản Phẩm <i class="fa fa-angle-down"></i></a>
+                                            <li><a href="<?= BASE_URL . '?act=san-pham' ?>">Danh mục sản phẩm <i class="fa fa-angle-down"></i></a>
                                                  <ul class="dropdown">
                                                     <?php foreach ($listDanhMuc as $danhmuc): ?>
                                                         <li><a href="<?= BASE_URL .'?act=san-pham-theo-danh-muc&id_danh_muc='. $danhmuc['id'] ?>"><?= $danhmuc['ten_danh_muc'] ?></a></li>
@@ -72,22 +72,22 @@
                                             </a>
                                             <ul class="dropdown-list">
                                                 <?php if (!isset($_SESSION['user_client'])) { ?>
+
                                                     <li><a href="<?= BASE_URL . '?act=login' ?>">Đăng nhập</a></li>
+
                                                 <?php } else { ?>
-                                                    <li><a href="my-account.html">Tài khoản</a></li>
 
                                                     <li><a href="<?= BASE_URL . '?act=lich-su-mua-hang' ?>">Đơn hàng</a></li>
 
                                                     <li><a href="<?= BASE_URL. '?act=log-out' ?>">Đăng Xuất</a></li>
+
                                                 <?php } ?>
                                             </ul>
                                         </li>
                                         
-                                        <li>
-                                            
-                                            <a href="<?= BASE_URL. '?act=gio-hang' ?>" class="minicart-btn">
-                                                <i class="pe-7s-shopbag"></i>
-                                               
+                                        <li>                                        
+                                            <a href="<?= BASE_URL . '?act=gio-hang' ?>" class="minicart-btn">
+                                                <i class="pe-7s-shopbag"></i>                                             
                                             </a>
                                         </li>
                                     </ul>
