@@ -1,16 +1,18 @@
 <?php
 
 class AdminDanhMuc {
-    public $conn;
     
+    public $conn;
+
     public function __construct()
     {
         $this->conn = connectDB();
     }
 
-    public function getAllDanhMuc(){
+    public function getAllDanhMuc() 
+    {
         try {
-            $sql = 'SELECT * FROM danh_mucs';
+            $sql = "SELECT * FROM danh_mucs";
 
             $stmt = $this->conn->prepare($sql);
 
@@ -18,17 +20,18 @@ class AdminDanhMuc {
 
             return $stmt->fetchAll();
         } catch (Exception $e) {
-            echo $e->getMessage();
+            echo "Loi" . $e->getMessage();
         }
     }
 
-    public function insertDanhMuc($ten_danh_muc, $mo_ta){
+    public function insertDanhMuc($ten_danh_muc, $mo_ta)
+    {
         try {
             $sql = 'INSERT INTO danh_mucs (ten_danh_muc, mo_ta)
                     VALUES (:ten_danh_muc, :mo_ta)';
-
+            
             $stmt = $this->conn->prepare($sql);
-
+            
             $stmt->execute([
                 ':ten_danh_muc' => $ten_danh_muc,
                 ':mo_ta' => $mo_ta
@@ -36,11 +39,12 @@ class AdminDanhMuc {
 
             return true;
         } catch (Exception $e) {
-            echo $e->getMessage();
+            echo "Loi" . $e->getMessage();
         }
     }
 
-    public function getDetailDanhMuc($id){
+    public function getDetailDanhMuc($id)
+    {
         try {
             $sql = 'SELECT * FROM danh_mucs WHERE id = :id';
 
@@ -52,45 +56,44 @@ class AdminDanhMuc {
 
             return $stmt->fetch();
         } catch (Exception $e) {
-            echo $e->getMessage();
+            echo "Loi" . $e->getMessage();
         }
     }
 
-    public function updateDanhMuc($id, $ten_danh_muc, $mo_ta){
+    public function updateDanhMuc($id, $ten_danh_muc, $mo_ta)
+    {
         try {
             $sql = 'UPDATE danh_mucs SET ten_danh_muc = :ten_danh_muc, mo_ta = :mo_ta WHERE id = :id';
 
             $stmt = $this->conn->prepare($sql);
 
             $stmt->execute([
+                ':id' => $id,
                 ':ten_danh_muc' => $ten_danh_muc,
-                ':mo_ta' => $mo_ta,
-                ':id' => $id
+                ':mo_ta' => $mo_ta
             ]);
 
             return true;
         } catch (Exception $e) {
-            echo $e->getMessage();
+            echo "Loi" . $e->getMessage();
         }
     }
 
-    public function destroyDanhMuc($id){
+    public function destroyDanhMuc($id)
+    {
         try {
-            $sql = 'DELETE FROM danh_mucs WHERE id = :id';
+            $sql = 'DELETE FROM danh_mucs WHERE id =:id';
 
             $stmt = $this->conn->prepare($sql);
 
             $stmt->execute([
-                ':id' => $id
+                ':id' => $id,
             ]);
 
             return true;
         } catch (Exception $e) {
-            echo $e->getMessage();
+            echo "Loi" . $e->getMessage();
         }
     }
 
-    
 }
-
-?>

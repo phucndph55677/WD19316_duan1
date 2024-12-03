@@ -1,7 +1,7 @@
 <?php
 
-class AdminTaiKhoan
-{
+class AdminTaiKhoan {
+    
     public $conn;
 
     public function __construct()

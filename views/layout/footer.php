@@ -1,5 +1,11 @@
-<!-- footer area start -->
-<footer class="footer-widget-area">
+    <!-- Scroll to top start -->
+    <div class="scroll-top not-visible">
+        <i class="fa fa-angle-up"></i>
+    </div>
+    <!-- Scroll to Top End -->
+
+    <!-- footer area start -->
+    <footer class="footer-widget-area">
         <div class="footer-top section-padding">
             <div class="container">
                 <div class="row">
@@ -8,45 +14,47 @@
                             <div class="widget-title">
                                 <div class="widget-logo">
                                     <a href="index.html">
-                                        <img src="assets/img/logo/LOGO.png" alt="brand logo">
+                                        <img src="assets/img/logo/logo.png" alt="brand logo">
                                     </a>
                                 </div>
                             </div>
                             <div class="widget-body">
-                                <p>Shop Bán Thú Cưng FPL</p>
+                                <p>We are a team of designers and developers that create high quality wordpress, shopify, Opencart </p>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="widget-item">
-                            <h6 class="widget-title">Liên Hệ</h6>
+                            <h6 class="widget-title">Contact Us</h6>
                             <div class="widget-body">
                                 <address class="contact-block">
                                     <ul>
-                                        <li><i class="pe-7s-home"></i>Số 13, Trịnh Văn Bô,Nam Từ Liêm, Hà Nội</li>
-                                        <li><i class="pe-7s-mail"></i> <a href="mailto:demo@plazathemes.com">thucungFPL@gmail.com </a></li>
-                                        <li><i class="pe-7s-call"></i> <a href="tel:(012)800456789987">+84 35545545</a></li>
+                                        <li><i class="pe-7s-home"></i> 4710-4890 Breckinridge USA</li>
+                                        <li><i class="pe-7s-mail"></i> <a href="mailto:demo@plazathemes.com">demo@yourdomain.com </a></li>
+                                        <li><i class="pe-7s-call"></i> <a href="tel:(012)800456789987">(012) 800 456 789-987</a></li>
                                     </ul>
                                 </address>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6">
+                    <div class="col-lg-3 col-md-6">
                         <div class="widget-item">
-                            <h6 class="widget-title">Thông Tin</h6>
+                            <h6 class="widget-title">Information</h6>
                             <div class="widget-body">
                                 <ul class="info-list">
-                                    <li><a href="#">Về Chúng Tôi</a></li>
-                                    <li><a href="#">Điều khoản & Điều kiện</a></li>
-                                    <li><a href="#">Liên Hệ</a></li>
-                                    <li><a href="#">Bản Đồ</a></li>
+                                    <li><a href="#">about us</a></li>
+                                    <li><a href="#">Delivery Information</a></li>
+                                    <li><a href="#">privet policy</a></li>
+                                    <li><a href="#">Terms & Conditions</a></li>
+                                    <li><a href="#">contact us</a></li>
+                                    <li><a href="#">site map</a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="widget-item">
-                            <h6 class="widget-title">Follow Chúng Tôi</h6>
+                            <h6 class="widget-title">Follow Us</h6>
                             <div class="widget-body social-link">
                                 <a href="#"><i class="fa fa-facebook"></i></a>
                                 <a href="#"><i class="fa fa-twitter"></i></a>
@@ -85,13 +93,16 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                       
+                        <div class="copyright-text text-center">
+                            <p>&copy; 2022 <b>Corano</b> Made with <i class="fa fa-heart text-danger"></i> by <a href="https://hasthemes.com/"><b>HasThemes</b></a></p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
     <!-- footer area end -->
+
         <!-- JS
 ============================================ -->
 
@@ -123,10 +134,6 @@
     <script src="assets/js/plugins/google-map.js"></script>
     <!-- Main JS -->
     <script src="assets/js/main.js"></script>
-    
-
-</body>
 
 
 <!-- Mirrored from htmldemo.net/corano/corano/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 29 Jun 2024 09:53:43 GMT -->
-</html>

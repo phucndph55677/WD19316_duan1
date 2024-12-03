@@ -1,4 +1,5 @@
 <?php
+
 class SanPham {
     public $conn; // Khai bao phuong thuc
 
@@ -6,48 +7,32 @@ class SanPham {
     {
         $this->conn = connectDB();
     }
-    public function getSanPhamHot() {
+
+    public function getAllSanPham()
+    {
         try {
-            // Câu truy vấn SQL để lấy sản phẩm hot
-            $sql = 'SELECT * FROM san_phams WHERE gia_khuyen_mai > 0 and ngay_nhap > DATE_SUB(NOW(), INTERVAL 7 DAY)';
-    
-            // Chuẩn bị câu lệnh SQL
+            $sql = 'SELECT san_phams.*, danh_mucs.ten_danh_muc
+            FROM san_phams
+            INNER JOIN danh_mucs ON san_phams.danh_muc_id = danh_mucs.id
+            ';
             $stmt = $this->conn->prepare($sql);
     
             // Thực thi câu lệnh
             $stmt->execute();
-    
-            // Trả về tất cả các kết quả
+            
             return $stmt->fetchAll();
         } catch (Exception $e) {
-            // Xử lý lỗi và trả về thông báo lỗi
-            echo 'Error: ' . $e->getMessage();
+            echo "Lỗi" . $e->getMessage();
         }
     }
-    // Viet ham lay toan bo danh sach san pham
-    public function getAllSanPham() {
+
+    public function getDetailSanPham($id)
+    {
         try {
-            $sql = 'SELECT san_phams.*, danh_mucs.ten_danh_muc 
-                    FROM san_phams 
-                    INNER JOIN danh_mucs 
-                    ON san_phams.danh_muc_id = danh_mucs.id
-                    WHERE san_phams.trang_thai = 1'; // Chỉ lấy sản phẩm đang bán
-    
-            $stmt = $this->conn->prepare($sql);
-    
-            $stmt->execute();
-    
-            return $stmt->fetchAll();
-        } catch (Exception $e) {
-            echo "Lỗi: " . $e->getMessage();
-        }
-    }
-    
-    public function getDetailSanPham($id) {
-        try {
-            $sql = 'SELECT san_phams.*,danh_mucs.ten_danh_muc FROM 
-            san_phams 
-            INNER JOIN danh_mucs ON san_phams.danh_muc_id = danh_mucs.id WHERE san_phams.id = :id';
+            $sql = 'SELECT san_phams.*, danh_mucs.ten_danh_muc
+            FROM san_phams
+            INNER JOIN danh_mucs ON san_phams.danh_muc_id = danh_mucs.id
+            WHERE san_phams.id = :id';
 
             $stmt = $this->conn->prepare($sql);
 
@@ -55,11 +40,12 @@ class SanPham {
 
             return $stmt->fetch();
         } catch (Exception $e) {
-            echo $e->getMessage();
+            echo "lỗi" . $e->getMessage();
         }
     }
 
-    public function getListAnhSanPham($id) {
+    public function getListAnhSanPham($id)
+    {
         try {
             $sql = 'SELECT * FROM hinh_anh_san_phams WHERE san_pham_id = :id';
 
@@ -69,14 +55,18 @@ class SanPham {
 
             return $stmt->fetchAll();
         } catch (Exception $e) {
-            echo $e->getMessage();
+            echo "lỗi" . $e->getMessage();
         }
     }
-    public function getBinhLuanfromSanPham($id) {
+
+    public function getBinhLuanFromSanPham($id)
+    {
         try {
-            $sql = 'SELECT binh_luans.*,tai_khoans.ho_ten,tai_khoans.anh_dai_dien FROM binh_luans 
+            $sql = 'SELECT binh_luans.*, tai_khoans.ho_ten, tai_khoans.anh_dai_dien
+            FROM binh_luans
             INNER JOIN tai_khoans ON binh_luans.tai_khoan_id = tai_khoans.id
-             WHERE binh_luans.san_pham_id  = :id';
+            WHERE binh_luans.san_pham_id = :id
+            ';
 
             $stmt = $this->conn->prepare($sql);
 
@@ -84,25 +74,25 @@ class SanPham {
 
             return $stmt->fetchAll();
         } catch (Exception $e) {
-            echo $e->getMessage();
+            echo "lỗi" . $e->getMessage();
         }
     }
-    public function getListSanPhamCungDanhMuc($danh_muc_id){
-        try {
-            $sql = 'SELECT  san_phams.*,danh_mucs.ten_danh_muc FROM 
-            san_phams 
-            INNER JOIN danh_mucs ON san_phams.danh_muc_id = danh_mucs.id
-            WHERE san_phams.danh_muc_id = '.$danh_muc_id.' LIMIT 5';
-            
 
+    public function getListSanPhamDanhMuc($danh_muc_id)
+    {
+        try {
+            $sql = 'SELECT san_phams.*, danh_mucs.ten_danh_muc
+            FROM san_phams
+            INNER JOIN danh_mucs ON san_phams.danh_muc_id = danh_mucs.id
+            WHERE san_phams.danh_muc_id = '. $danh_muc_id;
+            
             $stmt = $this->conn->prepare($sql);
 
             $stmt->execute();
-
-            return $stmt->fetchAll();
             
+            return $stmt->fetchAll();
         } catch (Exception $e) {
-            echo "Loi". $e->getMessage();
+            echo "Lỗi" . $e->getMessage();
         }
     }
     public function getSanPhamByDanhMuc($danh_muc_id) {
@@ -159,4 +149,3 @@ class SanPham {
     }
 
 }
-

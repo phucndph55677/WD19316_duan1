@@ -1,5 +1,6 @@
-<?php include 'views/layout/header.php'; ?>
-<?php include 'views/layout/menu.php'; ?>
+<?php require_once 'layout/header.php'; ?>
+
+<?php require_once 'layout/menu.php'; ?>
 
 <main>
     <!-- breadcrumb area start -->
@@ -10,9 +11,9 @@
                     <div class="breadcrumb-wrap">
                         <nav aria-label="breadcrumb">
                             <ul class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="<?= BASE_URL?>"><i class="fa fa-home"></i></a></li>
-                                
-                                <li class="breadcrumb-item active" aria-current="page">Lịch Sử Mua Hàng</li>
+                                <li class="breadcrumb-item"><a href="index.html"><i class="fa fa-home"></i></a></li>
+                                <li class="breadcrumb-item"><a href="shop.html">shop</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">bills</li>
                             </ul>
                         </nav>
                     </div>
@@ -22,58 +23,64 @@
     </div>
     <!-- breadcrumb area end -->
 
-   <!-- cart main wrapper start -->
-<div class="cart-main-wrapper section-padding">
-    <div class="container">
-        <div class="section-bg-color">
-            <div class="row">
-                <div class="col-lg-12">
-                    <!-- Cart Table Area -->
-                    <div class="cart-table table-responsive">
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <th >Mã Đơn Hàng</th>
-                                    <th >Tên Sản Phẩm</th>
-                                    <th>Tổng Tiền</th>
-                                    <th >Phương Thức Thanh Toán</th>
-                                    <th >Trạng Thái Đơn Hàng</th>
-                                    <th>Thao Tác</th>
-                                </tr>
-
-                            </thead>
-                            <tbody>
-                                <?foreach ($donHangs as $key => $donhang):?>
+    <!-- cart main wrapper start -->
+    <div class="cart-main-wrapper section-padding">
+        <div class="container">
+            <div class="section-bg-color">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <!-- Cart Table Area -->
+                        <div class="cart-table table-responsive">
+                            <table class="table table-bordered">
+                                <thead>
                                     <tr>
-                                        <td class="text-center"><?=$donhang['ma_don_hang']?></td>
-                                        <td><?= formatDate($donhang['ngay_dat'])?></td>
-                                        <td><?= formatPrice($donhang['tong_tien']).'đ'?></td>
-                                        <td><?= $phuongThucThanhToan[$donhang['phuong_thuc_thanh_toan_id']]?></td>
-                                        <td><?=$TrangThaiDonHang[$donhang['trang_thai_id']]?></td>
-                                        <td>
-                                            <a href="<?= BASE_URL . '?act=chi-tiet-mua-hang&id=' . $donhang['id'] ?>" class="btn btn-sqr">Xem Chi Tiết</a>
-                                            <?if($donhang['trang_thai_id'] == 1):?>
-                                                <a href="<?= BASE_URL . '?act=huy-don-hang&id=' . $donhang['id'] ?>" class="btn btn-sqr" onclick="return confirm('Bạn chắc chắn muốn hủy đơn hàng này Không?')">
-                                                    Hủy
-                                                </a>
-                                            <?endif?>
-                                        </td>
-                                        
+                                        <th>Ma don hang</th>
+                                        <th>Ngay dat</th>
+                                        <th>Tong tien </th>
+                                        <th>Phuong thuc thanh toan</th>
+                                        <th>Trang thai don hang</th>
+                                        <th>Thao tac</th>
                                     </tr>
-                                <?endforeach?>    
-                           </tbody>
-                        </table>
+                                </thead>
+                                <tbody>
+                                    <?php 
+                                        foreach ($donHangs as $donHang) : 
+                                    ?>
+                                        <tr>
+                                            <th class="text-center"><?= $donHang['ma_don_hang'] ?></th>
+                                            <td><?= $donHang['ngay_dat'] ?></td>
+                                            <td><?= formatPrice($donHang['tong_tien']) ?> d</td>
+                                            <td><?= $phuongThucThanhToan[$donHang['phuong_thuc_thanh_toan_id']] ?></td>
+                                            <td><?= $trangThaiDonHang[$donHang['trang_thai_id']] ?></td>
+                                            <td>
+                                                <a href="<?= BASE_URL ?>?act=chi-tiet-mua-hang&id=<?= $donHang['id'] ?>"class="btn btn-sqr">
+                                                    Chi tiet don hang
+                                                </a>
+
+                                                <?php if ($donHang['trang_thai_id'] == 1): ?> 
+                                                    <a href="<?= BASE_URL ?>?act=huy-don-hang&id=<?= $donHang['id'] ?>" class="btn btn-sqr"
+                                                    onclick="return confirm('Xac nhan hủy đơn hàng')">
+                                                        Huy
+                                                    </a>
+                                                <?php endif ?>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach ?>
+                                </tbody>
+                            </table>
+                        </div>
+
                     </div>
-                    
                 </div>
             </div>
-            
+
         </div>
     </div>
-</div>
-<!-- cart main wrapper end -->
-
-<?php require_once 'views/layout/footer.php'; ?>
-
+    </div>
+    <!-- cart main wrapper end -->
+</main>
 
 
+<?php require_once 'layout/miniCart.php'; ?>
+
+<?php require_once 'layout/footer.php'; ?>
