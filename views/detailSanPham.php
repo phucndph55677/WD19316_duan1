@@ -71,6 +71,14 @@
                                                 <span class="price-regular"><?= formatPrice($sanPham['gia_san_pham']) . 'đ'; ?></span>
                                             <?php } ?>
                                         </div>
+                                            <!-- Hiển thị lỗi nếu có -->
+                                    <?php if (isset($_SESSION['error_message'])): ?>
+                                        <div class="alert alert-danger">
+                                            <?= $_SESSION['error_message']; ?>
+                                        </div>
+                                        <?php unset($_SESSION['error_message']); ?>
+                                    <?php endif; ?>
+
                                         <div class="availability">
                                             <i class="fa fa-check-circle"></i>
                                             <span><?= $sanPham['so_luong'] . ' trong kho' ?></span>
@@ -168,6 +176,7 @@
                         <div class="product-carousel-4 slick-row-10 slick-arrow-style">
                             <!-- product item start -->
                             <?php foreach ($listSanPhamCungDanhMuc as $key => $sanPham): ?>
+                                <?php if ($sanPham['trang_thai'] == 1) { ?>  
                                 <!-- product item start -->
                                 <div class="product-item">
                                     <figure class="product-thumb">
@@ -217,7 +226,7 @@
                                     </div>
                                 </div>
                                 <!-- product item end -->
-
+                                <?php } ?>
                             <?php endforeach ?>
                         <!-- product item end -->
 
@@ -230,6 +239,6 @@
     </main>
 
     
-<?php require_once 'layout/miniCart.php'; ?>
+
 
 <?php include './views/layout/footer.php'; ?>

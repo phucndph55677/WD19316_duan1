@@ -136,6 +136,6 @@
 </main>
 
 
-<?php require_once 'layout/miniCart.php'; ?>
+
 
 <?php require_once 'layout/footer.php'; ?>

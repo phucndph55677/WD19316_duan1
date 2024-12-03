@@ -78,7 +78,7 @@
 
                                                     <li><a href="<?= BASE_URL . '?act=lich-su-mua-hang' ?>">Đơn hàng</a></li>
 
-                                                    <!-- <li><a href="<?= BASE_URL. '?act=log-out' ?>">Đăng Xuất</a></li> -->
+                                                    <li><a href="<?= BASE_URL. '?act=log-out' ?>">Đăng Xuất</a></li>
                                                 <?php } ?>
                                             </ul>
                                         </li>

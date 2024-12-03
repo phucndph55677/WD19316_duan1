@@ -45,23 +45,7 @@
                     <!-- single sidebar end -->
 
                     <!-- single sidebar start -->
-                    <div class="sidebar-single">
-                        <h5 class="sidebar-title">Giá</h5>
-                        <div class="sidebar-body">
-                            <div class="price-range-wrap">
-                                <div class="price-range" data-min="1" data-max="1000"></div>
-                                <div class="range-slider">
-                                    <form action="#" class="d-flex align-items-center justify-content-between">
-                                        <div class="price-input">
-                                            <label for="amount">Price: </label>
-                                            <input type="text" id="amount">
-                                        </div>
-                                        <button class="filter-btn">filter</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <hr>
                     <!-- single sidebar end -->
 
 
@@ -89,20 +73,7 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-5 col-md-6 order-1 order-md-2">
-                                    <div class="top-bar-right">
-                                        <div class="product-short">
-                                            <p>Sort By : </p>
-                                            <select class="nice-select" name="sortby">
-                                                <option value="trending">Relevance</option>
-                                                <option value="sales">Name (A - Z)</option>
-                                                <option value="sales">Name (Z - A)</option>
-                                                <option value="rating">Price (Low &gt; High)</option>
-                                                <option value="date">Rating (Lowest)</option>
-                                                <option value="price-asc">Model (A - Z)</option>
-                                                <option value="price-asc">Model (Z - A)</option>
-                                            </select>
-                                        </div>
-                                    </div>
+                                 
                                 </div>
                             </div>
                         </div>
