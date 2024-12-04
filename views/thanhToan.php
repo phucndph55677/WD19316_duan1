@@ -158,6 +158,7 @@
                                             <p>Khách hàng có thể thanh toán sau khi đã nhận hàng thành công(cần xác nhận đơn hàng).</p>
                                         </div>
                                     </div>
+                                    
                                     <div class="single-payment-method">
                                         <div class="payment-method-name">
                                             <div class="custom-control custom-radio">

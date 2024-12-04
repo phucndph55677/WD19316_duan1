@@ -25,7 +25,9 @@ class DanhMuc {
             $sql = 'SELECT * FROM danh_mucs WHERE id = :id';
 
             $stmt = $this->conn->prepare($sql);
+
             $stmt->bindParam(':id', $id);
+            
             $stmt->execute();
 
             return $stmt->fetch();

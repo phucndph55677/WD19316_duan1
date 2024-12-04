@@ -249,12 +249,13 @@ class HomeController {
             
             // Lay thong tin gio hang cua nguoi dung
             $gioHang = $this->modelGioHang->getGioHangFromUser($tai_khoan_id);
-
+            
             // Luu sp vao chi tiet  don hang
             if ($donHang) {
                 // Lay ra toan bo san pham trong gio hang
+                
                 $chiTietGioHang = $this->modelGioHang->getDetailGioHang($gioHang['id']);
-
+                
                 // Them tung sp tu gio hang vao chi tiet don hang
                 foreach ($chiTietGioHang as $item) {
                     $donGia = $item['gia_khuyen_mai'] ?? $item['gia_san-pham']; // Uu tien don gia se lay gia khuyen mai
@@ -367,12 +368,12 @@ class HomeController {
             $donHang = $this->modelDonHang->getDonHangById($donHangId);
 
             if ($donHang['tai_khoan_id'] != $tai_khoan_id) {
-                echo "Ban kh co quyen huy don hang nay";
+                echo "Bạn không có quyền hủy ";
                 exit;
             }
 
             if ($donHang['trang_thai_id'] != 1) {
-                echo "Chi don hang o trang thai 'Chua xac nhan' moi co the huy";
+                echo "Chỉ đơn hàng ở trạng thái 'Chưa xác nhận' mới có thể hủy";
                 exit;
             }
 

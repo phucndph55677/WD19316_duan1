@@ -38,9 +38,9 @@ class DonHang {
     public function addChiTietDonHang($donHangId, $sanPhamId, $donGia, $soLuong, $thanhTien)
     {
         try {
-            $sql = 'INSERT INTO chi_tiet_don_hangs (tai_khoan_id, san_pham_id, don_gia, so_luong, thanh_tien)
-                    VALUES (:tai_khoan_id, :san_pham_id, :don_gia, :so_luong, :thanh_tien)';
-
+            $sql = 'INSERT INTO chi_tiet_don_hangs (don_hang_id, san_pham_id, don_gia, so_luong, thanh_tien)
+                    VALUES (:don_hang_id, :san_pham_id, :don_gia, :so_luong, :thanh_tien)';
+            // var_dump($sql);die;
             $stmt = $this->conn->prepare($sql);
 
             $stmt->execute([':don_hang_id'=>$donHangId,
@@ -107,7 +107,7 @@ class DonHang {
         try {
             $sql = 'SELECT * FROM don_hangs
                     WHERE id = :id';
-
+            
             $stmt = $this->conn->prepare($sql);
 
             $stmt->execute([':id'=>$donHangId]);
@@ -125,7 +125,7 @@ class DonHang {
                     FROM chi_tiet_don_hangs
                     JOIN san_phams ON chi_tiet_don_hangs.san_pham_id = san_phams.id
                     WHERE chi_tiet_don_hangs.don_hang_id = :don_hang_id';
-
+            
             $stmt = $this->conn->prepare($sql);
 
             $stmt->execute([':don_hang_id'=>$donHangId]);
