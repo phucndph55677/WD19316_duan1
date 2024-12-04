@@ -81,12 +81,13 @@
                                                     <?php endif; ?>
                                                 </div>
                                                 <div class="cart-hover">
-                                                    <button class="btn btn-cart">Thêm Giỏ Hàng</button>
+                                                
+                                                    <button class="btn btn-cart"><a href="<?= BASE_URL . '?act=them-gio-hang&id_san_pham=' . $sanpham['id'] ?>" >Thêm Giỏ Hàng</a></button>
                                                 </div>
                                             </figure>
                                             <div class="product-caption text-center">
                                                 <h6 class="product-name">
-                                                    <a href="<?= BASE_URL . '?act=chiTietSanPham&id_san_pham=' . $sanpham['id'] ?>"><?= $sanpham['ten_san_pham'] ?></a>
+                                                    <a href="<?= BASE_URL . '?act=chi-tiet-san-pham&id_san_pham=' . $sanpham['id'] ?>"><?= $sanpham['ten_san_pham'] ?></a>
                                                 </h6>
                                                 <div class="price-box">
                                                     <?php if ($sanpham['gia_khuyen_mai']): ?>
@@ -99,7 +100,7 @@
                                             </div>
                                         </div>
                                     </div>
-                              
+                              <?php endif; ?>
                             <?php endforeach; ?>
                         </div>
                         <!-- product item list wrapper end -->
