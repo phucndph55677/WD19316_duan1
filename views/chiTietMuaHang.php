@@ -39,11 +39,11 @@
                                 </thead>
                                 <tbody>
                                     <tr class="text-center">
-                                        <th>Hinh anh</th>
-                                        <th>Ten san pham</th>
-                                        <th>Don gia</th>
-                                        <th>So luong</th>
-                                        <th>Thanh tien</th>
+                                        <th>Hình ảnh</th>
+                                        <th>Tên sản phẩm</th>
+                                        <th>Đơn giá</th>
+                                        <th>Số lượng</th>
+                                        <th>Thành tiền</th>
                                     </tr>
                                     <?php foreach ($chiTietDonHang as $item): ?>
                                         <tr>
