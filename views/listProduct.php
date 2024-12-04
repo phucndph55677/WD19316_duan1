@@ -99,7 +99,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                <?php endif; ?>
+                              
                             <?php endforeach; ?>
                         </div>
                         <!-- product item list wrapper end -->
