@@ -11,7 +11,7 @@
                         <nav aria-label="breadcrumb">
                             <ul class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="<?= BASE_URL ?>"><i class="fa fa-home"></i></a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Sản Phẩmmm</li>
+                                <li class="breadcrumb-item active" aria-current="page">Sản Phẩn</li>
                             </ul>
                         </nav>
                     </div>
@@ -86,7 +86,7 @@
                                             </figure>
                                             <div class="product-caption text-center">
                                                 <h6 class="product-name">
-                                                    <a href="<?= BASE_URL . '?act=chiTietSanPham&id_san_pham=' . $sanpham['id'] ?>"><?= $sanpham['ten_san_pham'] ?></a>
+                                                    <a href="<?= BASE_URL . '?act=chi-tiet-san-pham&id_san_pham=' . $sanpham['id'] ?>"><?= $sanpham['ten_san_pham'] ?></a>
                                                 </h6>
                                                 <div class="price-box">
                                                     <?php if ($sanpham['gia_khuyen_mai']): ?>
