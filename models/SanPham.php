@@ -148,5 +148,16 @@ class SanPham {
             echo 'Error: ' . $e->getMessage();
         }
     }
+    public function timKiemSanPham($tuKhoa) {
+        try {
+            $sql = 'SELECT * FROM san_phams WHERE ten_san_pham LIKE :tuKhoa AND trang_thai = 1';
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([':tuKhoa' => '%' . $tuKhoa . '%']);
+            return $stmt->fetchAll();
+        } catch (Exception $e) {
+            echo 'Error: ' . $e->getMessage();
+            
+        }
+    }
 
 }

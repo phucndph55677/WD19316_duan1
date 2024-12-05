@@ -53,6 +53,7 @@ match ($act) {
     'san-pham' => (new HomeController())->sanPham(),
 
     'san-pham-theo-danh-muc' => (new HomeController())->sanPhamTheoDanhMuc(),
+    'tim-kiem' =>(new HomeController())->timKiemSanPam(),
 
 
     // Auth

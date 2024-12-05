@@ -409,6 +409,18 @@ class HomeController {
 
         require_once './views/listSanPhamDanhMuc.php';
     }
+    function timKiemSanPam() {
+        $tuKhoa = isset($_GET['tuKhoa']) && !empty($_GET['tuKhoa']) ? $_GET['tuKhoa'] : '';
+        if ($tuKhoa) {
+            $Results = $this->modelSanPham->timKiemSanPham($tuKhoa);
+            $listDanhMuc = $this->modelDanhMuc->getAllDanhMuc();
+            require_once './views/listProductSearch.php';
+        } else {
+            header("Location: " . BASE_URL);
+            exit();
+        }
+    }
+    
     
 
 }
