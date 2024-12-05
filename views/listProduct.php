@@ -81,7 +81,8 @@
                                                     <?php endif; ?>
                                                 </div>
                                                 <div class="cart-hover">
-                                                    <button class="btn btn-cart">Thêm Giỏ Hàng</button>
+                                                
+                                                    <button class="btn btn-cart"><a href="<?= BASE_URL . '?act=them-gio-hang&id_san_pham=' . $sanpham['id'] ?>" >Thêm Giỏ Hàng</a></button>
                                                 </div>
                                             </figure>
                                             <div class="product-caption text-center">
@@ -99,7 +100,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                <?php endif; ?>
+                              <?php endif; ?>
                             <?php endforeach; ?>
                         </div>
                         <!-- product item list wrapper end -->

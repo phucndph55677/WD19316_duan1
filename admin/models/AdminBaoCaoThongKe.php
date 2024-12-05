@@ -93,8 +93,7 @@ class AdminThongKe {
             return null; // Trả về null nếu có lỗi
         }
     }
-   
-    
+  
 }
 
 ?>

@@ -72,37 +72,24 @@
       <!-- Main row -->
       <div class="row">
         <!-- Left col -->
-        <section class="col-md-7">
+        <section class="col-md-12">
           <!-- Chart Card -->
           <div class="card">
             <div class="card-header">
               <h3 class="card-title">
                 <i class="fas fa-chart-pie mr-1"></i>
-                Biểu Đồ Thống Kê
+                Thống Kê 
               </h3>
             </div><!-- /.card-header -->
             <div class="card-body">
               <!-- Thêm canvas để vẽ biểu đồ -->
-              <canvas id="myChart" width="400px" height="200px"></canvas> <!-- Adjusted size -->
+              <canvas id="myChart" width="600px" height="150px"></canvas> <!-- Adjusted size -->
             </div>
           </div>
           <!-- /.card -->
           
           <!-- Best-Selling Products Section -->
-          <div class="card">
-            <div class="card-header">
-              <h3 class="card-title">
-                <i class="fas fa-cogs mr-1"></i>
-                Sản Phẩm Bán Chạy
-              </h3>
-            </div><!-- /.card-header -->
-            <div class="card-body">
-              <!-- Example for displaying best-selling products -->
-              <ul>
-                
-              </ul>
-            </div><!-- /.card-body -->
-          </div>
+         
           <!-- /.card -->
         </section>
       </div><!-- /.row -->
@@ -119,22 +106,24 @@
 
 <script>
 // Dữ liệu cho biểu đồ từ PHP
-const labels = ['Tháng 12','Tháng 11']; // Thêm cả Tháng 11
+const labels = ['1/2024', '2/2024', '3/2024', '4/2024', '5/2024', '6/2024', '7/2024', '8/2024', '9/2024', '10/2024', '11/2024', '12/2024']; // Thêm cả Tháng 11
 const data = {
   labels: labels,
   datasets: [
+   
     {
       label: 'Doanh Thu',
-      data: [<?= $thongKeThang12['doanh_thu'] ?>, <?= $thongKeThang11['doanh_thu'] ?>], // Doanh thu trong tháng 12 và tháng 11
+      data: ['0','0','0','0','0','0','0','0','0','0',<?= $thongKeThang12['doanh_thu'] ?>, <?= $thongKeThang11['doanh_thu'] ?>], // Doanh thu trong tháng 12 và tháng 11
       backgroundColor: 'rgba(75, 192, 192, 0.2)', // Màu nền chấm
       borderColor: 'rgb(75, 192, 192)', // Màu viền chấm
       borderWidth: 1, // Độ dày của viền
       pointRadius: 5, // Kích thước chấm
       fill: 'origin', // Điền màu đến gốc
     },
+    
     {
       label: 'Đơn Hàng',
-      data: [<?= $thongKeThang12['tong_don_hang'] ?>, <?= $thongKeThang11['tong_don_hang'] ?>], // Số lượng đơn hàng trong tháng 12 và tháng 11
+      data: ['0','0','0','0','0','0','0','0','0','0',<?= $thongKeThang12['tong_don_hang'] ?>, <?= $thongKeThang11['tong_don_hang'] ?>], // Số lượng đơn hàng trong tháng 12 và tháng 11
       backgroundColor: 'rgba(153, 102, 255, 0.2)', // Màu nền cho chấm đơn hàng
       borderColor: 'rgb(153, 102, 255)', // Màu viền chấm đơn hàng
       borderWidth: 1, // Độ dày của viền
@@ -160,7 +149,7 @@ const config = {
       y: {
         title: {
           display: true,
-          text: 'Số Lượng'
+          text: 'Số lượng'
         },
         min: 0
       }
