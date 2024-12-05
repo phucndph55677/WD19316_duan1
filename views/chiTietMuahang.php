@@ -34,15 +34,16 @@
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>
-                                        <th colspan="5">Thông tin sản phẩm</th>
+                                        <th colspan="5">Thong tin san pham</th>
+                                    </tr>
                                 </thead>
                                 <tbody>
                                     <tr class="text-center">
-                                        <th>Hình ảnh</th>
-                                        <th>Tên sản phẩm</th>
-                                        <th>Đơn giá</th>
-                                        <th>Số lượng</th>
-                                        <th>Thành tiền</th>
+                                        <th>Hinh anh</th>
+                                        <th>Ten san pham</th>
+                                        <th>Don gia</th>
+                                        <th>So luong</th>
+                                        <th>Thanh tien</th>
                                     </tr>
                                     <?php foreach ($chiTietDonHang as $item): ?>
                                         <tr>
