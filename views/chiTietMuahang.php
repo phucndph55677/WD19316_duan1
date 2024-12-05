@@ -68,17 +68,17 @@
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>
-                                        <th colspan="2">Thông tin đơn hàng</th>
+                                        <th colspan="2">Thong tin don hang</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr class="text-center">
-                                        <th>Mã đơn hàng:</th>
+                                        <th>Ma don hang:</th>
                                         <td><?= $donHang['ma_don_hang'] ?></td>
                                     </tr>
 
                                     <tr class="text-center">
-                                        <th>Người nhận:</th>
+                                        <th>Nguoi nhan:</th>
                                         <td><?= $donHang['ten_nguoi_nhan'] ?></td>
                                     </tr>
 
@@ -88,37 +88,37 @@
                                     </tr>
 
                                     <tr class="text-center">
-                                        <th>Số điện thoại:</th>
+                                        <th>So dien thoai:</th>
                                         <td><?= $donHang['sdt_nguoi_nhan'] ?></td>
                                     </tr>
 
                                     <tr class="text-center">
-                                        <th>Địa chỉ:</th>
+                                        <th>Dia chi:</th>
                                         <td><?= $donHang['dia_chi_nguoi_nhan'] ?></td>
                                     </tr>
 
                                     <tr class="text-center">
-                                        <th>Ngày đặt:</th>
+                                        <th>Ngay dat:</th>
                                         <td><?= $donHang['ngay_dat'] ?></td>
                                     </tr>
 
                                     <tr class="text-center">
-                                        <th>Ghi chú:</th>
+                                        <th>Ghi chu:</th>
                                         <td><?= $donHang['ghi_chu'] ?></td>
                                     </tr>
 
                                     <tr class="text-center">
-                                        <th>Tổng tiền</th>
+                                        <th>Tong tien</th>
                                         <td><?= number_format($donHang['tong_tien'], 0, ',',  '.') ?> d</td>
                                     </tr>
 
                                     <tr class="text-center">
-                                        <th>Phương thức thanh toán:</th>
+                                        <th>Phuong thuc thanh toan:</th>
                                         <td><?= $phuongThucThanhToan[$donHang['phuong_thuc_thanh_toan_id']] ?></td>
                                     </tr>
 
                                     <tr class="text-center">
-                                        <th>Trạng thái đơn hàng:</th>
+                                        <th>Trang thai don hang:</th>
                                         <td><?= $trangThaiDonHang[$donHang['trang_thai_id']] ?></td>
                                     </tr>
                                 </tbody>
@@ -136,6 +136,6 @@
 </main>
 
 
-
+<?php require_once 'layout/miniCart.php'; ?>
 
 <?php require_once 'layout/footer.php'; ?>
