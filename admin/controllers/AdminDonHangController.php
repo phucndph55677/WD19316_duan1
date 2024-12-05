@@ -40,6 +40,7 @@ class AdminDonHangController{
         $donHang = $this->modelDonHang->getDetailDonHang($id);
          
         $listTrangThaiDonHang = $this->modelDonHang->getAllTrangThaiDonHang();
+        
         if($donHang){
             require_once('./views/donhang/editDonHang.php');
         }else{
@@ -56,16 +57,18 @@ class AdminDonHangController{
         if ($_SERVER['REQUEST_METHOD'] == 'POST') 
         {
             // Lay ra du lieu
-           $id = $_POST['id'];
-           $ten_nguoi_nhan = $_POST['ten_nguoi_nhan'];
-           $sdt_nguoi_nhan = $_POST['sdt_nguoi_nhan'];
-          
-           $email_nguoi_nhan = $_POST['email_nguoi_nhan'];
-           $dia_chi_nguoi_nhan = $_POST['dia_chi_nguoi_nhan'];
-           $ghi_chu = $_POST['ghi_chu'];
-           $trang_thai_id = $_POST['trang_thai_id'];
+            $don_hang_id = $_POST['don_hang_id'] ?? '';
+
+            $ten_nguoi_nhan = $_POST['ten_nguoi_nhan'] ?? '';
+            $sdt_nguoi_nhan = $_POST['sdt_nguoi_nhan'] ?? '';
+            $email_nguoi_nhan = $_POST['email_nguoi_nhan'] ?? '';
+            $dia_chi_nguoi_nhan = $_POST['dia_chi_nguoi_nhan'] ?? '';
+            $ghi_chu = $_POST['ghi_chu'] ?? '';
+            $trang_thai_id = $_POST['trang_thai_id'] ?? '';
+
             // Tao 1 mang trong de chua du lieu
             $errors = [];
+
             if (empty($ten_nguoi_nhan)) {
                 $errors['ten_nguoi_nhan'] = 'Ten nguoi nhan khong duoc de trong';
             }
@@ -84,10 +87,18 @@ class AdminDonHangController{
 
             
             $_SESSION['error'] = $errors;
-
+            
             // Neu kh co loi thi tien hanh sua
             if (empty($errors)) {
-                $this->modelDonHang->updateDonHang($id, $ten_nguoi_nhan, $sdt_nguoi_nhan, $email_nguoi_nhan, $dia_chi_nguoi_nhan, $ghi_chu, $trang_thai_id);
+
+                $this->modelDonHang->updateDonHang($don_hang_id, 
+                                                    $ten_nguoi_nhan, 
+                                                    $sdt_nguoi_nhan, 
+                                                    $email_nguoi_nhan, 
+                                                    $dia_chi_nguoi_nhan, 
+                                                    $ghi_chu, 
+                                                    $trang_thai_id);
+
                 header("Location: " . BASE_URL_ADMIN . '?act=don-hang');
                 exit();
             } else {
@@ -95,7 +106,7 @@ class AdminDonHangController{
                 // Dat chi thi xoa session sau khi hien thi form
                 $_SESSION['flash'] = true;
 
-                header("Location: " . BASE_URL_ADMIN . '?act=form-sua-don-hang&id_don_hang=' . $id);
+                header("Location: " . BASE_URL_ADMIN . '?act=form-sua-don-hang&id_don_hang=' . $don_hang_id);
                 exit();
             }
         }
