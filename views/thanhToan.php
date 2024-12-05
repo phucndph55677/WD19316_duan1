@@ -58,7 +58,7 @@
                         <div class="checkout-billing-details-wrap">
                             <h5 class="checkout-title">Thông tin người nhận</h5>
                             <div class="billing-form-wrap">
-                                <div class="single-input-item">
+                            <div class="single-input-item">
                                     <label for="ten_nguoi_nhan" class="required">Tên người nhận</label>
                                     <input type="text" id="ten_nguoi_nhan" name="ten_nguoi_nhan" value="<?= $user['ho_ten'] ?>" placeholder="Tên người nhận" required />
                                 </div>
@@ -81,7 +81,7 @@
                                 <div class="single-input-item">
                                     <label for="ghi_chu">Ghi chú</label>
                                     <textarea name="ghi_chu" id="ghi_chu" cols="30" rows="3" placeholder="Ghi chú đơn hàng của bạn"></textarea>
-                                </div>                              
+                                </div>                            
                             </div>
                         </div>
                     </div>
@@ -107,7 +107,7 @@
                                             ?>
                                                 <tr>
                                                     <td>
-                                                        <a href="">
+                                                        <a href="#">
                                                             <?= $sanPham['ten_san_pham'] ?> <strong> × <?= $sanPham['so_luong'] ?></strong>
                                                         </a>
                                                     </td>
@@ -158,11 +158,11 @@
                                             <p>Khách hàng có thể thanh toán sau khi đã nhận hàng thành công(cần xác nhận đơn hàng).</p>
                                         </div>
                                     </div>
-                                    
+
                                     <div class="single-payment-method">
                                         <div class="payment-method-name">
                                             <div class="custom-control custom-radio">
-                                                <input type="radio" id="directbank"  name="phuong_thuc_thanh_toan_id" value="2" class="custom-control-input" />
+                                                <input type="radio" id="directbank"  name="phuong_thuc_thanh_toan_id" value="2" class="custom-control-input"/>
                                                 <label class="custom-control-label" for="directbank">Thanh toán online</label>
                                             </div>
                                         </div>

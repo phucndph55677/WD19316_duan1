@@ -42,6 +42,7 @@
                                             <th class="pro-remove">Thao tác</th>
                                         </tr>
                                     </thead>
+
                                     <tbody>
                                         <?php 
                                             $tongGioHang = 0; 
@@ -49,7 +50,8 @@
                                         ?>
                                         <tr>
                                             <td class="pro-thumbnail"><a href="#"><img class="img-fluid" src="<?= BASE_URL . $sanPham['hinh_anh'] ?>" alt="Product" /></a></td>
-                                            <td class="pro-title"><a href="#"><?= $sanPham['ten_san_pham'] ?></a></td>
+                                            <td class="pro-title"><a href="<?= BASE_URL . '?act=san-pham' ?>"><?= $sanPham['ten_san_pham'] ?></a></td>
+                                            
                                             <td class="pro-price"><span>
                                                 <?php if ($sanPham['gia_khuyen_mai']) { ?>
                                                     <?= formatPrice($sanPham['gia_khuyen_mai']) . ' đ' ?>
@@ -57,9 +59,11 @@
                                                     <?= formatPrice($sanPham['gia_san_pham']) . ' đ' ?>
                                                 <?php } ?>
                                             </span></td>
+
                                             <td class="pro-quantity">
-                                                <div class="pro-qty"><input type="text" value="<?= $sanPham['so_luong'] ?>"></div>
+                                                <a href="#"><?= $sanPham['so_luong'] ?></a>
                                             </td>
+
                                             <td class="pro-subtotal"><span>
                                                 <?php 
                                                     $tongTien = 0;
@@ -76,6 +80,7 @@
                                         </tr>
                                         <?php endforeach ?>
                                     </tbody>
+
                                 </table>
                             </div>
                             <!-- Cart Update Option -->

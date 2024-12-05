@@ -19,7 +19,6 @@ class HomeController {
    
 
     public function home() 
-
     {
         $listDanhMuc = $this->modelDanhMuc->getAllDanhMuc();
         $listSanPham = $this->modelSanPham->getAllSanPham();
@@ -96,7 +95,8 @@ class HomeController {
         exit();
     }
 
-    public function addGioHang() {   
+    public function addGioHang() 
+    {   
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Lấy thông tin tài khoản người dùng
             $mail = $this->modelTaiKhoan->getTaiKhoanFromEmail($_SESSION['user_client']);
@@ -104,7 +104,11 @@ class HomeController {
     
             if (!$gioHang) {
                 $gioHangId = $this->modelGioHang->addGioHang($mail['id']);
+
                 $gioHang = ['id' => $gioHangId];
+
+                $chitietgiohang = $this->modelGioHang->getDetailGioHang($gioHang['id']);
+
             } else {
                 $chitietgiohang = $this->modelGioHang->getDetailGioHang($gioHang['id']);
             }
@@ -209,7 +213,7 @@ class HomeController {
             require_once './views/thanhToan.php';
 
         }else{
-            var_dump('Chưa đăng nhập');die;
+            header("Location: ". BASE_URL . '?act=login');
         }                                                                         
     }
 
@@ -281,7 +285,7 @@ class HomeController {
                 exit;
 
             } else {
-                var_dump('Lỗi dat hang. Vui logn thu lai sau');die;
+                var_dump('Lỗi đặt hàng, vui lòng thử lại');die;
             }
         }
     }
