@@ -34,7 +34,7 @@
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>
-                                    <th>Ma don hang</th>
+                                        <th>Ma don hang</th>
                                         <th>Ngay dat</th>
                                         <th>Tong tien </th>
                                         <th>Phuong thuc thanh toan</th>
