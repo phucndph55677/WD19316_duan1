@@ -118,9 +118,4 @@ match ($act) {
 
     'logout-admin' => (new AdminTaiKhoanController())->logout(),
        
-
-  // route auth
-  'login-admin' => (new AdminTaiKhoanController())->formLogin(),
-
-  'check-login-admin' => (new AdminTaiKhoanController())->login()
 };
